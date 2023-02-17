@@ -8,6 +8,7 @@
         Building,
     }
 
+    [System.Serializable]
     public partial class StorageCharacterItem
     {
         public static readonly StorageCharacterItem Empty = new StorageCharacterItem();

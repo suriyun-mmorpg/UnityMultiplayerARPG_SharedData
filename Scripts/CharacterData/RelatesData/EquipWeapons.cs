@@ -1,5 +1,6 @@
 ﻿namespace MultiplayerARPG
 {
+    [System.Serializable]
     public partial class EquipWeapons
     {
         public CharacterItem rightHand;

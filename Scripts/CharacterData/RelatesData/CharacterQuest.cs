@@ -2,6 +2,7 @@
 
 namespace MultiplayerARPG
 {
+    [System.Serializable]
     public partial class CharacterQuest
     {
         public static readonly CharacterQuest Empty = new CharacterQuest();

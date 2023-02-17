@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace MultiplayerARPG
 {
+    [System.Serializable]
     public partial class PlayerCharacterData : CharacterData, IPlayerCharacterData
     {
         private List<CharacterHotkey> hotkeys = new List<CharacterHotkey>();

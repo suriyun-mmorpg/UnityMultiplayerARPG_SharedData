@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 
 namespace MultiplayerARPG
 {
+    [System.Serializable]
     public partial class CharacterData : ICharacterData
     {
         private int dataId;

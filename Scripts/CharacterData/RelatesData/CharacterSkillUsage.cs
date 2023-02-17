@@ -7,6 +7,7 @@
         UsableItem,
     }
 
+    [System.Serializable]
     public partial class CharacterSkillUsage
     {
         public static readonly CharacterSkillUsage Empty = new CharacterSkillUsage();

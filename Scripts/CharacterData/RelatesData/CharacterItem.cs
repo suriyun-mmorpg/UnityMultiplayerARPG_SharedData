@@ -2,6 +2,7 @@
 
 namespace MultiplayerARPG
 {
+    [System.Serializable]
     public partial class CharacterItem
     {
         public static readonly CharacterItem Empty = new CharacterItem();

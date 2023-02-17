@@ -8,6 +8,7 @@
         Custom = byte.MaxValue
     }
 
+    [System.Serializable]
     public partial class CharacterSummon
     {
         public static readonly CharacterSummon Empty = new CharacterSummon();

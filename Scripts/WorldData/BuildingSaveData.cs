@@ -2,6 +2,7 @@
 
 namespace MultiplayerARPG
 {
+    [System.Serializable]
     public partial struct BuildingSaveData : IBuildingSaveData
     {
         public string Id { get; set; }

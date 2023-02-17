@@ -7,6 +7,7 @@
         Item,
     }
 
+    [System.Serializable]
     public partial class CharacterHotkey
     {
         public static readonly CharacterHotkey Empty = new CharacterHotkey();

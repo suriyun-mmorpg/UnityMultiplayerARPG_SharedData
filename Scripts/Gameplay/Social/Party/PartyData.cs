@@ -1,5 +1,6 @@
 ﻿namespace MultiplayerARPG
 {
+    [System.Serializable]
     public partial class PartyData : SocialGroupData
     {
         public bool shareExp;
@@ -28,6 +29,12 @@
         {
             this.shareExp = shareExp;
             this.shareItem = shareItem;
+        }
+
+        public PartyData(int id, bool shareExp, bool shareItem, SocialCharacterData leaderCharacter)
+            : this(id, shareExp, shareItem, leaderCharacter.id)
+        {
+            AddMember(leaderCharacter);
         }
     }
 }
