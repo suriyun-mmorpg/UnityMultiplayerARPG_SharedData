@@ -1,9 +1,7 @@
-﻿using LiteNetLib.Utils;
-
-namespace MultiplayerARPG
+﻿namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class MailListEntry : INetSerializable
+    public partial class MailListEntry
     {
         public string Id { get; set; }
         public string SenderName { get; set; }
