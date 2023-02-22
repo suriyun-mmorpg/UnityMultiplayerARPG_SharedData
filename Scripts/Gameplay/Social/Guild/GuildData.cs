@@ -37,6 +37,7 @@ namespace MultiplayerARPG
         public GuildData()
             : base()
         {
+            guildName = string.Empty;
             level = 1;
             exp = 0;
             skillPoint = 0;
@@ -47,6 +48,7 @@ namespace MultiplayerARPG
             options = string.Empty;
             autoAcceptRequests = false;
             rank = 0;
+            roles = new List<GuildRoleData>();
             memberRoles = new Dictionary<string, byte>();
             skillLevels = new Dictionary<int, int>();
         }
