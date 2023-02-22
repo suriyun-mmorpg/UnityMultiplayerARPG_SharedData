@@ -64,12 +64,6 @@ namespace MultiplayerARPG
             this.roles = new List<GuildRoleData>(roles);
         }
 
-        public GuildData(int id, string guildName, string leaderId)
-            : this(id, guildName, leaderId, SystemSetting.GuildMemberRoles)
-        {
-
-        }
-
         public GuildData(int id, string leaderId)
             : this(id)
         {
