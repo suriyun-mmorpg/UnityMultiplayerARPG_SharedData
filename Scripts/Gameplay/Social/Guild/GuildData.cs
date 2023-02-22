@@ -24,6 +24,16 @@ namespace MultiplayerARPG
         private Dictionary<string, byte> memberRoles;
         private Dictionary<int, int> skillLevels;
 
+        public byte LowestMemberRole
+        {
+            get
+            {
+                if (roles == null || roles.Count < 2)
+                    return 1;
+                return (byte)(roles.Count - 1);
+            }
+        }
+
         public GuildData()
             : base()
         {
