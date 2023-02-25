@@ -79,6 +79,15 @@ namespace MultiplayerARPG
 
         public int Compare(PlayerCharacterData x, PlayerCharacterData y)
         {
+            if (x == null && y == null)
+                return 0;
+
+            if (x == null && y != null)
+                return -1;
+
+            if (x != null && y == null)
+                return 1;
+
             return x.LastUpdate.CompareTo(y.LastUpdate) * sortMultiplier;
         }
     }
