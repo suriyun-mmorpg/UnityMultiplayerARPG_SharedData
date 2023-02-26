@@ -41,7 +41,11 @@ namespace MultiplayerARPG
                 string[] splitData = set.Split(':');
                 if (splitData.Length != 2)
                     continue;
-                Currencies.Add(CharacterCurrency.Create(int.Parse(splitData[0]), int.Parse(splitData[1])));
+                Currencies.Add(new CharacterCurrency()
+                {
+                    dataId = int.Parse(splitData[0]),
+                    amount = int.Parse(splitData[1]),
+                });
             }
             return Currencies;
         }
@@ -104,7 +108,10 @@ namespace MultiplayerARPG
                 else
                     sockets = splitData[8];
 
-                CharacterItem characterItem = CharacterItem.Create(dataId, level, amount);
+                CharacterItem characterItem = new CharacterItem();
+                characterItem.dataId = dataId;
+                characterItem.level = level;
+                characterItem.amount = amount;
                 characterItem.durability = durability;
                 characterItem.exp = exp;
                 characterItem.lockRemainsDuration = lockRemainsDuration;
@@ -122,7 +129,7 @@ namespace MultiplayerARPG
             {
                 foreach (CharacterItem item in Items)
                 {
-                    if (item.GetItem() == null) continue;
+                    if (item == null) continue;
                     stringBuilder.Append(item.dataId);
                     stringBuilder.Append(':');
                     stringBuilder.Append(item.amount);
