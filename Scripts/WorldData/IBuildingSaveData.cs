@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace MultiplayerARPG
+﻿namespace MultiplayerARPG
 {
     public partial interface IBuildingSaveData
     {
@@ -11,8 +9,12 @@ namespace MultiplayerARPG
         float RemainsLifeTime { get; set; }
         bool IsLocked { get; set; }
         string LockPassword { get; set; }
-        Vector3 Position { get; set; }
-        Quaternion Rotation { get; set; }
+        float PositionX { get; set; }
+        float PositionY { get; set; }
+        float PositionZ { get; set; }
+        float RotationX { get; set; }
+        float RotationY { get; set; }
+        float RotationZ { get; set; }
         string CreatorId { get; set; }
         string CreatorName { get; set; }
         string ExtraData { get; set; }
