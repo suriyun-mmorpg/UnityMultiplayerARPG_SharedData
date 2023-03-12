@@ -27,7 +27,9 @@ namespace MultiplayerARPG
             set
             {
                 dataId = value;
+#if !NET && !NETCOREAPP
                 this.MarkToMakeCaches();
+#endif
             }
         }
         public int EntityId
@@ -36,7 +38,9 @@ namespace MultiplayerARPG
             set
             {
                 entityId = value;
+#if !NET && !NETCOREAPP
                 this.MarkToMakeCaches();
+#endif
             }
         }
         public string CharacterName { get; set; }
@@ -51,7 +55,9 @@ namespace MultiplayerARPG
             set
             {
                 level = value;
+#if !NET && !NETCOREAPP
                 this.MarkToMakeCaches();
+#endif
             }
         }
         public int Exp { get; set; }
@@ -74,7 +80,9 @@ namespace MultiplayerARPG
             }
             set
             {
+#if !NET && !NETCOREAPP
                 this.FillWeaponSetsIfNeeded(EquipWeaponSet);
+#endif
                 SelectableWeaponSets[EquipWeaponSet] = value;
             }
         }
@@ -85,7 +93,9 @@ namespace MultiplayerARPG
             set
             {
                 equipWeaponSet = value;
+#if !NET && !NETCOREAPP
                 this.MarkToMakeCaches();
+#endif
             }
         }
 
@@ -277,7 +287,9 @@ namespace MultiplayerARPG
 
         private void List_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            this.MarkToMakeCaches();
+#if !NET && !NETCOREAPP
+                this.MarkToMakeCaches();
+#endif
         }
     }
 }
