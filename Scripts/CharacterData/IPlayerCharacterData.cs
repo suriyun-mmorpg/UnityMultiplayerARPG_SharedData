@@ -53,20 +53,14 @@ namespace MultiplayerARPG
         /// For Lan game it will be scene name which set in game instance
         /// </summary>
         string CurrentMapName { get; set; }
-        float CurrentPositionX { get; set; }
-        float CurrentPositionY { get; set; }
-        float CurrentPositionZ { get; set; }
-        float CurrentRotationX { get; set; }
-        float CurrentRotationY { get; set; }
-        float CurrentRotationZ { get; set; }
+        Vec3 CurrentPosition { get; set; }
+        Vec3 CurrentRotation { get; set; }
         /// <summary>
         /// Respawn Map Name will be work with MMORPG system only
         /// For Lan game it will be scene name which set in game instance
         /// </summary>
         string RespawnMapName { get; set; }
-        float RespawnPositionX { get; set; }
-        float RespawnPositionY { get; set; }
-        float RespawnPositionZ { get; set; }
+        Vec3 RespawnPosition { get; set; }
         int MountDataId { get; set; }
         long LastDeadTime { get; set; }
         long UnmuteTime { get; set; }

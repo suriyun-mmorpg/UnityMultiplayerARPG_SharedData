@@ -21,16 +21,10 @@ namespace MultiplayerARPG
         public byte GuildRole { get; set; }
         public int SharedGuildExp { get; set; }
         public string CurrentMapName { get; set; }
-        public float CurrentPositionX { get; set; }
-        public float CurrentPositionY { get; set; }
-        public float CurrentPositionZ { get; set; }
-        public float CurrentRotationX { get; set; }
-        public float CurrentRotationY { get; set; }
-        public float CurrentRotationZ { get; set; }
+        public Vec3 CurrentPosition { get; set; }
+        public Vec3 CurrentRotation { get; set; }
         public string RespawnMapName { get; set; }
-        public float RespawnPositionX { get; set; }
-        public float RespawnPositionY { get; set; }
-        public float RespawnPositionZ { get; set; }
+        public Vec3 RespawnPosition { get; set; }
         public int MountDataId { get; set; }
         public long LastDeadTime { get; set; }
         public long UnmuteTime { get; set; }
