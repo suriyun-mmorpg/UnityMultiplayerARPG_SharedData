@@ -147,9 +147,9 @@ namespace MultiplayerARPG
             if (!IsRoleAvailable(guildRole))
             {
                 if (guildRole == LeaderRole)
-                    return new GuildRoleData() { roleName = "Master", canInvite = true, canKick = true };
+                    return new GuildRoleData() { roleName = "Master", canInvite = true, canKick = true, canUseStorage = true };
                 else
-                    return new GuildRoleData() { roleName = "Member", canInvite = false, canKick = false };
+                    return new GuildRoleData() { roleName = "Member", canInvite = false, canKick = false, canUseStorage = false };
             }
             return roles[guildRole];
         }
