@@ -36,5 +36,11 @@
         {
             AddMember(leaderCharacter);
         }
+
+        public void Setting(bool shareExp, bool shareItem)
+        {
+            this.shareExp = shareExp;
+            this.shareItem = shareItem;
+        }
     }
 }
