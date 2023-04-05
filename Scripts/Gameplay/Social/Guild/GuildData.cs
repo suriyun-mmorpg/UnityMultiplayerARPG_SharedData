@@ -59,7 +59,7 @@ namespace MultiplayerARPG
             this.id = id;
         }
 
-        public GuildData(int id, string guildName, string leaderId, GuildRoleData[] roles)
+        public GuildData(int id, string guildName, string leaderId, IEnumerable<GuildRoleData> roles)
             : this(id, leaderId)
         {
             this.guildName = guildName;
