@@ -203,5 +203,32 @@ namespace MultiplayerARPG
             skillLevels[dataId] = level;
             isCached = false;
         }
+
+        public bool IncreaseGuildExp(
+            int[] expTree,
+            int increasingExp)
+        {
+            exp += increasingExp;
+            bool isLevelUp = false;
+            int nextLevelExp = GetNextLevelExp(expTree, level);
+            while (nextLevelExp > 0 && exp >= nextLevelExp)
+            {
+                exp = exp - nextLevelExp;
+                ++level;
+                nextLevelExp = GetNextLevelExp(expTree, level);
+                skillPoint += 1;
+                isLevelUp = true;
+            }
+            return isLevelUp;
+        }
+
+        public int GetNextLevelExp(int[] expTree, int level)
+        {
+            if (level <= 0)
+                return 0;
+            if (level > expTree.Length)
+                return 0;
+            return expTree[level - 1];
+        }
     }
 }
