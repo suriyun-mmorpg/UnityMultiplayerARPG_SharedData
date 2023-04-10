@@ -9,19 +9,20 @@
         public PartyData()
             : base()
         {
-
+            shareExp = false;
+            shareItem = false;
         }
 
         public PartyData(int id)
-            : base(id)
+            : this()
         {
-
+            this.id = id;
         }
 
         public PartyData(int id, string leaderId)
-            : base(id, leaderId)
+            : this(id)
         {
-
+            this.leaderId = leaderId;
         }
 
         public PartyData(int id, bool shareExp, bool shareItem, string leaderId)

@@ -8,10 +8,12 @@ namespace MultiplayerARPG
     {
         public int id;
         public string leaderId;
-        protected Dictionary<string, SocialCharacterData> members;
+        public Dictionary<string, SocialCharacterData> members;
 
         public SocialGroupData()
         {
+            id = 0;
+            leaderId = string.Empty;
             members = new Dictionary<string, SocialCharacterData>();
         }
 

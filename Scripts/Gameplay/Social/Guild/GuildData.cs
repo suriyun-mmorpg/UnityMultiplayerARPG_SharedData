@@ -18,11 +18,11 @@ namespace MultiplayerARPG
         public string options;
         public bool autoAcceptRequests;
         public int rank;
+        public List<GuildRoleData> roles;
+        public Dictionary<string, byte> memberRoles;
+        public Dictionary<int, int> skillLevels;
 
         private bool isCached;
-        private List<GuildRoleData> roles;
-        private Dictionary<string, byte> memberRoles;
-        private Dictionary<int, int> skillLevels;
 
         public byte LowestMemberRole
         {
