@@ -233,6 +233,7 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_CHARACTER_NAME_EXISTED.ToString(), "Character name is already existed");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_CHARACTER_NAME.ToString(), "Character name is invalid, allow only a-z, A-Z, 0-9 and _ for character name.");
             // Error - UI Cash Packages
+            Texts.Add(UITextKeys.UI_ERROR_INVALID_IAP_RECEIPT.ToString(), "Invalid IAP receipt");
             Texts.Add(UITextKeys.UI_ERROR_CANNOT_GET_CASH_PACKAGE_INFO.ToString(), "Cannot retrieve cash package info");
             // Error - UI Cash Shop
             Texts.Add(UITextKeys.UI_ERROR_CANNOT_GET_CASH_SHOP_INFO.ToString(), "Cannot retrieve cash shop info");

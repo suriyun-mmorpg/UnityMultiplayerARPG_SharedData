@@ -82,6 +82,7 @@ namespace MultiplayerARPG
         UI_ERROR_CHARACTER_NAME_EXISTED,
         UI_ERROR_INVALID_CHARACTER_NAME,
         // Error - UI Cash Packages
+        UI_ERROR_INVALID_IAP_RECEIPT,
         UI_ERROR_CANNOT_GET_CASH_PACKAGE_INFO,
         // Error - UI Cash Shop
         UI_ERROR_CANNOT_GET_CASH_SHOP_INFO,
