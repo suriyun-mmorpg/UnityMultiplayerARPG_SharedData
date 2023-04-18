@@ -16,6 +16,7 @@
         public PartyData(int id, bool shareExp, bool shareItem, string leaderId)
             : this()
         {
+            this.id = id;
             this.leaderId = leaderId;
             this.shareExp = shareExp;
             this.shareItem = shareItem;
