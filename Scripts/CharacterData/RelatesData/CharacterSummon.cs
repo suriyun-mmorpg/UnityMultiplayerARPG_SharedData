@@ -5,7 +5,7 @@
         None,
         Skill,
         PetItem,
-        Custom = byte.MaxValue
+        Custom = 254,
     }
 
     [System.Serializable]
