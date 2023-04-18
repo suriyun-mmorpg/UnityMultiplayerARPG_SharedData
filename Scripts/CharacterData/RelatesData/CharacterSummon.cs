@@ -16,7 +16,6 @@
         public SummonType type;
         public int dataId;
         public float summonRemainsDuration;
-        public uint objectId;
         public int level;
         public int exp;
         public int currentHp;
