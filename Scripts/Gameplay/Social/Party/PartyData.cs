@@ -13,23 +13,13 @@
             shareItem = false;
         }
 
-        public PartyData(int id)
+        public PartyData(int id, bool shareExp, bool shareItem, string leaderId)
             : this()
         {
-            this.id = id;
-        }
-
-        public PartyData(int id, string leaderId)
-            : this(id)
-        {
             this.leaderId = leaderId;
-        }
-
-        public PartyData(int id, bool shareExp, bool shareItem, string leaderId)
-            : this(id, leaderId)
-        {
             this.shareExp = shareExp;
             this.shareItem = shareItem;
+            AddMember(new SocialCharacterData() { id = leaderId });
         }
 
         public PartyData(int id, bool shareExp, bool shareItem, SocialCharacterData leaderCharacter)

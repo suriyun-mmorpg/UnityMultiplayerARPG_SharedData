@@ -22,7 +22,7 @@ namespace MultiplayerARPG
         public Dictionary<string, byte> memberRoles;
         public Dictionary<int, int> skillLevels;
 
-        private bool isCached;
+        private bool _isCached;
 
         public byte LowestMemberRole
         {
@@ -53,24 +53,20 @@ namespace MultiplayerARPG
             skillLevels = new Dictionary<int, int>();
         }
 
-        public GuildData(int id)
+        public GuildData(int id, string guildName, string leaderId, IEnumerable<GuildRoleData> roles)
             : this()
         {
             this.id = id;
-        }
-
-        public GuildData(int id, string guildName, string leaderId, IEnumerable<GuildRoleData> roles)
-            : this(id, leaderId)
-        {
             this.guildName = guildName;
+            this.leaderId = leaderId;
             this.roles = new List<GuildRoleData>(roles);
+            AddMember(new SocialCharacterData() { id = leaderId });
         }
 
-        public GuildData(int id, string leaderId)
-            : this(id)
+        public GuildData(int id, string guildName, SocialCharacterData leaderCharacter, IEnumerable<GuildRoleData> roles)
+            : this(id, guildName, leaderCharacter.id, roles)
         {
-            this.leaderId = leaderId;
-            AddMember(new SocialCharacterData() { id = leaderId });
+            AddMember(leaderCharacter);
         }
 
         public void AddMember(SocialCharacterData memberData, byte guildRole)
@@ -195,13 +191,13 @@ namespace MultiplayerARPG
             level += 1;
             skillPoint -= 1;
             skillLevels[dataId] = level;
-            isCached = false;
+            _isCached = false;
         }
 
         public void SetSkillLevel(int dataId, int level)
         {
             skillLevels[dataId] = level;
-            isCached = false;
+            _isCached = false;
         }
 
         public bool IncreaseGuildExp(
