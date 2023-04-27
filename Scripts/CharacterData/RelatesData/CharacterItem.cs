@@ -94,11 +94,6 @@ namespace MultiplayerARPG
             };
         }
 
-        public static CharacterItem CreateEmptySlot()
-        {
-            return Create(0, 1, 0);
-        }
-
         public void Serialize(NetDataWriter writer)
         {
             if (this.IsEmptySlot())
