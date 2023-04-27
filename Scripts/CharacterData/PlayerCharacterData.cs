@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using LiteNetLib.Utils;
+using System.Collections.Generic;
 
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class PlayerCharacterData : CharacterData, IPlayerCharacterData
+    public partial class PlayerCharacterData : CharacterData, IPlayerCharacterData, INetSerializable
     {
         private List<CharacterHotkey> _hotkeys = new List<CharacterHotkey>();
         private List<CharacterQuest> _quests = new List<CharacterQuest>();
@@ -58,6 +59,16 @@ namespace MultiplayerARPG
                 _currencies = new List<CharacterCurrency>();
                 _currencies.AddRange(value);
             }
+        }
+
+        public void Deserialize(NetDataReader reader)
+        {
+            this.DeserializeCharacterData(reader);
+        }
+
+        public void Serialize(NetDataWriter writer)
+        {
+            this.SerializeCharacterData(writer);
         }
     }
 
