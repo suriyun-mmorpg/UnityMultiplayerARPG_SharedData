@@ -1,7 +1,9 @@
-﻿namespace MultiplayerARPG
+﻿using LiteNetLib.Utils;
+
+namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class PartyData : SocialGroupData
+    public partial class PartyData : SocialGroupData, INetSerializable
     {
         public bool shareExp;
         public bool shareItem;
@@ -33,6 +35,20 @@
         {
             this.shareExp = shareExp;
             this.shareItem = shareItem;
+        }
+
+        public override void Serialize(NetDataWriter writer)
+        {
+            base.Serialize(writer);
+            writer.Put(shareExp);
+            writer.Put(shareItem);
+        }
+
+        public override void Deserialize(NetDataReader reader)
+        {
+            base.Deserialize(reader);
+            shareExp = reader.GetBool();
+            shareItem = reader.GetBool();
         }
     }
 }

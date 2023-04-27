@@ -1,10 +1,11 @@
+using LiteNetLib.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class SocialGroupData
+    public partial class SocialGroupData : INetSerializable
     {
         public int id;
         public string leaderId;
@@ -108,6 +109,20 @@ namespace MultiplayerARPG
         public SocialCharacterData GetLeader()
         {
             return members[leaderId];
+        }
+
+        public virtual void Serialize(NetDataWriter writer)
+        {
+            writer.Put(id);
+            writer.Put(leaderId);
+            writer.PutDictionary(members);
+        }
+
+        public virtual void Deserialize(NetDataReader reader)
+        {
+            id = reader.GetInt();
+            leaderId = reader.GetString();
+            members = reader.GetDictionary<string, SocialCharacterData>();
         }
     }
 }
