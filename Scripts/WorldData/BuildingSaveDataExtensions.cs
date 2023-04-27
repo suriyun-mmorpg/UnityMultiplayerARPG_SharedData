@@ -42,8 +42,8 @@ namespace MultiplayerARPG
             writer.Put(buildingSaveData.RemainsLifeTime);
             writer.Put(buildingSaveData.IsLocked);
             writer.Put(buildingSaveData.LockPassword);
-            writer.PutVector3(buildingSaveData.Position);
-            writer.PutVector3(buildingSaveData.Rotation);
+            writer.Put(buildingSaveData.Position);
+            writer.Put(buildingSaveData.Rotation);
             writer.Put(buildingSaveData.CreatorId);
             writer.Put(buildingSaveData.CreatorName);
             writer.Put(buildingSaveData.ExtraData);
@@ -69,8 +69,8 @@ namespace MultiplayerARPG
             buildingSaveData.RemainsLifeTime = reader.GetFloat();
             buildingSaveData.IsLocked = reader.GetBool();
             buildingSaveData.LockPassword = reader.GetString();
-            buildingSaveData.Position = reader.GetVector3();
-            buildingSaveData.Rotation = reader.GetVector3();
+            buildingSaveData.Position = reader.Get<Vec3>();
+            buildingSaveData.Rotation = reader.Get<Vec3>();
             buildingSaveData.CreatorId = reader.GetString();
             buildingSaveData.CreatorName = reader.GetString();
             buildingSaveData.ExtraData = reader.GetString();
