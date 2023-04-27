@@ -96,15 +96,16 @@ namespace MultiplayerARPG
 
         public void Serialize(NetDataWriter writer)
         {
-            if (this.IsEmptySlot())
+            MakeCache();
+            if (amount <= 0 || _cacheItem == null)
             {
                 writer.Put((byte)CharacterItemSyncState.IsEmpty);
                 writer.Put(id);
                 return;
             }
-            bool isEquipment = GetEquipmentItem() != null;
-            bool isWeapon = isEquipment && GetWeaponItem() != null;
-            bool isPet = GetPetItem() != null;
+            bool isEquipment = _cacheEquipmentItem != null;
+            bool isWeapon = isEquipment && _cacheWeaponItem != null;
+            bool isPet = _cachePetItem != null;
             CharacterItemSyncState syncState = CharacterItemSyncState.None;
             if (isEquipment)
             {
