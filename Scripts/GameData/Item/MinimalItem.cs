@@ -11,7 +11,7 @@ namespace MultiplayerARPG
         public int MaxStack { get; set; }
         public int MaxLevel { get; set; }
         public float LockDuration { get; set; }
-        public float ExpireDuration { get; set; }
+        public int ExpireDuration { get; set; }
         public float MaxDurability { get; set; }
         public bool DestroyIfBroken { get; set; }
         public int MaxSocket { get; set; }
