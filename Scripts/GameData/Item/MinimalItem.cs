@@ -1,7 +1,7 @@
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public struct MinimalItem
+    public class MinimalItem
     {
         public string Id { get; set; }
         public int DataId { get; set; }
