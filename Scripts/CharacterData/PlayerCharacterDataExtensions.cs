@@ -1,4 +1,5 @@
 using LiteNetLib.Utils;
+using System.Collections.Generic;
 
 namespace MultiplayerARPG
 {
@@ -84,6 +85,37 @@ namespace MultiplayerARPG
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "CloneTo", from, to);
             return to;
         }
+
+        public static List<CharacterHotkey> Clone(this IList<CharacterHotkey> src)
+        {
+            List<CharacterHotkey> result = new List<CharacterHotkey>();
+            for (int i = 0; i < src.Count; ++i)
+            {
+                result.Add(src[i].Clone());
+            }
+            return result;
+        }
+
+        public static List<CharacterQuest> Clone(this IList<CharacterQuest> src)
+        {
+            List<CharacterQuest> result = new List<CharacterQuest>();
+            for (int i = 0; i < src.Count; ++i)
+            {
+                result.Add(src[i].Clone());
+            }
+            return result;
+        }
+
+        public static List<CharacterCurrency> Clone(this IList<CharacterCurrency> src)
+        {
+            List<CharacterCurrency> result = new List<CharacterCurrency>();
+            for (int i = 0; i < src.Count; ++i)
+            {
+                result.Add(src[i].Clone());
+            }
+            return result;
+        }
+
         public static void SerializeCharacterData<T>(this T characterData, NetDataWriter writer,
             bool withTransforms = true,
             bool withEquipWeapons = true,
