@@ -1,4 +1,6 @@
-﻿namespace MultiplayerARPG
+﻿using LiteNetLib.Utils;
+
+namespace MultiplayerARPG
 {
     public enum StorageType : byte
     {
@@ -9,13 +11,27 @@
     }
 
     [System.Serializable]
-    public partial class StorageCharacterItem
+    public partial class StorageCharacterItem : INetSerializable
     {
         public static readonly StorageCharacterItem Empty = new StorageCharacterItem();
         public StorageType storageType;
         // Owner Id, for `Default` it is character Id. `Building` it is building Id. `Guild` it is guild Id.
         public string storageOwnerId;
         public CharacterItem characterItem;
+
+        public void Serialize(NetDataWriter writer)
+        {
+            writer.Put((byte)storageType);
+            writer.Put(storageOwnerId);
+            writer.Put(characterItem);
+        }
+
+        public void Deserialize(NetDataReader reader)
+        {
+            storageType = (StorageType)reader.GetByte();
+            storageOwnerId = reader.GetString();
+            characterItem = reader.Get(() => new CharacterItem());
+        }
     }
 
     public struct StorageId
