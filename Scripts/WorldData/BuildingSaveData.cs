@@ -1,7 +1,9 @@
-﻿namespace MultiplayerARPG
+﻿using LiteNetLib.Utils;
+
+namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class BuildingSaveData : IBuildingSaveData
+    public partial class BuildingSaveData : IBuildingSaveData, INetSerializable
     {
         public string Id { get; set; }
         public string ParentId { get; set; }
@@ -15,5 +17,15 @@
         public string CreatorId { get; set; }
         public string CreatorName { get; set; }
         public string ExtraData { get; set; }
+
+        public void Deserialize(NetDataReader reader)
+        {
+            this.DeserializeBuildingSaveData(reader);
+        }
+
+        public void Serialize(NetDataWriter writer)
+        {
+            this.SerializeBuildingSaveData(writer);
+        }
     }
 }
