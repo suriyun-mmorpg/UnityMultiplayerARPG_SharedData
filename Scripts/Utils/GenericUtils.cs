@@ -106,6 +106,7 @@ public static partial class GenericUtils
     {
         return new System.Random(seed).RandomInt(min, max);
     }
+
     public static int RandomInt(int min, int max)
     {
         return new System.Random(seedRandomizer.Next()).RandomInt(min, max);
