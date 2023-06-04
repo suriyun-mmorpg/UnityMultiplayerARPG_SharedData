@@ -22,7 +22,9 @@ namespace MultiplayerARPG
 
         ~CharacterData()
         {
+#if !NET && !NETCOREAPP
             this.RemoveCaches();
+#endif
         }
 
         public string Id { get; set; }
