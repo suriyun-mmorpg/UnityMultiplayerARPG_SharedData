@@ -20,6 +20,11 @@ namespace MultiplayerARPG
         private ObservableCollection<CharacterItem> _nonEquipItems;
         private ObservableCollection<CharacterSummon> _summons;
 
+        ~CharacterData()
+        {
+            this.RemoveCaches();
+        }
+
         public string Id { get; set; }
         public int DataId
         {
