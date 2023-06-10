@@ -817,5 +817,13 @@ namespace MultiplayerARPG
         /// Format => {0} = {Amount * 100}
         /// </summary>
         UI_FORMAT_BODY_DAMAGE_ABSORBS_RATE,
+        /// <summary>
+        /// Format => {0} = {Factions}
+        /// </summary>
+        UI_FORMAT_REQUIRE_FACTION,
+        /// <summary>
+        /// Format => {0} = {Factions}
+        /// </summary>
+        UI_FORMAT_INVALID_REQUIRE_FACTION,
     }
 }

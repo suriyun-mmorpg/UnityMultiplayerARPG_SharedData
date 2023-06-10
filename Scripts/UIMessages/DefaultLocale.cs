@@ -348,6 +348,7 @@ namespace MultiplayerARPG
             // Error - Requirement
             Texts.Add(UITextKeys.UI_ERROR_NOT_ENOUGH_LEVEL.ToString(), "Not enough level");
             Texts.Add(UITextKeys.UI_ERROR_NOT_MATCH_CHARACTER_CLASS.ToString(), "Not match character class");
+            Texts.Add(UITextKeys.UI_ERROR_NOT_MATCH_CHARACTER_FACTION.ToString(), "Not match character faction");
             Texts.Add(UITextKeys.UI_ERROR_NOT_ENOUGH_ATTRIBUTE_AMOUNTS.ToString(), "Not enough attribute amounts");
             Texts.Add(UITextKeys.UI_ERROR_NOT_ENOUGH_SKILL_LEVELS.ToString(), "Not enough skill levels");
             Texts.Add(UITextKeys.UI_ERROR_NOT_ENOUGH_CURRENCY_AMOUNTS.ToString(), "Not enough currency amounts");
@@ -549,6 +550,8 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_HEAD_DAMAGE_ABSORBS_RATE.ToString(), "% of Head Damage Absorbs: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_BODY_DAMAGE_ABSORBS.ToString(), "Body Damage Absorbs: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_BODY_DAMAGE_ABSORBS_RATE.ToString(), "% of Body Damage Absorbs: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_REQUIRE_FACTION.ToString(), "Require Faction: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_INVALID_REQUIRE_FACTION.ToString(), "Require Faction: <color=red>{0}</color>");
         }
     }
 }
