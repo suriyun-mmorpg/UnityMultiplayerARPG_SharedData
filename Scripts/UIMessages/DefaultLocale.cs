@@ -542,6 +542,13 @@ namespace MultiplayerARPG
             // 1.81h New Formats
             Texts.Add(UIFormatKeys.UI_FORMAT_ITEM_DROP_RATE.ToString(), "Item Drop Rate: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_ITEM_DROP_RATE_RATE.ToString(), "% of Item Drop Rate: {0}%");
+            // 1.83g New Formats
+            Texts.Add(UIFormatKeys.UI_FORMAT_JUMP_HEIGHT.ToString(), "Jump Height: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_JUMP_HEIGHT_RATE.ToString(), "% of Jump Height: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_HEAD_DAMAGE_ABSORBS.ToString(), "Head Damage Absorbs: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_HEAD_DAMAGE_ABSORBS_RATE.ToString(), "% of Head Damage Absorbs: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_BODY_DAMAGE_ABSORBS.ToString(), "Body Damage Absorbs: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_BODY_DAMAGE_ABSORBS_RATE.ToString(), "% of Body Damage Absorbs: {0}%");
         }
     }
 }
