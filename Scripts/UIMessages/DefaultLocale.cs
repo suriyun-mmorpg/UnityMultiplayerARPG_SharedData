@@ -552,6 +552,11 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_BODY_DAMAGE_ABSORBS_RATE.ToString(), "% of Body Damage Absorbs: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_REQUIRE_FACTION.ToString(), "Require Faction: {0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_INVALID_REQUIRE_FACTION.ToString(), "Require Faction: <color=red>{0}</color>");
+            // 1.83g2 New Formats
+            Texts.Add(UIFormatKeys.UI_FORMAT_FALL_DAMAGE_ABSORBS.ToString(), "Fall Damage Absorbs: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FALL_DAMAGE_ABSORBS_RATE.ToString(), "% of Fall Damage Absorbs: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_GRAVITY_RATE.ToString(), "Gravity Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_GRAVITY_RATE_RATE.ToString(), "% of Gravity Rate: {0}%");
         }
     }
 }
