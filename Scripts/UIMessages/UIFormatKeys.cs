@@ -825,5 +825,23 @@ namespace MultiplayerARPG
         /// Format => {0} = {Factions}
         /// </summary>
         UI_FORMAT_INVALID_REQUIRE_FACTION,
+
+        // 1.83g2 New Formats
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_FALL_DAMAGE_ABSORBS,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_FALL_DAMAGE_ABSORBS_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_GRAVITY_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_GRAVITY_RATE_RATE,
     }
 }
