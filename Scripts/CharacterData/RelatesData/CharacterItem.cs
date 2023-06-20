@@ -55,5 +55,24 @@ namespace MultiplayerARPG
                 return stringBuilder.ToString();
             }
         }
+
+        public CharacterItem Clone(bool generateNewId = false)
+        {
+            return new CharacterItem()
+            {
+                id = generateNewId ? GenericUtils.GetUniqueId() : id,
+                dataId = dataId,
+                level = level,
+                amount = amount,
+                equipSlotIndex = equipSlotIndex,
+                durability = durability,
+                exp = exp,
+                lockRemainsDuration = lockRemainsDuration,
+                expireTime = expireTime,
+                randomSeed = randomSeed,
+                ammo = ammo,
+                sockets = new List<int>(sockets),
+            };
+        }
     }
 }

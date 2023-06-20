@@ -14,5 +14,15 @@
         public string hotkeyId;
         public HotkeyType type;
         public string relateId;
+
+        public CharacterHotkey Clone()
+        {
+            return new CharacterHotkey()
+            {
+                hotkeyId = hotkeyId,
+                type = type,
+                relateId = relateId,
+            };
+        }
     }
 }

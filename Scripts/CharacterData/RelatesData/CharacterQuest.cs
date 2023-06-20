@@ -89,5 +89,32 @@ namespace MultiplayerARPG
                 return stringBuilder.ToString();
             }
         }
+
+        public CharacterQuest Clone()
+        {
+            CharacterQuest clone = new CharacterQuest();
+            clone.dataId = dataId;
+            clone.isComplete = isComplete;
+            clone.isTracking = isTracking;
+            // Clone killed monsters
+            Dictionary<int, int> killedMonsters = new Dictionary<int, int>();
+            foreach (KeyValuePair<int, int> cloneEntry in this.killedMonsters)
+            {
+                killedMonsters[cloneEntry.Key] = cloneEntry.Value;
+            }
+            clone.killedMonsters = killedMonsters;
+            // Clone complete tasks
+            clone.completedTasks = new List<int>(completedTasks);
+            return clone;
+        }
+
+        public static CharacterQuest Create(int dataId)
+        {
+            return new CharacterQuest()
+            {
+                dataId = dataId,
+                isComplete = false,
+            };
+        }
     }
 }

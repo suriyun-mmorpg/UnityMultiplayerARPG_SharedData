@@ -16,9 +16,36 @@
         public SummonType type;
         public int dataId;
         public float summonRemainsDuration;
+        public uint objectId;
         public int level;
         public int exp;
         public int currentHp;
         public int currentMp;
+
+        public CharacterSummon Clone(bool generateNewId = false)
+        {
+            return new CharacterSummon()
+            {
+                id = generateNewId ? GenericUtils.GetUniqueId() : id,
+                type = type,
+                dataId = dataId,
+                summonRemainsDuration = summonRemainsDuration,
+                objectId = objectId,
+                level = level,
+                exp = exp,
+                currentHp = currentHp,
+                currentMp = currentMp,
+            };
+        }
+
+        public static CharacterSummon Create(SummonType type, int dataId)
+        {
+            return new CharacterSummon()
+            {
+                id = GenericUtils.GetUniqueId(),
+                type = type,
+                dataId = dataId,
+            };
+        }
     }
 }
