@@ -1,7 +1,9 @@
+using LiteNetLib.Utils;
+
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public struct CharacterDataBoolean
+    public struct CharacterDataBoolean : INetSerializable
     {
         public int hashedKey;
         public bool value;
@@ -22,6 +24,18 @@ namespace MultiplayerARPG
                 hashedKey = hashedKey,
                 value = value,
             };
+        }
+
+        public void Serialize(NetDataWriter writer)
+        {
+            writer.PutPackedInt(hashedKey);
+            writer.Put(value);
+        }
+
+        public void Deserialize(NetDataReader reader)
+        {
+            hashedKey = reader.GetPackedInt();
+            value = reader.GetBool();
         }
     }
 }

@@ -1,7 +1,9 @@
+using LiteNetLib.Utils;
+
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public struct CharacterDataFloat32
+    public struct CharacterDataFloat32 : INetSerializable
     {
         public int hashedKey;
         public float value;
@@ -22,6 +24,18 @@ namespace MultiplayerARPG
                 hashedKey = hashedKey,
                 value = value,
             };
+        }
+
+        public void Serialize(NetDataWriter writer)
+        {
+            writer.PutPackedInt(hashedKey);
+            writer.Put(value);
+        }
+
+        public void Deserialize(NetDataReader reader)
+        {
+            hashedKey = reader.GetPackedInt();
+            value = reader.GetFloat();
         }
     }
 }

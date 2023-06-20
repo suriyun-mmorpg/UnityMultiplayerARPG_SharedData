@@ -118,7 +118,10 @@ namespace MultiplayerARPG
             bool withSummons = true,
             bool withHotkeys = true,
             bool withQuests = true,
-            bool withCurrencies = true) where T : IPlayerCharacterData
+            bool withCurrencies = true,
+            bool withServerCustomData = true,
+            bool withPrivateCustomData = true,
+            bool withPublicCustomData = true) where T : IPlayerCharacterData
         {
             writer.Put(characterData.Id);
             writer.PutPackedInt(characterData.DataId);
@@ -256,6 +259,63 @@ namespace MultiplayerARPG
                     writer.Put(entry);
                 }
             }
+            // Server custom data
+            if (withServerCustomData)
+            {
+                writer.PutPackedInt(characterData.ServerBools.Count);
+                foreach (CharacterDataBoolean entry in characterData.ServerBools)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.ServerInts.Count);
+                foreach (CharacterDataInt32 entry in characterData.ServerInts)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.ServerFloats.Count);
+                foreach (CharacterDataFloat32 entry in characterData.ServerFloats)
+                {
+                    writer.Put(entry);
+                }
+            }
+            // Private custom data
+            if (withPrivateCustomData)
+            {
+                writer.PutPackedInt(characterData.PrivateBools.Count);
+                foreach (CharacterDataBoolean entry in characterData.PrivateBools)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.PrivateInts.Count);
+                foreach (CharacterDataInt32 entry in characterData.PrivateInts)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.PrivateFloats.Count);
+                foreach (CharacterDataFloat32 entry in characterData.PrivateFloats)
+                {
+                    writer.Put(entry);
+                }
+            }
+            // Public custom data
+            if (withPublicCustomData)
+            {
+                writer.PutPackedInt(characterData.PublicBools.Count);
+                foreach (CharacterDataBoolean entry in characterData.PublicBools)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.PublicInts.Count);
+                foreach (CharacterDataInt32 entry in characterData.PublicInts)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.PublicFloats.Count);
+                foreach (CharacterDataFloat32 entry in characterData.PublicFloats)
+                {
+                    writer.Put(entry);
+                }
+            }
             // Equip weapon set
             writer.Put(characterData.EquipWeaponSet);
             // Selectable weapon sets
@@ -292,7 +352,10 @@ namespace MultiplayerARPG
             bool withSummons = true,
             bool withHotkeys = true,
             bool withQuests = true,
-            bool withCurrencies = true) where T : IPlayerCharacterData
+            bool withCurrencies = true,
+            bool withServerCustomData = true,
+            bool withPrivateCustomData = true,
+            bool withPublicCustomData = true) where T : IPlayerCharacterData
         {
             characterData.Id = reader.GetString();
             characterData.DataId = reader.GetPackedInt();
@@ -423,6 +486,63 @@ namespace MultiplayerARPG
                 for (int i = 0; i < count; ++i)
                 {
                     characterData.Currencies.Add(reader.Get(() => new CharacterCurrency()));
+                }
+            }
+            // Server custom data
+            if (withServerCustomData)
+            {
+                count = reader.GetPackedInt();
+                foreach (CharacterDataBoolean entry in characterData.ServerBools)
+                {
+                    characterData.ServerBools.Add(reader.Get<CharacterDataBoolean>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataInt32 entry in characterData.ServerInts)
+                {
+                    characterData.ServerInts.Add(reader.Get<CharacterDataInt32>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataFloat32 entry in characterData.ServerFloats)
+                {
+                    characterData.ServerFloats.Add(reader.Get<CharacterDataFloat32>());
+                }
+            }
+            // Private custom data
+            if (withPrivateCustomData)
+            {
+                count = reader.GetPackedInt();
+                foreach (CharacterDataBoolean entry in characterData.PrivateBools)
+                {
+                    characterData.PrivateBools.Add(reader.Get<CharacterDataBoolean>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataInt32 entry in characterData.PrivateInts)
+                {
+                    characterData.PrivateInts.Add(reader.Get<CharacterDataInt32>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataFloat32 entry in characterData.PrivateFloats)
+                {
+                    characterData.PrivateFloats.Add(reader.Get<CharacterDataFloat32>());
+                }
+            }
+            // Public custom data
+            if (withPublicCustomData)
+            {
+                count = reader.GetPackedInt();
+                foreach (CharacterDataBoolean entry in characterData.PublicBools)
+                {
+                    characterData.PublicBools.Add(reader.Get<CharacterDataBoolean>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataInt32 entry in characterData.PublicInts)
+                {
+                    characterData.PublicInts.Add(reader.Get<CharacterDataInt32>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataFloat32 entry in characterData.PublicFloats)
+                {
+                    characterData.PublicFloats.Add(reader.Get<CharacterDataFloat32>());
                 }
             }
             // Equip weapon set
