@@ -1,7 +1,7 @@
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public class CharacterDataBoolean
+    public struct CharacterDataBoolean
     {
         public int hashedKey;
         public bool value;
