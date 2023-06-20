@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace MultiplayerARPG
 {
-    public static partial class RelatesDataExtensions
+    public static partial class CharacterRelatesDataExtensions
     {
         #region List Clone Functions
         public static T Clone<T>(this IList<EquipWeapons> src) where T : IList<EquipWeapons>, new()
