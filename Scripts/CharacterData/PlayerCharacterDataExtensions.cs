@@ -106,5 +106,65 @@ namespace MultiplayerARPG
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "CloneTo", from, to);
             return to;
         }
+
+        public static int IndexOfHotkey(this IPlayerCharacterData data, string hotkeyId)
+        {
+            return data.Hotkeys.IndexOf(hotkeyId);
+        }
+
+        public static int IndexOfQuest(this IPlayerCharacterData data, int dataId)
+        {
+            return data.Quests.IndexOf(dataId);
+        }
+
+        public static int IndexOfCurrency(this IPlayerCharacterData data, int dataId)
+        {
+            return data.Currencies.IndexOf(dataId);
+        }
+
+        public static int IndexOfServerBoolean(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.ServerBools.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfServerInt32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.ServerInts.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfServerFloat32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.ServerFloats.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPrivateBoolean(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PrivateBools.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPrivateInt32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PrivateInts.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPrivateFloat32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PrivateFloats.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPublicBoolean(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PublicBools.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPublicInt32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PublicInts.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPublicFloat32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PublicFloats.IndexOf(hashedKey);
+        }
     }
 }
