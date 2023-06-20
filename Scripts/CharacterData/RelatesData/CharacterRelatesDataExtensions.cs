@@ -277,6 +277,36 @@ namespace MultiplayerARPG
             return -1;
         }
 
+        public static int IndexOf(this IList<CharacterSummon> list, uint objectId)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].objectId == objectId)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterSummon> list, SummonType type)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].type == type)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterSummon> list, SummonType type, int dataId)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].type == type && list[i].dataId == dataId)
+                    return i;
+            }
+            return -1;
+        }
+
         public static int IndexOf(this IList<CharacterHotkey> list, string hotkeyId)
         {
             for (int i = 0; i < list.Count; ++i)
