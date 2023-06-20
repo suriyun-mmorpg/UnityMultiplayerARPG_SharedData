@@ -11,78 +11,64 @@ namespace MultiplayerARPG
             ClassType = typeof(CharacterDataExtensions);
         }
 
-        public static List<EquipWeapons> Clone(this IList<EquipWeapons> src)
+        public static int IndexOfAttribute(this ICharacterData data, int dataId)
         {
-            List<EquipWeapons> result = new List<EquipWeapons>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(new EquipWeapons()
-                {
-                    rightHand = src[i].rightHand.Clone(),
-                    leftHand = src[i].leftHand.Clone(),
-                });
-            }
-            return result;
+            return data.Attributes.IndexOf(dataId);
         }
 
-        public static List<CharacterAttribute> Clone(this IList<CharacterAttribute> src)
+        public static int IndexOfBuff(this ICharacterData data, BuffType type, int dataId)
         {
-            List<CharacterAttribute> result = new List<CharacterAttribute>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
+            return data.Buffs.IndexOf(type, dataId);
         }
 
-        public static List<CharacterBuff> Clone(this IList<CharacterBuff> src)
+        public static List<int> IndexesOfBuff(this ICharacterData data, BuffType type, int dataId)
         {
-            List<CharacterBuff> result = new List<CharacterBuff>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
+            return data.Buffs.IndexesOf(type, dataId);
         }
 
-        public static List<CharacterItem> Clone(this IList<CharacterItem> src)
+        public static int IndexOfEquipItem(this ICharacterData data, int dataId)
         {
-            List<CharacterItem> result = new List<CharacterItem>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
+            return data.EquipItems.IndexOf(dataId);
         }
 
-        public static List<CharacterSkill> Clone(this IList<CharacterSkill> src)
+        public static int IndexOfEquipItem(this ICharacterData data, string id)
         {
-            List<CharacterSkill> result = new List<CharacterSkill>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
+            return data.EquipItems.IndexOf(id);
         }
 
-        public static List<CharacterSkillUsage> Clone(this IList<CharacterSkillUsage> src)
+        public static int IndexOfNonEquipItem(this ICharacterData data, int dataId)
         {
-            List<CharacterSkillUsage> result = new List<CharacterSkillUsage>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
+            return data.NonEquipItems.IndexOf(dataId);
         }
 
-        public static List<CharacterSummon> Clone(this IList<CharacterSummon> src)
+        public static int IndexOfNonEquipItem(this ICharacterData data, string id)
         {
-            List<CharacterSummon> result = new List<CharacterSummon>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
+            return data.NonEquipItems.IndexOf(id);
+        }
+
+        public static int IndexOfSkill(this ICharacterData data, int dataId)
+        {
+            return data.Skills.IndexOf(dataId);
+        }
+
+        public static int IndexOfSkillUsage(this ICharacterData data, SkillUsageType type, int dataId)
+        {
+            return data.SkillUsages.IndexOf(type, dataId);
+        }
+
+        public static int IndexOfSummon(this ICharacterData data, uint objectId)
+        {
+            return data.Summons.IndexOf(objectId);
+        }
+
+        public static int IndexOfSummon(this ICharacterData data, SummonType type)
+        {
+            return data.Summons.IndexOf(type);
+        }
+
+        public static int IndexOfSummon(this ICharacterData data, SummonType type, int dataId)
+        {
+            return data.Summons.IndexOf(type, dataId);
         }
     }
 }

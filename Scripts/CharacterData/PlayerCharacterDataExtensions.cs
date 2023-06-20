@@ -1,5 +1,4 @@
 using LiteNetLib.Utils;
-using System.Collections.Generic;
 
 namespace MultiplayerARPG
 {
@@ -23,7 +22,10 @@ namespace MultiplayerARPG
             bool withSummons = true,
             bool withHotkeys = true,
             bool withQuests = true,
-            bool withCurrencies = true) where T : IPlayerCharacterData
+            bool withCurrencies = true,
+            bool withServerCustomData = true,
+            bool withPrivateCustomData = true,
+            bool withPublicCustomData = true) where T : IPlayerCharacterData
         {
             to.Id = from.Id;
             to.DataId = from.DataId;
@@ -82,38 +84,26 @@ namespace MultiplayerARPG
                 to.Quests = from.Quests.Clone();
             if (withCurrencies)
                 to.Currencies = from.Currencies.Clone();
+            if (withServerCustomData)
+            {
+                to.ServerBools = from.ServerBools.Clone();
+                to.ServerInts = from.ServerInts.Clone();
+                to.ServerFloats = from.ServerFloats.Clone();
+            }
+            if (withPrivateCustomData)
+            {
+                to.PrivateBools = from.PrivateBools.Clone();
+                to.PrivateInts = from.PrivateInts.Clone();
+                to.PrivateFloats = from.PrivateFloats.Clone();
+            }
+            if (withPublicCustomData)
+            {
+                to.PublicBools = from.PublicBools.Clone();
+                to.PublicInts = from.PublicInts.Clone();
+                to.PublicFloats = from.PublicFloats.Clone();
+            }
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "CloneTo", from, to);
             return to;
-        }
-
-        public static List<CharacterHotkey> Clone(this IList<CharacterHotkey> src)
-        {
-            List<CharacterHotkey> result = new List<CharacterHotkey>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
-        }
-
-        public static List<CharacterQuest> Clone(this IList<CharacterQuest> src)
-        {
-            List<CharacterQuest> result = new List<CharacterQuest>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
-        }
-
-        public static List<CharacterCurrency> Clone(this IList<CharacterCurrency> src)
-        {
-            List<CharacterCurrency> result = new List<CharacterCurrency>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
         }
 
         public static void SerializeCharacterData<T>(this T characterData, NetDataWriter writer,
@@ -128,7 +118,10 @@ namespace MultiplayerARPG
             bool withSummons = true,
             bool withHotkeys = true,
             bool withQuests = true,
-            bool withCurrencies = true) where T : IPlayerCharacterData
+            bool withCurrencies = true,
+            bool withServerCustomData = true,
+            bool withPrivateCustomData = true,
+            bool withPublicCustomData = true) where T : IPlayerCharacterData
         {
             writer.Put(characterData.Id);
             writer.PutPackedInt(characterData.DataId);
@@ -266,6 +259,63 @@ namespace MultiplayerARPG
                     writer.Put(entry);
                 }
             }
+            // Server custom data
+            if (withServerCustomData)
+            {
+                writer.PutPackedInt(characterData.ServerBools.Count);
+                foreach (CharacterDataBoolean entry in characterData.ServerBools)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.ServerInts.Count);
+                foreach (CharacterDataInt32 entry in characterData.ServerInts)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.ServerFloats.Count);
+                foreach (CharacterDataFloat32 entry in characterData.ServerFloats)
+                {
+                    writer.Put(entry);
+                }
+            }
+            // Private custom data
+            if (withPrivateCustomData)
+            {
+                writer.PutPackedInt(characterData.PrivateBools.Count);
+                foreach (CharacterDataBoolean entry in characterData.PrivateBools)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.PrivateInts.Count);
+                foreach (CharacterDataInt32 entry in characterData.PrivateInts)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.PrivateFloats.Count);
+                foreach (CharacterDataFloat32 entry in characterData.PrivateFloats)
+                {
+                    writer.Put(entry);
+                }
+            }
+            // Public custom data
+            if (withPublicCustomData)
+            {
+                writer.PutPackedInt(characterData.PublicBools.Count);
+                foreach (CharacterDataBoolean entry in characterData.PublicBools)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.PublicInts.Count);
+                foreach (CharacterDataInt32 entry in characterData.PublicInts)
+                {
+                    writer.Put(entry);
+                }
+                writer.PutPackedInt(characterData.PublicFloats.Count);
+                foreach (CharacterDataFloat32 entry in characterData.PublicFloats)
+                {
+                    writer.Put(entry);
+                }
+            }
             // Equip weapon set
             writer.Put(characterData.EquipWeaponSet);
             // Selectable weapon sets
@@ -302,7 +352,10 @@ namespace MultiplayerARPG
             bool withSummons = true,
             bool withHotkeys = true,
             bool withQuests = true,
-            bool withCurrencies = true) where T : IPlayerCharacterData
+            bool withCurrencies = true,
+            bool withServerCustomData = true,
+            bool withPrivateCustomData = true,
+            bool withPublicCustomData = true) where T : IPlayerCharacterData
         {
             characterData.Id = reader.GetString();
             characterData.DataId = reader.GetPackedInt();
@@ -435,6 +488,63 @@ namespace MultiplayerARPG
                     characterData.Currencies.Add(reader.Get(() => new CharacterCurrency()));
                 }
             }
+            // Server custom data
+            if (withServerCustomData)
+            {
+                count = reader.GetPackedInt();
+                foreach (CharacterDataBoolean entry in characterData.ServerBools)
+                {
+                    characterData.ServerBools.Add(reader.Get<CharacterDataBoolean>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataInt32 entry in characterData.ServerInts)
+                {
+                    characterData.ServerInts.Add(reader.Get<CharacterDataInt32>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataFloat32 entry in characterData.ServerFloats)
+                {
+                    characterData.ServerFloats.Add(reader.Get<CharacterDataFloat32>());
+                }
+            }
+            // Private custom data
+            if (withPrivateCustomData)
+            {
+                count = reader.GetPackedInt();
+                foreach (CharacterDataBoolean entry in characterData.PrivateBools)
+                {
+                    characterData.PrivateBools.Add(reader.Get<CharacterDataBoolean>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataInt32 entry in characterData.PrivateInts)
+                {
+                    characterData.PrivateInts.Add(reader.Get<CharacterDataInt32>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataFloat32 entry in characterData.PrivateFloats)
+                {
+                    characterData.PrivateFloats.Add(reader.Get<CharacterDataFloat32>());
+                }
+            }
+            // Public custom data
+            if (withPublicCustomData)
+            {
+                count = reader.GetPackedInt();
+                foreach (CharacterDataBoolean entry in characterData.PublicBools)
+                {
+                    characterData.PublicBools.Add(reader.Get<CharacterDataBoolean>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataInt32 entry in characterData.PublicInts)
+                {
+                    characterData.PublicInts.Add(reader.Get<CharacterDataInt32>());
+                }
+                count = reader.GetPackedInt();
+                foreach (CharacterDataFloat32 entry in characterData.PublicFloats)
+                {
+                    characterData.PublicFloats.Add(reader.Get<CharacterDataFloat32>());
+                }
+            }
             // Equip weapon set
             characterData.EquipWeaponSet = reader.GetByte();
             // Selectable weapon sets
@@ -448,6 +558,66 @@ namespace MultiplayerARPG
             }
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "DeserializeCharacterData", characterData, reader);
             return characterData;
+        }
+
+        public static int IndexOfHotkey(this IPlayerCharacterData data, string hotkeyId)
+        {
+            return data.Hotkeys.IndexOf(hotkeyId);
+        }
+
+        public static int IndexOfQuest(this IPlayerCharacterData data, int dataId)
+        {
+            return data.Quests.IndexOf(dataId);
+        }
+
+        public static int IndexOfCurrency(this IPlayerCharacterData data, int dataId)
+        {
+            return data.Currencies.IndexOf(dataId);
+        }
+
+        public static int IndexOfServerBoolean(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.ServerBools.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfServerInt32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.ServerInts.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfServerFloat32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.ServerFloats.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPrivateBoolean(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PrivateBools.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPrivateInt32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PrivateInts.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPrivateFloat32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PrivateFloats.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPublicBoolean(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PublicBools.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPublicInt32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PublicInts.IndexOf(hashedKey);
+        }
+
+        public static int IndexOfPublicFloat32(this IPlayerCharacterData data, int hashedKey)
+        {
+            return data.PublicFloats.IndexOf(hashedKey);
         }
     }
 }
