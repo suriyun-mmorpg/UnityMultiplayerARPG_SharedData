@@ -23,7 +23,10 @@ namespace MultiplayerARPG
             bool withSummons = true,
             bool withHotkeys = true,
             bool withQuests = true,
-            bool withCurrencies = true) where T : IPlayerCharacterData
+            bool withCurrencies = true,
+            bool withServerCustomData = true,
+            bool withPrivateCustomData = true,
+            bool withPublicCustomData = true) where T : IPlayerCharacterData
         {
             to.Id = from.Id;
             to.DataId = from.DataId;
@@ -82,38 +85,26 @@ namespace MultiplayerARPG
                 to.Quests = from.Quests.Clone();
             if (withCurrencies)
                 to.Currencies = from.Currencies.Clone();
+            if (withServerCustomData)
+            {
+                to.ServerBools = from.ServerBools.Clone();
+                to.ServerInts = from.ServerInts.Clone();
+                to.ServerFloats = from.ServerFloats.Clone();
+            }
+            if (withPrivateCustomData)
+            {
+                to.PrivateBools = from.PrivateBools.Clone();
+                to.PrivateInts = from.PrivateInts.Clone();
+                to.PrivateFloats = from.PrivateFloats.Clone();
+            }
+            if (withPublicCustomData)
+            {
+                to.PublicBools = from.PublicBools.Clone();
+                to.PublicInts = from.PublicInts.Clone();
+                to.PublicFloats = from.PublicFloats.Clone();
+            }
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "CloneTo", from, to);
             return to;
-        }
-
-        public static List<CharacterHotkey> Clone(this IList<CharacterHotkey> src)
-        {
-            List<CharacterHotkey> result = new List<CharacterHotkey>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
-        }
-
-        public static List<CharacterQuest> Clone(this IList<CharacterQuest> src)
-        {
-            List<CharacterQuest> result = new List<CharacterQuest>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
-        }
-
-        public static List<CharacterCurrency> Clone(this IList<CharacterCurrency> src)
-        {
-            List<CharacterCurrency> result = new List<CharacterCurrency>();
-            for (int i = 0; i < src.Count; ++i)
-            {
-                result.Add(src[i].Clone());
-            }
-            return result;
         }
 
         public static void SerializeCharacterData<T>(this T characterData, NetDataWriter writer,
