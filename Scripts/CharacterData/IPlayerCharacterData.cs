@@ -68,14 +68,41 @@ namespace MultiplayerARPG
         IList<CharacterHotkey> Hotkeys { get; set; }
         IList<CharacterQuest> Quests { get; set; }
         IList<CharacterCurrency> Currencies { get; set; }
+        /// <summary>
+        /// Server boolean will not being synced with clients
+        /// </summary>
         IList<CharacterDataBoolean> ServerBools { get; set; }
+        /// <summary>
+        /// Server integer will not being synced with clients
+        /// </summary>
         IList<CharacterDataInt32> ServerInts { get; set; }
+        /// <summary>
+        /// Server float will not being synced with clients
+        /// </summary>
         IList<CharacterDataFloat32> ServerFloats { get; set; }
+        /// <summary>
+        /// Private boolean will be synced to owner client only
+        /// </summary>
         IList<CharacterDataBoolean> PrivateBools { get; set; }
+        /// <summary>
+        /// Private integer will be synced to owner client only
+        /// </summary>
         IList<CharacterDataInt32> PrivateInts { get; set; }
+        /// <summary>
+        /// Private float will be synced to owner client only
+        /// </summary>
         IList<CharacterDataFloat32> PrivateFloats { get; set; }
+        /// <summary>
+        /// Public boolean will be synced to all clients
+        /// </summary>
         IList<CharacterDataBoolean> PublicBools { get; set; }
+        /// <summary>
+        /// Public integer will be synced to all clients
+        /// </summary>
         IList<CharacterDataInt32> PublicInts { get; set; }
+        /// <summary>
+        /// Public float will be synced to all clients
+        /// </summary>
         IList<CharacterDataFloat32> PublicFloats { get; set; }
     }
 }
