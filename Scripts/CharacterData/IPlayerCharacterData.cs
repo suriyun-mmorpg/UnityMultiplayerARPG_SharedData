@@ -68,5 +68,14 @@ namespace MultiplayerARPG
         IList<CharacterHotkey> Hotkeys { get; set; }
         IList<CharacterQuest> Quests { get; set; }
         IList<CharacterCurrency> Currencies { get; set; }
+        IList<CharacterDataBoolean> ServerBools { get; set; }
+        IList<CharacterDataInt32> ServerInts { get; set; }
+        IList<CharacterDataFloat32> ServerFloats { get; set; }
+        IList<CharacterDataBoolean> PrivateBools { get; set; }
+        IList<CharacterDataInt32> PrivateInts { get; set; }
+        IList<CharacterDataFloat32> PrivateFloats { get; set; }
+        IList<CharacterDataBoolean> PublicBools { get; set; }
+        IList<CharacterDataInt32> PublicInts { get; set; }
+        IList<CharacterDataFloat32> PublicFloats { get; set; }
     }
 }
