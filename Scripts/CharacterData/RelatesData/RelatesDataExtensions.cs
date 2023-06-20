@@ -4,6 +4,7 @@ namespace MultiplayerARPG
 {
     public static partial class RelatesDataExtensions
     {
+        #region List Clone Functions
         public static T Clone<T>(this IList<EquipWeapons> src) where T : IList<EquipWeapons>, new()
         {
             T result = new T();
@@ -202,5 +203,139 @@ namespace MultiplayerARPG
         {
             return src.Clone<List<CharacterDataFloat32>>();
         }
+        #endregion
+
+        #region IndexOf Functions
+        public static int IndexOf(this IList<CharacterAttribute> list, int dataId)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].dataId == dataId)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterBuff> list, BuffType type, int dataId)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].type == type && list[i].dataId == dataId)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static List<int> IndexesOf(this IList<CharacterBuff> list, BuffType type, int dataId)
+        {
+            List<int> result = new List<int>();
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].type == type && list[i].dataId == dataId)
+                    result.Add(i);
+            }
+            return result;
+        }
+
+        public static int IndexOf(this IList<CharacterItem> list, int dataId)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].dataId == dataId)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterItem> list, string id)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (!string.IsNullOrEmpty(list[i].id) && list[i].id.Equals(id))
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterSkill> list, int dataId)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].dataId == dataId)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterSkillUsage> list, SkillUsageType type, int dataId)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].type == type && list[i].dataId == dataId)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterHotkey> list, string hotkeyId)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (!string.IsNullOrEmpty(list[i].hotkeyId) && list[i].hotkeyId.Equals(hotkeyId))
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterQuest> list, int dataId)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].dataId == dataId)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterCurrency> list, int dataId)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].dataId == dataId)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterDataBoolean> list, int hashedKey)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].hashedKey == hashedKey)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterDataInt32> list, int hashedKey)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].hashedKey == hashedKey)
+                    return i;
+            }
+            return -1;
+        }
+
+        public static int IndexOf(this IList<CharacterDataFloat32> list, int hashedKey)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (list[i].hashedKey == hashedKey)
+                    return i;
+            }
+            return -1;
+        }
+        #endregion
     }
 }
