@@ -367,5 +367,54 @@ namespace MultiplayerARPG
             return -1;
         }
         #endregion
+
+        #region Custom Data getter/setter
+        public static bool GetValue(this IList<CharacterDataBoolean> list, int hashedKey, bool defaultValue = false)
+        {
+            int index = list.IndexOf(hashedKey);
+            if (index < 0)
+                return defaultValue;
+            return list[index].value;
+        }
+
+        public static void SetValue(this IList<CharacterDataBoolean> list, int hashedKey, bool value = false)
+        {
+            int index = list.IndexOf(hashedKey);
+            if (index < 0)
+                list.Add(CharacterDataBoolean.Create(hashedKey, value));
+            list[index] = CharacterDataBoolean.Create(hashedKey, value);
+        }
+
+        public static int GetValue(this IList<CharacterDataInt32> list, int hashedKey, int defaultValue = 0)
+        {
+            int index = list.IndexOf(hashedKey);
+            if (index < 0)
+                return defaultValue;
+            return list[index].value;
+        }
+
+        public static void SetValue(this IList<CharacterDataInt32> list, int hashedKey, int value)
+        {
+            int index = list.IndexOf(hashedKey);
+            if (index < 0)
+                list.Add(CharacterDataInt32.Create(hashedKey, value));
+            list[index] = CharacterDataInt32.Create(hashedKey, value);
+        }
+        public static float GetValue(this IList<CharacterDataFloat32> list, int hashedKey, float defaultValue = 0f)
+        {
+            int index = list.IndexOf(hashedKey);
+            if (index < 0)
+                return defaultValue;
+            return list[index].value;
+        }
+
+        public static void SetValue(this IList<CharacterDataFloat32> list, int hashedKey, float value)
+        {
+            int index = list.IndexOf(hashedKey);
+            if (index < 0)
+                list.Add(CharacterDataFloat32.Create(hashedKey, value));
+            list[index] = CharacterDataFloat32.Create(hashedKey, value);
+        }
+        #endregion
     }
 }

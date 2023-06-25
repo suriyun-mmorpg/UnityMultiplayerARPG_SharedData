@@ -619,5 +619,95 @@ namespace MultiplayerARPG
         {
             return data.PublicFloats.IndexOf(hashedKey);
         }
+
+        public static bool GetServerBoolean(this IPlayerCharacterData data, int hashedKey, bool defaultValue = false)
+        {
+            return data.ServerBools.GetValue(hashedKey, defaultValue);
+        }
+
+        public static void SetServerBoolean(this IPlayerCharacterData data, int hashedKey, bool value)
+        {
+            data.ServerBools.SetValue(hashedKey, value);
+        }
+
+        public static int GetServerInt32(this IPlayerCharacterData data, int hashedKey, int defaultValue = 0)
+        {
+            return data.ServerInts.GetValue(hashedKey, defaultValue);
+        }
+
+        public static void SetServerInt32(this IPlayerCharacterData data, int hashedKey, int value)
+        {
+            data.ServerInts.SetValue(hashedKey, value);
+        }
+
+        public static float GetServerFloat32(this IPlayerCharacterData data, int hashedKey, float defaultValue = 0f)
+        {
+            return data.ServerFloats.GetValue(hashedKey, defaultValue);
+        }
+
+        public static void SetServerFloat32(this IPlayerCharacterData data, int hashedKey, float value)
+        {
+            data.ServerFloats.SetValue(hashedKey, value);
+        }
+
+        public static bool GetPrivateBoolean(this IPlayerCharacterData data, int hashedKey, bool defaultValue = false)
+        {
+            return data.PrivateBools.GetValue(hashedKey, defaultValue);
+        }
+
+        public static void SetPrivateBoolean(this IPlayerCharacterData data, int hashedKey, bool value)
+        {
+            data.PrivateBools.SetValue(hashedKey, value);
+        }
+
+        public static int GetPrivateInt32(this IPlayerCharacterData data, int hashedKey, int defaultValue = 0)
+        {
+            return data.PrivateInts.GetValue(hashedKey, defaultValue);
+        }
+
+        public static void SetPrivateInt32(this IPlayerCharacterData data, int hashedKey, int value)
+        {
+            data.PrivateInts.SetValue(hashedKey, value);
+        }
+
+        public static float GetPrivateFloat32(this IPlayerCharacterData data, int hashedKey, float defaultValue = 0f)
+        {
+            return data.PrivateFloats.GetValue(hashedKey, defaultValue);
+        }
+
+        public static void SetPrivateFloat32(this IPlayerCharacterData data, int hashedKey, float value)
+        {
+            data.PrivateFloats.SetValue(hashedKey, value);
+        }
+
+        public static bool GetPublicBoolean(this IPlayerCharacterData data, int hashedKey, bool defaultValue = false)
+        {
+            return data.PublicBools.GetValue(hashedKey, defaultValue);
+        }
+
+        public static void SetPublicBoolean(this IPlayerCharacterData data, int hashedKey, bool value)
+        {
+            data.PublicBools.SetValue(hashedKey, value);
+        }
+
+        public static int GetPublicInt32(this IPlayerCharacterData data, int hashedKey, int defaultValue = 0)
+        {
+            return data.PublicInts.GetValue(hashedKey, defaultValue);
+        }
+
+        public static void SetPublicInt32(this IPlayerCharacterData data, int hashedKey, int value)
+        {
+            data.PublicInts.SetValue(hashedKey, value);
+        }
+
+        public static float GetPublicFloat32(this IPlayerCharacterData data, int hashedKey, float defaultValue = 0f)
+        {
+            return data.PublicFloats.GetValue(hashedKey, defaultValue);
+        }
+
+        public static void SetPublicFloat32(this IPlayerCharacterData data, int hashedKey, float value)
+        {
+            data.PublicFloats.SetValue(hashedKey, value);
+        }
     }
 }
