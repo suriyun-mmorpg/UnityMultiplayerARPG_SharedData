@@ -381,7 +381,10 @@ namespace MultiplayerARPG
         {
             int index = list.IndexOf(hashedKey);
             if (index < 0)
+            {
                 list.Add(CharacterDataBoolean.Create(hashedKey, value));
+                return;
+            }
             list[index] = CharacterDataBoolean.Create(hashedKey, value);
         }
 
@@ -397,7 +400,10 @@ namespace MultiplayerARPG
         {
             int index = list.IndexOf(hashedKey);
             if (index < 0)
+            {
                 list.Add(CharacterDataInt32.Create(hashedKey, value));
+                return;
+            }
             list[index] = CharacterDataInt32.Create(hashedKey, value);
         }
         public static float GetValue(this IList<CharacterDataFloat32> list, int hashedKey, float defaultValue = 0f)
@@ -412,7 +418,10 @@ namespace MultiplayerARPG
         {
             int index = list.IndexOf(hashedKey);
             if (index < 0)
+            {
                 list.Add(CharacterDataFloat32.Create(hashedKey, value));
+                return;
+            }
             list[index] = CharacterDataFloat32.Create(hashedKey, value);
         }
         #endregion
