@@ -492,17 +492,17 @@ namespace MultiplayerARPG
             if (withServerCustomData)
             {
                 count = reader.GetPackedInt();
-                foreach (CharacterDataBoolean entry in characterData.ServerBools)
+                for (int i = 0; i < count; ++i)
                 {
                     characterData.ServerBools.Add(reader.Get<CharacterDataBoolean>());
                 }
                 count = reader.GetPackedInt();
-                foreach (CharacterDataInt32 entry in characterData.ServerInts)
+                for (int i = 0; i < count; ++i)
                 {
                     characterData.ServerInts.Add(reader.Get<CharacterDataInt32>());
                 }
                 count = reader.GetPackedInt();
-                foreach (CharacterDataFloat32 entry in characterData.ServerFloats)
+                for (int i = 0; i < count; ++i)
                 {
                     characterData.ServerFloats.Add(reader.Get<CharacterDataFloat32>());
                 }
@@ -511,17 +511,17 @@ namespace MultiplayerARPG
             if (withPrivateCustomData)
             {
                 count = reader.GetPackedInt();
-                foreach (CharacterDataBoolean entry in characterData.PrivateBools)
+                for (int i = 0; i < count; ++i)
                 {
                     characterData.PrivateBools.Add(reader.Get<CharacterDataBoolean>());
                 }
                 count = reader.GetPackedInt();
-                foreach (CharacterDataInt32 entry in characterData.PrivateInts)
+                for (int i = 0; i < count; ++i)
                 {
                     characterData.PrivateInts.Add(reader.Get<CharacterDataInt32>());
                 }
                 count = reader.GetPackedInt();
-                foreach (CharacterDataFloat32 entry in characterData.PrivateFloats)
+                for (int i = 0; i < count; ++i)
                 {
                     characterData.PrivateFloats.Add(reader.Get<CharacterDataFloat32>());
                 }
@@ -530,17 +530,17 @@ namespace MultiplayerARPG
             if (withPublicCustomData)
             {
                 count = reader.GetPackedInt();
-                foreach (CharacterDataBoolean entry in characterData.PublicBools)
+                for (int i = 0; i < count; ++i)
                 {
                     characterData.PublicBools.Add(reader.Get<CharacterDataBoolean>());
                 }
                 count = reader.GetPackedInt();
-                foreach (CharacterDataInt32 entry in characterData.PublicInts)
+                for (int i = 0; i < count; ++i)
                 {
                     characterData.PublicInts.Add(reader.Get<CharacterDataInt32>());
                 }
                 count = reader.GetPackedInt();
-                foreach (CharacterDataFloat32 entry in characterData.PublicFloats)
+                for (int i = 0; i < count; ++i)
                 {
                     characterData.PublicFloats.Add(reader.Get<CharacterDataFloat32>());
                 }
