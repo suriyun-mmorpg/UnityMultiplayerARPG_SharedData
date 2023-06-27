@@ -1,6 +1,7 @@
 ﻿using Cysharp.Text;
 using LiteNetLib.Utils;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace MultiplayerARPG
 {
@@ -39,6 +40,7 @@ namespace MultiplayerARPG
         public int ammo;
         public List<int> sockets = new List<int>();
 
+        [IgnoreDataMember]
         public List<int> Sockets
         {
             get
