@@ -1,5 +1,6 @@
 ﻿using Cysharp.Text;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace MultiplayerARPG
 {
@@ -13,6 +14,7 @@ namespace MultiplayerARPG
         public Dictionary<int, int> killedMonsters = new Dictionary<int, int>();
         public List<int> completedTasks = new List<int>();
 
+        [IgnoreDataMember]
         public Dictionary<int, int> KilledMonsters
         {
             get
@@ -23,6 +25,7 @@ namespace MultiplayerARPG
             }
         }
 
+        [IgnoreDataMember]
         public List<int> CompletedTasks
         {
             get
