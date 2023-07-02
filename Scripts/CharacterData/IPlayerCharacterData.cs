@@ -65,6 +65,10 @@ namespace MultiplayerARPG
         long LastDeadTime { get; set; }
         long UnmuteTime { get; set; }
         long LastUpdate { get; set; }
+        bool IsPkOn { get; set; }
+        long LastPkOnTime { get; set; }
+        int PkPoint { get; set; }
+        int ConsecutivePkKills { get; set; }
         IList<CharacterHotkey> Hotkeys { get; set; }
         IList<CharacterQuest> Quests { get; set; }
         IList<CharacterCurrency> Currencies { get; set; }

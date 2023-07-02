@@ -60,6 +60,10 @@ namespace MultiplayerARPG
             to.LastDeadTime = from.LastDeadTime;
             to.UnmuteTime = from.UnmuteTime;
             to.LastUpdate = from.LastUpdate;
+            to.IsPkOn = from.IsPkOn;
+            to.LastPkOnTime = from.LastPkOnTime;
+            to.PkPoint = from.PkPoint;
+            to.ConsecutivePkKills = from.ConsecutivePkKills;
             if (withEquipWeapons)
                 to.SelectableWeaponSets = from.SelectableWeaponSets.Clone();
             if (withAttributes)
