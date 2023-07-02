@@ -39,6 +39,10 @@ namespace MultiplayerARPG
         public long LastDeadTime { get; set; }
         public long UnmuteTime { get; set; }
         public long LastUpdate { get; set; }
+        public bool IsPkOn { get; set; }
+        public long LastPkOnTime { get; set; }
+        public int PkPoint { get; set; }
+        public int ConsecutivePkKills { get; set; }
 
         public IList<CharacterHotkey> Hotkeys
         {
