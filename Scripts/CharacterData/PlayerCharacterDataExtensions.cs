@@ -66,6 +66,8 @@ namespace MultiplayerARPG
             to.LastPkOnTime = from.LastPkOnTime;
             to.PkPoint = from.PkPoint;
             to.ConsecutivePkKills = from.ConsecutivePkKills;
+            to.HighestPkPoint = from.HighestPkPoint;
+            to.HighestConsecutivePkKills = from.HighestConsecutivePkKills;
             if (withEquipWeapons)
                 to.SelectableWeaponSets = from.SelectableWeaponSets.Clone();
             if (withAttributes)

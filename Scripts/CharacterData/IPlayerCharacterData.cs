@@ -69,6 +69,8 @@ namespace MultiplayerARPG
         long LastPkOnTime { get; set; }
         int PkPoint { get; set; }
         int ConsecutivePkKills { get; set; }
+        int HighestPkPoint { get; set; }
+        int HighestConsecutivePkKills { get; set; }
         IList<CharacterHotkey> Hotkeys { get; set; }
         IList<CharacterQuest> Quests { get; set; }
         IList<CharacterCurrency> Currencies { get; set; }
