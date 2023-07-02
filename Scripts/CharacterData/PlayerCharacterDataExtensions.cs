@@ -173,6 +173,10 @@ namespace MultiplayerARPG
             writer.PutPackedLong(characterData.LastDeadTime);
             writer.PutPackedLong(characterData.UnmuteTime);
             writer.PutPackedLong(characterData.LastUpdate);
+            writer.Put(characterData.IsPkOn);
+            writer.PutPackedLong(characterData.LastPkOnTime);
+            writer.PutPackedInt(characterData.PkPoint);
+            writer.PutPackedInt(characterData.ConsecutivePkKills);
             // Attributes
             if (withAttributes)
             {
@@ -401,6 +405,10 @@ namespace MultiplayerARPG
             characterData.LastDeadTime = reader.GetPackedLong();
             characterData.UnmuteTime = reader.GetPackedLong();
             characterData.LastUpdate = reader.GetPackedLong();
+            characterData.IsPkOn = reader.GetBool();
+            characterData.LastPkOnTime = reader.GetPackedLong();
+            characterData.PkPoint = reader.GetPackedInt();
+            characterData.ConsecutivePkKills = reader.GetPackedInt();
             int count;
             // Attributes
             if (withAttributes)
