@@ -42,6 +42,8 @@ namespace MultiplayerARPG
         public long LastPkOnTime { get; set; }
         public int PkPoint { get; set; }
         public int ConsecutivePkKills { get; set; }
+        public int HighestPkPoint { get; set; }
+        public int HighestConsecutivePkKills { get; set; }
 
         public IList<CharacterHotkey> Hotkeys
         {
