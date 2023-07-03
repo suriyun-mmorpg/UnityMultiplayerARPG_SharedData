@@ -843,5 +843,11 @@ namespace MultiplayerARPG
         /// Format => {0} = {Amount * 100}
         /// </summary>
         UI_FORMAT_GRAVITY_RATE_RATE,
+
+        // 1.84 PK
+        /// <summary>
+        /// Format => {0} = {Hours}
+        /// </summary>
+        UI_FORMAT_PK_CAN_TURN_PK_AFTER_HOURS,
     }
 }

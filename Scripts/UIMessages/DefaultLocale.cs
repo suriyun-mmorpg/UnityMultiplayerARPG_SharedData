@@ -557,6 +557,8 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_FALL_DAMAGE_ABSORBS_RATE.ToString(), "% of Fall Damage Absorbs: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_GRAVITY_RATE.ToString(), "Gravity Rate: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_GRAVITY_RATE_RATE.ToString(), "% of Gravity Rate: {0}%");
+            // PK
+            Texts.Add(UIFormatKeys.UI_FORMAT_PK_CAN_TURN_PK_AFTER_HOURS.ToString(), "You can turn PK off after {0} hours");
         }
     }
 }
