@@ -179,6 +179,8 @@ namespace MultiplayerARPG
             writer.PutPackedLong(characterData.LastPkOnTime);
             writer.PutPackedInt(characterData.PkPoint);
             writer.PutPackedInt(characterData.ConsecutivePkKills);
+            writer.PutPackedInt(characterData.HighestPkPoint);
+            writer.PutPackedInt(characterData.HighestConsecutivePkKills);
             // Attributes
             if (withAttributes)
             {
@@ -411,6 +413,8 @@ namespace MultiplayerARPG
             characterData.LastPkOnTime = reader.GetPackedLong();
             characterData.PkPoint = reader.GetPackedInt();
             characterData.ConsecutivePkKills = reader.GetPackedInt();
+            characterData.HighestPkPoint = reader.GetPackedInt();
+            characterData.HighestConsecutivePkKills = reader.GetPackedInt();
             int count;
             // Attributes
             if (withAttributes)
