@@ -317,5 +317,11 @@ namespace MultiplayerARPG
         // Enter Amount
         UI_ENTER_ITEM_AMOUNT,
         UI_ENTER_ITEM_AMOUNT_DESCRIPTION,
+        // Error - Dueling
+        UI_ERROR_CHARACTER_IS_DUELING,
+        UI_ERROR_CANNOT_ACCEPT_DUELING_REQUEST,
+        UI_ERROR_DUELING_REQUEST_DECLINED,
+        // Error - Safe Zone
+        UI_ERROR_CHARACTER_IS_IN_SAFE_AREA,
     }
 }
