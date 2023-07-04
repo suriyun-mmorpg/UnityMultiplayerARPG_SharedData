@@ -559,6 +559,12 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_GRAVITY_RATE_RATE.ToString(), "% of Gravity Rate: {0}%");
             // PK
             Texts.Add(UIFormatKeys.UI_FORMAT_PK_CAN_TURN_PK_AFTER_HOURS.ToString(), "You can turn PK off after {0} hours");
+            // Error - Dueling
+            Texts.Add(UITextKeys.UI_ERROR_CHARACTER_IS_DUELING.ToString(), "Character is in another duel");
+            Texts.Add(UITextKeys.UI_ERROR_CANNOT_ACCEPT_DUELING_REQUEST.ToString(), "Cannot accept dueling request");
+            Texts.Add(UITextKeys.UI_ERROR_DUELING_REQUEST_DECLINED.ToString(), "Dueling request declined");
+            // Error - Safe Zone
+            Texts.Add(UITextKeys.UI_ERROR_CHARACTER_IS_IN_SAFE_AREA.ToString(), "Character is in safe area");
         }
     }
 }
