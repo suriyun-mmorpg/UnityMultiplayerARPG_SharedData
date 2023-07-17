@@ -8,7 +8,7 @@
         EquipWeaponLeft,
         StorageItems,
         ItemsContainer,
-        PlayerStore,
+        Vending,
         Unknow = 254,
     }
 }

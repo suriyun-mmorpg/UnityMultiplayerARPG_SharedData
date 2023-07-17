@@ -369,10 +369,10 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_DISMANTLE_ITEM_DESCRIPTION.ToString(), "Enter amount of item");
             Texts.Add(UITextKeys.UI_OFFER_ITEM.ToString(), "Offer Item");
             Texts.Add(UITextKeys.UI_OFFER_ITEM_DESCRIPTION.ToString(), "Enter amount of item");
-            Texts.Add(UITextKeys.UI_PUT_PLAYER_STORE_ITEM_AMOUNT.ToString(), "Item Amount");
-            Texts.Add(UITextKeys.UI_PUT_PLAYER_STORE_ITEM_AMOUNT_DESCRIPTION.ToString(), "Enter amount of item");
-            Texts.Add(UITextKeys.UI_PUT_PLAYER_STORE_ITEM_PRICE.ToString(), "Item Price");
-            Texts.Add(UITextKeys.UI_PUT_PLAYER_STORE_ITEM_PRICE_DESCRIPTION.ToString(), "Enter selling price");
+            Texts.Add(UITextKeys.UI_PUT_VENDING_ITEM_AMOUNT.ToString(), "Item Amount");
+            Texts.Add(UITextKeys.UI_PUT_VENDING_ITEM_AMOUNT_DESCRIPTION.ToString(), "Enter amount of item");
+            Texts.Add(UITextKeys.UI_PUT_VENDING_ITEM_PRICE.ToString(), "Item Price");
+            Texts.Add(UITextKeys.UI_PUT_VENDING_ITEM_PRICE_DESCRIPTION.ToString(), "Enter selling price");
             Texts.Add(UITextKeys.UI_MOVE_ITEM_TO_STORAGE.ToString(), "Move To Storage");
             Texts.Add(UITextKeys.UI_MOVE_ITEM_TO_STORAGE_DESCRIPTION.ToString(), "Enter amount of item");
             Texts.Add(UITextKeys.UI_MOVE_ITEM_FROM_STORAGE.ToString(), "Move From Storage");
