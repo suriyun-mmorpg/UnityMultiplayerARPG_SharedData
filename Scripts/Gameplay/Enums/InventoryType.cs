@@ -8,6 +8,7 @@
         EquipWeaponLeft,
         StorageItems,
         ItemsContainer,
+        PlayerStore,
         Unknow = 254,
     }
 }
