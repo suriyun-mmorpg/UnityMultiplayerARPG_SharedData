@@ -327,5 +327,8 @@ namespace MultiplayerARPG
         UI_ERROR_DUELING_REQUEST_DECLINED,
         // Error - Safe Zone
         UI_ERROR_CHARACTER_IS_IN_SAFE_AREA,
+        // Error - Channels
+        UI_ERROR_INVALID_CHANNEL_ID,
+        UI_ERROR_CHANNEL_IS_FULL,
     }
 }
