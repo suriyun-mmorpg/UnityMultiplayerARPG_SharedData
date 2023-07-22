@@ -569,6 +569,9 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_DUELING_REQUEST_DECLINED.ToString(), "Dueling request declined");
             // Error - Safe Zone
             Texts.Add(UITextKeys.UI_ERROR_CHARACTER_IS_IN_SAFE_AREA.ToString(), "Character is in safe area");
+            // Error - Channels
+            Texts.Add(UITextKeys.UI_ERROR_INVALID_CHANNEL_ID.ToString(), "Invalid channel");
+            Texts.Add(UITextKeys.UI_ERROR_CHANNEL_IS_FULL.ToString(), "Channel is full");
         }
     }
 }
