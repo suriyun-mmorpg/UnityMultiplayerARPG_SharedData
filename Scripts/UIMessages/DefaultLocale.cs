@@ -167,6 +167,7 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_NOT_ALLOWED.ToString(), "You're not allowed to do that");
             Texts.Add(UITextKeys.UI_ERROR_SERVICE_NOT_AVAILABLE.ToString(), "Service is not available");
             Texts.Add(UITextKeys.UI_ERROR_CONTENT_NOT_AVAILABLE.ToString(), "Content is not available");
+            Texts.Add(UITextKeys.UI_ERROR_FEATURE_IS_DISABLED.ToString(), "Feature is disabled");
             Texts.Add(UITextKeys.UI_ERROR_REQUEST_TIMEOUT.ToString(), "Request timeout");
             Texts.Add(UITextKeys.UI_ERROR_KICKED_FROM_SERVER.ToString(), "You have been kicked from server");
             Texts.Add(UITextKeys.UI_ERROR_CONNECTION_FAILED.ToString(), "Cannot connect to the server");
@@ -448,6 +449,12 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_MAIL_CLAIMED.ToString(), "Claimed an items");
             Texts.Add(UITextKeys.UI_ERROR_MAIL_DELETE_NOT_ALLOWED.ToString(), "You're not allowed to delete the mail");
             Texts.Add(UITextKeys.UI_MAIL_DELETED.ToString(), "Mail deleted");
+            // Vending
+            Texts.Add(UITextKeys.UI_START_VENDING.ToString(), "Confirmation");
+            Texts.Add(UITextKeys.UI_START_VENDING_DESCRIPTION.ToString(), "Do you want to open your shop? please double check the prices before doing it.");
+            Texts.Add(UITextKeys.UI_STOP_VENDING.ToString(), "Confirmation");
+            Texts.Add(UITextKeys.UI_STOP_VENDING_DESCRIPTION.ToString(), "Do you want to close your shop?");
+            Texts.Add(UITextKeys.UI_ERROR_NO_START_VENDING_ITEMS.ToString(), "No selling items");
             // Enter Amount
             Texts.Add(UITextKeys.UI_ENTER_ITEM_AMOUNT.ToString(), "Enter Amount");
             Texts.Add(UITextKeys.UI_ENTER_ITEM_AMOUNT_DESCRIPTION.ToString(), "Enter amount of item");
