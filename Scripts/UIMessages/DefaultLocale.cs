@@ -12,6 +12,8 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_LABEL_SUCCESS.ToString(), "Success");
             Texts.Add(UITextKeys.UI_LABEL_ERROR.ToString(), "Error");
             Texts.Add(UITextKeys.UI_LABEL_NONE.ToString(), "None");
+            Texts.Add(UITextKeys.UI_LABEL_MESSAGE.ToString(), "Message");
+            Texts.Add(UITextKeys.UI_LABEL_WARNING.ToString(), "Warning");
             // Format - Generic
             Texts.Add(UIFormatKeys.UI_FORMAT_SIMPLE.ToString(), "{0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_SIMPLE_PERCENTAGE.ToString(), "{0}%");
@@ -563,6 +565,7 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_GRAVITY_RATE_RATE.ToString(), "% of Gravity Rate: {0}%");
             // PK
             Texts.Add(UIFormatKeys.UI_FORMAT_PK_CAN_TURN_PK_AFTER_HOURS.ToString(), "You can turn PK off after {0} hours");
+            Texts.Add(UIFormatKeys.UI_FORMAT_PK_TURN_ON_WARNING.ToString(), "Do you want to turn PK on? if you do that then you will be able to turn it off after {0} hours");
             // Error - Dueling
             Texts.Add(UITextKeys.UI_ERROR_CHARACTER_IS_DUELING.ToString(), "Character is in another duel");
             Texts.Add(UITextKeys.UI_ERROR_CANNOT_ACCEPT_DUELING_REQUEST.ToString(), "Cannot accept dueling request");
