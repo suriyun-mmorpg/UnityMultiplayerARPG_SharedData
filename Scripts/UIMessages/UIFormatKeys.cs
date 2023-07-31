@@ -849,5 +849,9 @@ namespace MultiplayerARPG
         /// Format => {0} = {Hours}
         /// </summary>
         UI_FORMAT_PK_CAN_TURN_PK_AFTER_HOURS,
+        /// <summary>
+        /// Format => {0} = {Hours}
+        /// </summary>
+        UI_FORMAT_PK_TURN_ON_WARNING,
     }
 }

@@ -8,6 +8,8 @@ namespace MultiplayerARPG
         UI_LABEL_SUCCESS,
         UI_LABEL_ERROR,
         UI_LABEL_NONE,
+        UI_LABEL_MESSAGE,
+        UI_LABEL_WARNING,
         // Error - Generic Error
         UI_ERROR_UNKNOW,
         UI_ERROR_BAD_REQUEST,
