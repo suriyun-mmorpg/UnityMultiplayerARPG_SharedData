@@ -203,6 +203,9 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_INVALID_ATTRIBUTE_DATA.ToString(), "Invalid attribute data");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_SKILL_DATA.ToString(), "Invalid skill data");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_GUILD_SKILL_DATA.ToString(), "Invalid guild skill data");
+            // Error - Vehicle
+            Texts.Add(UITextKeys.UI_ERROR_SEAT_NOT_AVAILABLE.ToString(), "Seat is not available");
+            // Error - Enhance
             // Error - UI Login
             Texts.Add(UITextKeys.UI_ERROR_INVALID_USERNAME_OR_PASSWORD.ToString(), "Invalid username or password");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_USER_TOKEN.ToString(), "Invalid user token");
@@ -264,7 +267,6 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_REFINE_ITEM_REACHED_MAX_LEVEL.ToString(), "Item reached max level");
             Texts.Add(UITextKeys.UI_REFINE_SUCCESS.ToString(), "Refine success");
             Texts.Add(UITextKeys.UI_REFINE_FAIL.ToString(), "Refine fail");
-            // Error - Enhance
             Texts.Add(UITextKeys.UI_ERROR_CANNOT_ENHANCE_SOCKET.ToString(), "Cannot enhance the item");
             Texts.Add(UITextKeys.UI_ERROR_NOT_ENOUGH_SOCKET_ENCHANER.ToString(), "Have not enough items");
             Texts.Add(UITextKeys.UI_ERROR_NO_EMPTY_SOCKET.ToString(), "No empty socket");
