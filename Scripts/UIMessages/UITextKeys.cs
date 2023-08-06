@@ -52,6 +52,8 @@ namespace MultiplayerARPG
         UI_ERROR_INVALID_ATTRIBUTE_DATA,
         UI_ERROR_INVALID_SKILL_DATA,
         UI_ERROR_INVALID_GUILD_SKILL_DATA,
+        // Error - Vehicle
+        UI_ERROR_SEAT_NOT_AVAILABLE,
         // Error - UI Login
         UI_ERROR_INVALID_USERNAME_OR_PASSWORD,
         UI_ERROR_INVALID_USER_TOKEN,
