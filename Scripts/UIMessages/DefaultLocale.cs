@@ -284,6 +284,10 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_INVALID_DEALING_STATE.ToString(), "Invalid dealing state");
             Texts.Add(UITextKeys.UI_ERROR_DEALING_CANCELED.ToString(), "Dealing canceled");
             Texts.Add(UITextKeys.UI_ERROR_ANOTHER_CHARACTER_WILL_OVERWHELMING.ToString(), "Another character cannot carry all items");
+            // Error - Restriction
+            Texts.Add(UITextKeys.UI_ERROR_ITEM_DEALING_RESTRICTED.ToString(), "Cannot deal this item, item dealing restricted");
+            Texts.Add(UITextKeys.UI_ERROR_ITEM_DROPPING_RESTRICTED.ToString(), "Cannot drop this item, item dropping restricted");
+            Texts.Add(UITextKeys.UI_ERROR_ITEM_SELLING_RESTRICTED.ToString(), "Cannot sell this item, item selling restricted");
             // Error - Party
             Texts.Add(UITextKeys.UI_ERROR_PARTY_NOT_FOUND.ToString(), "Party not found");
             Texts.Add(UITextKeys.UI_ERROR_PARTY_INVITATION_NOT_FOUND.ToString(), "Party invitation not found");
