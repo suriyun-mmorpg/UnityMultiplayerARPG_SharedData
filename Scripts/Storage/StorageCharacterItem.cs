@@ -1,4 +1,5 @@
-﻿using LiteNetLib.Utils;
+﻿using Cysharp.Text;
+using LiteNetLib.Utils;
 
 namespace MultiplayerARPG
 {
@@ -15,7 +16,7 @@ namespace MultiplayerARPG
     {
         public static readonly StorageCharacterItem Empty = new StorageCharacterItem();
         public StorageType storageType;
-        // Owner Id, for `Default` it is character Id. `Building` it is building Id. `Guild` it is guild Id.
+        // Owner Id, for `Player` is user Id. `Building` is building Id. `Guild` is guild Id.
         public string storageOwnerId;
         public CharacterItem characterItem;
 
@@ -48,7 +49,7 @@ namespace MultiplayerARPG
 
         public string GetId()
         {
-            return (byte)storageType + "_" + storageOwnerId;
+            return ZString.Concat((byte)storageType, '_', storageOwnerId);
         }
 
         public override int GetHashCode()
@@ -78,7 +79,7 @@ namespace MultiplayerARPG
 
         public string GetId()
         {
-            return (byte)storageType + "_" + storageOwnerId + "_" + indexOfData;
+            return ZString.Concat((byte)storageType, '_', storageOwnerId, '_', indexOfData);
         }
 
         public override int GetHashCode()
