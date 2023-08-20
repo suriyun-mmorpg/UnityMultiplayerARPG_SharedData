@@ -335,6 +335,9 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_NOT_ENOUGH_GOLD_TO_DEPOSIT.ToString(), "Not enough gold to deposit");
             Texts.Add(UITextKeys.UI_ERROR_NOT_ENOUGH_GOLD_TO_WITHDRAW.ToString(), "Not enough gold to withdraw");
             Texts.Add(UITextKeys.UI_ERROR_CANNOT_ACCESS_STORAGE.ToString(), "Cannot access storage");
+            Texts.Add(UITextKeys.UI_ERROR_CANNOT_GET_STORAGE_ITEMS.ToString(), "Cannot get storage items");
+            Texts.Add(UITextKeys.UI_ERROR_CANNOT_UPDATE_STORAGE_ITEMS.ToString(), "Cannot update storage items");
+            Texts.Add(UITextKeys.UI_ERROR_OTHER_GUILD_MEMBER_ACCESSING_STORAGE.ToString(), "Your guild storage has already been opened by another member, try again later.");
             Texts.Add(UITextKeys.UI_ERROR_STORAGE_NOT_FOUND.ToString(), "Storage not found");
             // Error - Combatant
             Texts.Add(UITextKeys.UI_ERROR_NO_AMMO.ToString(), "No Ammo");
