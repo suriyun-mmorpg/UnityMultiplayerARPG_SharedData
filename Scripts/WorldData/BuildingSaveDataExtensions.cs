@@ -24,11 +24,12 @@ namespace MultiplayerARPG
             to.RemainsLifeTime = from.RemainsLifeTime;
             to.IsLocked = from.IsLocked;
             to.LockPassword = from.LockPassword;
+            to.Position = from.Position;
+            to.Rotation = from.Rotation;
             to.CreatorId = from.CreatorId;
             to.CreatorName = from.CreatorName;
             to.ExtraData = from.ExtraData;
-            to.Position = from.Position;
-            to.Rotation = from.Rotation;
+            to.IsSceneObject = from.IsSceneObject;
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "CloneTo", from, to);
             return to;
         }
@@ -47,6 +48,7 @@ namespace MultiplayerARPG
             writer.Put(buildingSaveData.CreatorId);
             writer.Put(buildingSaveData.CreatorName);
             writer.Put(buildingSaveData.ExtraData);
+            writer.Put(buildingSaveData.IsSceneObject);
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "SerializeBuildingSaveData", buildingSaveData, writer);
         }
 
@@ -74,6 +76,7 @@ namespace MultiplayerARPG
             buildingSaveData.CreatorId = reader.GetString();
             buildingSaveData.CreatorName = reader.GetString();
             buildingSaveData.ExtraData = reader.GetString();
+            buildingSaveData.IsSceneObject = reader.GetBool();
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "DeserializeBuildingSaveData", buildingSaveData, reader);
             return buildingSaveData;
         }

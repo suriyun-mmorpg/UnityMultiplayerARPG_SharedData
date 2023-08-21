@@ -14,5 +14,6 @@
         string CreatorId { get; set; }
         string CreatorName { get; set; }
         string ExtraData { get; set; }
+        bool IsSceneObject { get; set; }
     }
 }
