@@ -5,23 +5,23 @@ namespace MultiplayerARPG
     public static partial class CharacterRelatesDataExtensions
     {
         #region List Clone Functions
-        public static T Clone<T>(this IList<EquipWeapons> src) where T : IList<EquipWeapons>, new()
+        public static T Clone<T>(this IList<EquipWeapons> src, bool generateNewId = false) where T : IList<EquipWeapons>, new()
         {
             T result = new T();
             for (int i = 0; i < src.Count; ++i)
             {
                 result.Add(new EquipWeapons()
                 {
-                    rightHand = src[i].rightHand.Clone(),
-                    leftHand = src[i].leftHand.Clone(),
+                    rightHand = src[i].rightHand.Clone(generateNewId),
+                    leftHand = src[i].leftHand.Clone(generateNewId),
                 });
             }
             return result;
         }
 
-        public static List<EquipWeapons> Clone(this IList<EquipWeapons> src)
+        public static List<EquipWeapons> Clone(this IList<EquipWeapons> src, bool generateNewId = false)
         {
-            return src.Clone<List<EquipWeapons>>();
+            return src.Clone<List<EquipWeapons>>(generateNewId);
         }
 
         public static T Clone<T>(this IList<CharacterAttribute> src) where T : IList<CharacterAttribute>, new()
@@ -39,34 +39,34 @@ namespace MultiplayerARPG
             return src.Clone<List<CharacterAttribute>>();
         }
 
-        public static T Clone<T>(this IList<CharacterBuff> src) where T : IList<CharacterBuff>, new()
+        public static T Clone<T>(this IList<CharacterBuff> src, bool generateNewId = false) where T : IList<CharacterBuff>, new()
         {
             T result = new T();
             for (int i = 0; i < src.Count; ++i)
             {
-                result.Add(src[i].Clone());
+                result.Add(src[i].Clone(generateNewId));
             }
             return result;
         }
 
-        public static List<CharacterBuff> Clone(this IList<CharacterBuff> src)
+        public static List<CharacterBuff> Clone(this IList<CharacterBuff> src, bool generateNewId = false)
         {
-            return src.Clone<List<CharacterBuff>>();
+            return src.Clone<List<CharacterBuff>>(generateNewId);
         }
 
-        public static T Clone<T>(this IList<CharacterItem> src) where T : List<CharacterItem>, new()
+        public static T Clone<T>(this IList<CharacterItem> src, bool generateNewId = false) where T : List<CharacterItem>, new()
         {
             T result = new T();
             for (int i = 0; i < src.Count; ++i)
             {
-                result.Add(src[i].Clone());
+                result.Add(src[i].Clone(generateNewId));
             }
             return result;
         }
 
-        public static List<CharacterItem> Clone(this IList<CharacterItem> src)
+        public static List<CharacterItem> Clone(this IList<CharacterItem> src, bool generateNewId = false)
         {
-            return src.Clone<List<CharacterItem>>();
+            return src.Clone<List<CharacterItem>>(generateNewId);
         }
 
         public static T Clone<T>(this IList<CharacterSkill> src) where T : IList<CharacterSkill>, new()
@@ -99,19 +99,19 @@ namespace MultiplayerARPG
             return src.Clone<List<CharacterSkillUsage>>();
         }
 
-        public static T Clone<T>(this IList<CharacterSummon> src) where T : IList<CharacterSummon>, new()
+        public static T Clone<T>(this IList<CharacterSummon> src, bool generateNewId = false) where T : IList<CharacterSummon>, new()
         {
             T result = new T();
             for (int i = 0; i < src.Count; ++i)
             {
-                result.Add(src[i].Clone());
+                result.Add(src[i].Clone(generateNewId));
             }
             return result;
         }
 
-        public static List<CharacterSummon> Clone(this IList<CharacterSummon> src)
+        public static List<CharacterSummon> Clone(this IList<CharacterSummon> src, bool generateNewId = false)
         {
-            return src.Clone<List<CharacterSummon>>();
+            return src.Clone<List<CharacterSummon>>(generateNewId);
         }
 
         public static T Clone<T>(this IList<CharacterHotkey> src) where T : IList<CharacterHotkey>, new()
