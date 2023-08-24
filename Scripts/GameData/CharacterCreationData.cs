@@ -28,7 +28,7 @@ namespace MultiplayerARPG
 
         public void SetCreateCharacterData(PlayerCharacterData data, string id, string userId, string characterName, int dataId, int entityId, int factionId, IList<CharacterDataBoolean> publicBools, IList<CharacterDataInt32> publicInts, IList<CharacterDataFloat32> publicFloats)
         {
-            data = AvailableCharacters[entityId][dataId].CloneTo(data);
+            data = AvailableCharacters[entityId][dataId].CloneTo(data, generateNewIdForRelatesData: true);
             data.Id = id;
             data.UserId = userId;
             data.CharacterName = characterName;
