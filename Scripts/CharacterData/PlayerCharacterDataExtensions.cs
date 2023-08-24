@@ -25,7 +25,8 @@ namespace MultiplayerARPG
             bool withCurrencies = true,
             bool withServerCustomData = true,
             bool withPrivateCustomData = true,
-            bool withPublicCustomData = true) where T : IPlayerCharacterData
+            bool withPublicCustomData = true,
+            bool generateNewIdForRelatesData = false) where T : IPlayerCharacterData
         {
             to.Id = from.Id;
             to.DataId = from.DataId;
@@ -69,7 +70,7 @@ namespace MultiplayerARPG
             to.HighestPkPoint = from.HighestPkPoint;
             to.HighestConsecutivePkKills = from.HighestConsecutivePkKills;
             if (withEquipWeapons)
-                to.SelectableWeaponSets = from.SelectableWeaponSets.Clone();
+                to.SelectableWeaponSets = from.SelectableWeaponSets.Clone(generateNewIdForRelatesData);
             if (withAttributes)
                 to.Attributes = from.Attributes.Clone();
             if (withSkills)
@@ -77,13 +78,13 @@ namespace MultiplayerARPG
             if (withSkillUsages)
                 to.SkillUsages = from.SkillUsages.Clone();
             if (withBuffs)
-                to.Buffs = from.Buffs.Clone();
+                to.Buffs = from.Buffs.Clone(generateNewIdForRelatesData);
             if (withEquipItems)
-                to.EquipItems = from.EquipItems.Clone();
+                to.EquipItems = from.EquipItems.Clone(generateNewIdForRelatesData);
             if (withNonEquipItems)
-                to.NonEquipItems = from.NonEquipItems.Clone();
+                to.NonEquipItems = from.NonEquipItems.Clone(generateNewIdForRelatesData);
             if (withSummons)
-                to.Summons = from.Summons.Clone();
+                to.Summons = from.Summons.Clone(generateNewIdForRelatesData);
             if (withHotkeys)
                 to.Hotkeys = from.Hotkeys.Clone();
             if (withQuests)
