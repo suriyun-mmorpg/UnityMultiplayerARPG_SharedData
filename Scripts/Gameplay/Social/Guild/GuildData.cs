@@ -179,6 +179,11 @@ namespace MultiplayerARPG
             return skillLevels;
         }
 
+        public bool TryGetSkillLevel(int dataId, out int guildSkillLevel)
+        {
+            return skillLevels.TryGetValue(dataId, out guildSkillLevel);
+        }
+
         public int GetSkillLevel(int dataId)
         {
             if (skillLevels.ContainsKey(dataId))

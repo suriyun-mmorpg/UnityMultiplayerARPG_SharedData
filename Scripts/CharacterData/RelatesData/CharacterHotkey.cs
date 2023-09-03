@@ -7,6 +7,7 @@ namespace MultiplayerARPG
         None,
         Skill,
         Item,
+        GuildSkill,
     }
 
     [System.Serializable]
