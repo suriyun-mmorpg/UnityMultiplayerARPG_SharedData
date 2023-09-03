@@ -5,6 +5,7 @@
         None,
         Skill,
         Item,
+        GuildSkill,
     }
 
     [System.Serializable]
