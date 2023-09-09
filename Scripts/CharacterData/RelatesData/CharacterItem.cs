@@ -39,6 +39,7 @@ namespace MultiplayerARPG
         public int randomSeed;
         public int ammo;
         public List<int> sockets = new List<int>();
+        public byte version;
 
         [IgnoreDataMember]
         public List<int> Sockets
@@ -93,6 +94,7 @@ namespace MultiplayerARPG
                 randomSeed = randomSeed,
                 ammo = ammo,
                 sockets = new List<int>(sockets),
+                version = version,
             };
         }
 
