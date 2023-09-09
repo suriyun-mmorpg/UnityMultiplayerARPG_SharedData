@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
+﻿using NotifiableCollection;
+using System.Collections.Generic;
 
 namespace MultiplayerARPG
 {
@@ -11,14 +10,15 @@ namespace MultiplayerARPG
         private int _entityId;
         private int _level;
         private byte _equipWeaponSet;
-        private ObservableCollection<EquipWeapons> _selectableEquipWeapons;
-        private ObservableCollection<CharacterAttribute> _attributes;
-        private ObservableCollection<CharacterSkill> _skills;
+        private NotifiableList<EquipWeapons> _selectableEquipWeapons;
+        private NotifiableList<CharacterAttribute> _attributes;
+        private NotifiableList<CharacterSkill> _skills;
         private List<CharacterSkillUsage> _skillUsages;
-        private ObservableCollection<CharacterBuff> _buffs;
-        private ObservableCollection<CharacterItem> _equipItems;
-        private ObservableCollection<CharacterItem> _nonEquipItems;
-        private ObservableCollection<CharacterSummon> _summons;
+        private NotifiableList<CharacterBuff> _buffs;
+        private NotifiableList<CharacterItem> _equipItems;
+        private NotifiableList<CharacterItem> _nonEquipItems;
+        private NotifiableList<CharacterSummon> _summons;
+        private int _titleDataId;
 
         ~CharacterData()
         {
@@ -75,7 +75,17 @@ namespace MultiplayerARPG
         public int CurrentWater { get; set; }
         public int IconDataId { get; set; }
         public int FrameDataId { get; set; }
-        public int TitleDataId { get; set; }
+        public int TitleDataId
+        {
+            get { return _titleDataId; }
+            set
+            {
+                _titleDataId = value;
+#if !NET && !NETCOREAPP
+                this.MarkToMakeCaches();
+#endif
+            }
+        }
 
         public EquipWeapons EquipWeapons
         {
@@ -112,8 +122,8 @@ namespace MultiplayerARPG
             {
                 if (_selectableEquipWeapons == null)
                 {
-                    _selectableEquipWeapons = new ObservableCollection<EquipWeapons>();
-                    _selectableEquipWeapons.CollectionChanged += List_CollectionChanged;
+                    _selectableEquipWeapons = new NotifiableList<EquipWeapons>();
+                    _selectableEquipWeapons.ListChanged += List_ListChanged;
                 }
                 return _selectableEquipWeapons;
             }
@@ -121,8 +131,8 @@ namespace MultiplayerARPG
             {
                 if (_selectableEquipWeapons == null)
                 {
-                    _selectableEquipWeapons = new ObservableCollection<EquipWeapons>();
-                    _selectableEquipWeapons.CollectionChanged += List_CollectionChanged;
+                    _selectableEquipWeapons = new NotifiableList<EquipWeapons>();
+                    _selectableEquipWeapons.ListChanged += List_ListChanged;
                 }
                 _selectableEquipWeapons.Clear();
                 foreach (EquipWeapons entry in value)
@@ -136,8 +146,8 @@ namespace MultiplayerARPG
             {
                 if (_attributes == null)
                 {
-                    _attributes = new ObservableCollection<CharacterAttribute>();
-                    _attributes.CollectionChanged += List_CollectionChanged;
+                    _attributes = new NotifiableList<CharacterAttribute>();
+                    _attributes.ListChanged += List_ListChanged;
                 }
                 return _attributes;
             }
@@ -145,8 +155,8 @@ namespace MultiplayerARPG
             {
                 if (_attributes == null)
                 {
-                    _attributes = new ObservableCollection<CharacterAttribute>();
-                    _attributes.CollectionChanged += List_CollectionChanged;
+                    _attributes = new NotifiableList<CharacterAttribute>();
+                    _attributes.ListChanged += List_ListChanged;
                 }
                 _attributes.Clear();
                 foreach (CharacterAttribute entry in value)
@@ -160,8 +170,8 @@ namespace MultiplayerARPG
             {
                 if (_skills == null)
                 {
-                    _skills = new ObservableCollection<CharacterSkill>();
-                    _skills.CollectionChanged += List_CollectionChanged;
+                    _skills = new NotifiableList<CharacterSkill>();
+                    _skills.ListChanged += List_ListChanged;
                 }
                 return _skills;
             }
@@ -169,8 +179,8 @@ namespace MultiplayerARPG
             {
                 if (_skills == null)
                 {
-                    _skills = new ObservableCollection<CharacterSkill>();
-                    _skills.CollectionChanged += List_CollectionChanged;
+                    _skills = new NotifiableList<CharacterSkill>();
+                    _skills.ListChanged += List_ListChanged;
                 }
                 _skills.Clear();
                 foreach (CharacterSkill entry in value)
@@ -202,8 +212,8 @@ namespace MultiplayerARPG
             {
                 if (_buffs == null)
                 {
-                    _buffs = new ObservableCollection<CharacterBuff>();
-                    _buffs.CollectionChanged += List_CollectionChanged;
+                    _buffs = new NotifiableList<CharacterBuff>();
+                    _buffs.ListChanged += List_ListChanged;
                 }
                 return _buffs;
             }
@@ -211,8 +221,8 @@ namespace MultiplayerARPG
             {
                 if (_buffs == null)
                 {
-                    _buffs = new ObservableCollection<CharacterBuff>();
-                    _buffs.CollectionChanged += List_CollectionChanged;
+                    _buffs = new NotifiableList<CharacterBuff>();
+                    _buffs.ListChanged += List_ListChanged;
                 }
                 _buffs.Clear();
                 foreach (CharacterBuff entry in value)
@@ -226,8 +236,8 @@ namespace MultiplayerARPG
             {
                 if (_equipItems == null)
                 {
-                    _equipItems = new ObservableCollection<CharacterItem>();
-                    _equipItems.CollectionChanged += List_CollectionChanged;
+                    _equipItems = new NotifiableList<CharacterItem>();
+                    _equipItems.ListChanged += List_ListChanged;
                 }
                 return _equipItems;
             }
@@ -235,8 +245,8 @@ namespace MultiplayerARPG
             {
                 if (_equipItems == null)
                 {
-                    _equipItems = new ObservableCollection<CharacterItem>();
-                    _equipItems.CollectionChanged += List_CollectionChanged;
+                    _equipItems = new NotifiableList<CharacterItem>();
+                    _equipItems.ListChanged += List_ListChanged;
                 }
                 _equipItems.Clear();
                 foreach (CharacterItem entry in value)
@@ -250,8 +260,8 @@ namespace MultiplayerARPG
             {
                 if (_nonEquipItems == null)
                 {
-                    _nonEquipItems = new ObservableCollection<CharacterItem>();
-                    _nonEquipItems.CollectionChanged += List_CollectionChanged;
+                    _nonEquipItems = new NotifiableList<CharacterItem>();
+                    _nonEquipItems.ListChanged += List_ListChanged;
                 }
                 return _nonEquipItems;
             }
@@ -259,8 +269,8 @@ namespace MultiplayerARPG
             {
                 if (_nonEquipItems == null)
                 {
-                    _nonEquipItems = new ObservableCollection<CharacterItem>();
-                    _nonEquipItems.CollectionChanged += List_CollectionChanged;
+                    _nonEquipItems = new NotifiableList<CharacterItem>();
+                    _nonEquipItems.ListChanged += List_ListChanged;
                 }
                 _nonEquipItems.Clear();
                 foreach (CharacterItem entry in value)
@@ -274,8 +284,8 @@ namespace MultiplayerARPG
             {
                 if (_summons == null)
                 {
-                    _summons = new ObservableCollection<CharacterSummon>();
-                    _summons.CollectionChanged += List_CollectionChanged;
+                    _summons = new NotifiableList<CharacterSummon>();
+                    _summons.ListChanged += List_ListChanged;
                 }
                 return _summons;
             }
@@ -283,8 +293,8 @@ namespace MultiplayerARPG
             {
                 if (_summons == null)
                 {
-                    _summons = new ObservableCollection<CharacterSummon>();
-                    _summons.CollectionChanged += List_CollectionChanged;
+                    _summons = new NotifiableList<CharacterSummon>();
+                    _summons.ListChanged += List_ListChanged;
                 }
                 _summons.Clear();
                 foreach (CharacterSummon entry in value)
@@ -292,7 +302,7 @@ namespace MultiplayerARPG
             }
         }
 
-        private void List_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void List_ListChanged(object sender, NotifiableListAction action, int index)
         {
 #if !NET && !NETCOREAPP
                 this.MarkToMakeCaches();
