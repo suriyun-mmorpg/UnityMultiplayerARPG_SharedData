@@ -160,6 +160,8 @@ namespace MultiplayerARPG
             {
                 writer.PutPackedInt(exp);
             }
+
+            writer.Put(version);
         }
 
         public void Deserialize(NetDataReader reader)
@@ -214,6 +216,8 @@ namespace MultiplayerARPG
             {
                 exp = reader.GetPackedInt();
             }
+
+            version = reader.GetByte();
         }
     }
 }
