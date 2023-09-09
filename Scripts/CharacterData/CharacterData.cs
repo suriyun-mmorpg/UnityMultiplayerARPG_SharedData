@@ -23,6 +23,46 @@ namespace MultiplayerARPG
         ~CharacterData()
         {
 #if !NET && !NETCOREAPP
+            if (_selectableEquipWeapons != null)
+            {
+                _selectableEquipWeapons.Clear();
+                _selectableEquipWeapons = null;
+            }
+            if (_attributes != null)
+            {
+                _attributes.Clear();
+                _attributes = null;
+            }
+            if (_skills != null)
+            {
+                _skills.Clear();
+                _skills = null;
+            }
+            if (_skillUsages != null)
+            {
+                _skillUsages.Clear();
+                _skillUsages = null;
+            }
+            if (_buffs != null)
+            {
+                _buffs.Clear();
+                _buffs = null;
+            }
+            if (_equipItems != null)
+            {
+                _equipItems.Clear();
+                _equipItems = null;
+            }
+            if (_nonEquipItems != null)
+            {
+                _nonEquipItems.Clear();
+                _nonEquipItems = null;
+            }
+            if (_summons != null)
+            {
+                _summons.Clear();
+                _summons = null;
+            }
             this.RemoveCaches();
 #endif
         }
