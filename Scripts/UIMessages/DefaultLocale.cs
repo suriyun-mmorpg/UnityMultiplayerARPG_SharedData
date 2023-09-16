@@ -196,13 +196,19 @@ namespace MultiplayerARPG
             // Error - Game Data
             Texts.Add(UITextKeys.UI_ERROR_INVALID_DATA.ToString(), "Invalid data");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_CHARACTER_DATA.ToString(), "Invalid character data");
+            Texts.Add(UITextKeys.UI_ERROR_INVALID_CHARACTER_ENTITY.ToString(), "Invalid character entity");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_ITEM_DATA.ToString(), "Invalid item data");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_ITEM_INDEX.ToString(), "Invalid item index");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_ENHANCER_ITEM_INDEX.ToString(), "Invalid enhancer item index");
             Texts.Add(UITextKeys.UI_ERROR_ITEM_NOT_EQUIPMENT.ToString(), "Item is not a equipment item");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_ATTRIBUTE_DATA.ToString(), "Invalid attribute data");
+            Texts.Add(UITextKeys.UI_ERROR_INVALID_CURRENCY_DATA.ToString(), "Invalid currency data");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_SKILL_DATA.ToString(), "Invalid skill data");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_GUILD_SKILL_DATA.ToString(), "Invalid guild skill data");
+            Texts.Add(UITextKeys.UI_ERROR_INVALID_FACTION_DATA.ToString(), "Invalid faction data");
+            Texts.Add(UITextKeys.UI_ERROR_INVALID_BUILDING_DATA.ToString(), "Invalid building data");
+            Texts.Add(UITextKeys.UI_ERROR_INVALID_BUILDING_ENTITY.ToString(), "Invalid building entity");
+            Texts.Add(UITextKeys.UI_ERROR_INVALID_VEHICLE_ENTITY.ToString(), "Invalid vehicle entity");
             // Error - Vehicle
             Texts.Add(UITextKeys.UI_ERROR_SEAT_NOT_AVAILABLE.ToString(), "Seat is not available");
             // Error - Enhance
