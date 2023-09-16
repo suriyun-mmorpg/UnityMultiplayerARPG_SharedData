@@ -10,7 +10,9 @@ namespace MultiplayerARPG
     {
         public static readonly CharacterQuest Empty = new CharacterQuest();
         public int dataId;
+        public byte randomTasksIndex;
         public bool isComplete;
+        public long completeTime;
         public bool isTracking;
         public Dictionary<int, int> killedMonsters = new Dictionary<int, int>();
         public List<int> completedTasks = new List<int>();
