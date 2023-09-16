@@ -447,6 +447,7 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_SET_BUILDING_PASSWORD.ToString(), "Set password");
             Texts.Add(UITextKeys.UI_SET_BUILDING_PASSWORD_DESCRIPTION.ToString(), "Enter 6 digits number");
             Texts.Add(UITextKeys.UI_ERROR_WRONG_BUILDING_PASSWORD.ToString(), "Wrong password");
+            Texts.Add(UITextKeys.UI_ERROR_REACHED_BUILD_LIMIT.ToString(), "Cannot build this kind of building anymore");
             // UI Mail
             Texts.Add(UITextKeys.UI_ERROR_MAIL_SEND_NOT_ALLOWED.ToString(), "You're not allowed to send mail");
             Texts.Add(UITextKeys.UI_ERROR_MAIL_SEND_NO_RECEIVER.ToString(), "No receiver, you may entered wrong name");
