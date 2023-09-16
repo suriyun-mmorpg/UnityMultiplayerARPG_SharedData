@@ -99,7 +99,9 @@ namespace MultiplayerARPG
         {
             CharacterQuest clone = new CharacterQuest();
             clone.dataId = dataId;
+            clone.randomTasksIndex = randomTasksIndex;
             clone.isComplete = isComplete;
+            clone.completeTime = completeTime;
             clone.isTracking = isTracking;
             // Clone killed monsters
             Dictionary<int, int> killedMonsters = new Dictionary<int, int>();
@@ -113,11 +115,12 @@ namespace MultiplayerARPG
             return clone;
         }
 
-        public static CharacterQuest Create(int dataId)
+        public static CharacterQuest Create(int dataId, byte randomTasksIndex)
         {
             return new CharacterQuest()
             {
                 dataId = dataId,
+                randomTasksIndex = randomTasksIndex,
                 isComplete = false,
             };
         }
