@@ -129,7 +129,9 @@ namespace MultiplayerARPG
         public void Serialize(NetDataWriter writer)
         {
             writer.PutPackedInt(dataId);
+            writer.Put(randomTasksIndex);
             writer.Put(isComplete);
+            writer.PutPackedLong(completeTime);
             writer.Put(isTracking);
             byte killMonstersCount = (byte)KilledMonsters.Count;
             writer.Put(killMonstersCount);
@@ -155,7 +157,9 @@ namespace MultiplayerARPG
         public void Deserialize(NetDataReader reader)
         {
             dataId = reader.GetPackedInt();
+            randomTasksIndex = reader.GetByte();
             isComplete = reader.GetBool();
+            completeTime = reader.GetPackedLong();
             isTracking = reader.GetBool();
             int killMonstersCount = reader.GetByte();
             KilledMonsters.Clear();
