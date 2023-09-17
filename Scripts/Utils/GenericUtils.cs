@@ -111,4 +111,25 @@ public static partial class GenericUtils
     {
         return new System.Random(seedRandomizer.Next()).RandomInt(min, max);
     }
+
+    public static System.DateTime GetStartDateTime()
+    {
+        return new System.DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+    }
+
+    public static System.DateTime GetDateTimeByMilliseconds(long milliseconds)
+    {
+        return GetStartDateTime().AddMilliseconds(milliseconds);
+    }
+
+    public static System.DateTime GetDateTimeBySeconds(long seconds)
+    {
+        return GetStartDateTime().AddSeconds(seconds);
+    }
+
+    public static System.DateTime StartOfWeek(this System.DateTime dateTime, System.DayOfWeek startOfWeek)
+    {
+        int diff = (7 + (dateTime.DayOfWeek - startOfWeek)) % 7;
+        return dateTime.AddDays(-1 * diff).Date;
+    }
 }
