@@ -471,6 +471,7 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_STOP_VENDING.ToString(), "Confirmation");
             Texts.Add(UITextKeys.UI_STOP_VENDING_DESCRIPTION.ToString(), "Do you want to close your shop?");
             Texts.Add(UITextKeys.UI_ERROR_NO_START_VENDING_ITEMS.ToString(), "No selling items");
+            Texts.Add(UITextKeys.UI_ERROR_REACHED_VENDING_ITEMS_LIMIT.ToString(), "Cannot add more items to sell");
             // Enter Amount
             Texts.Add(UITextKeys.UI_ENTER_ITEM_AMOUNT.ToString(), "Enter Amount");
             Texts.Add(UITextKeys.UI_ENTER_ITEM_AMOUNT_DESCRIPTION.ToString(), "Enter amount of item");
