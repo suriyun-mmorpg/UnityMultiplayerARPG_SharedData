@@ -858,13 +858,13 @@ namespace MultiplayerARPG
         /// <summary>
         /// Format => {0} = {Damage Element Title}, {1} = {Target Amount * 100}
         /// </summary>
-        UI_FORMAT_ARMOR_AMOUNT_RATE,
+        UI_FORMAT_ARMOR_RATE,
 
         // 1.85 Damage Rate
         /// <summary>
         /// Format => {0} = {Min Damage * 100}, {1} = {Max Damage * 100}
         /// </summary>
-        UI_FORMAT_DAMAGE_AMOUNT_RATE,
+        UI_FORMAT_DAMAGE_RATE,
         /// <summary>
         /// Format => {0} = {Damage Element Title}, {1} = {Min Damage * 100}, {2} = {Max Damage * 100}
         /// </summary>
