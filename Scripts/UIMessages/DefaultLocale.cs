@@ -599,9 +599,9 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_INVALID_CHANNEL_ID.ToString(), "Invalid channel");
             Texts.Add(UITextKeys.UI_ERROR_CHANNEL_IS_FULL.ToString(), "Channel is full");
             // 1.85 Armor Rate
-            Texts.Add(UIFormatKeys.UI_FORMAT_ARMOR_AMOUNT_RATE.ToString(), "{0} Armor: {1}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_ARMOR_RATE.ToString(), "{0} Armor: {1}%");
             // 1.85 Damage Rate
-            Texts.Add(UIFormatKeys.UI_FORMAT_DAMAGE_AMOUNT_RATE.ToString(), "{0}~{1}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_DAMAGE_RATE.ToString(), "{0}~{1}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_DAMAGE_WITH_ELEMENTAL_RATE.ToString(), "{0} Damage: {1}~{2}%");
         }
     }
