@@ -20,7 +20,6 @@ namespace MultiplayerARPG
         private List<CharacterDataFloat32> _publicFloats = new List<CharacterDataFloat32>();
 
         public string UserId { get; set; }
-        public int FactionId { get; set; }
         public float StatPoint { get; set; }
         public float SkillPoint { get; set; }
         public int Gold { get; set; }

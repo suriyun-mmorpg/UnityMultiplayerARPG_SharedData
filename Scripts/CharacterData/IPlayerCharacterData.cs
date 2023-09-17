@@ -9,10 +9,6 @@ namespace MultiplayerARPG
         /// </summary>
         string UserId { get; set; }
         /// <summary>
-        /// Current Faction
-        /// </summary>
-        int FactionId { get; set; }
-        /// <summary>
         /// Stat point which uses for increase attribute amount
         /// </summary>
         float StatPoint { get; set; }
