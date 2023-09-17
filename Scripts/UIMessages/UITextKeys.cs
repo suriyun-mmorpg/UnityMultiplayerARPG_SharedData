@@ -335,6 +335,7 @@ namespace MultiplayerARPG
         UI_STOP_VENDING,
         UI_STOP_VENDING_DESCRIPTION,
         UI_ERROR_NO_START_VENDING_ITEMS,
+        UI_ERROR_REACHED_VENDING_ITEMS_LIMIT,
         // Error - App Server
         UI_ERROR_APP_NOT_READY,
         UI_ERROR_MAP_EXISTED,
