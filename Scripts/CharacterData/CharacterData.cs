@@ -19,6 +19,7 @@ namespace MultiplayerARPG
         private NotifiableList<CharacterItem> _nonEquipItems;
         private NotifiableList<CharacterSummon> _summons;
         private int _titleDataId;
+        private int _factionId;
 
         ~CharacterData()
         {
@@ -121,6 +122,17 @@ namespace MultiplayerARPG
             set
             {
                 _titleDataId = value;
+#if !NET && !NETCOREAPP
+                this.MarkToMakeCaches();
+#endif
+            }
+        }
+        public int FactionId
+        {
+            get { return _factionId; }
+            set
+            {
+                _factionId = value;
 #if !NET && !NETCOREAPP
                 this.MarkToMakeCaches();
 #endif
