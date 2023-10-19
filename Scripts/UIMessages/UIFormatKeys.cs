@@ -869,5 +869,11 @@ namespace MultiplayerARPG
         /// Format => {0} = {Damage Element Title}, {1} = {Min Damage * 100}, {2} = {Max Damage * 100}
         /// </summary>
         UI_FORMAT_DAMAGE_WITH_ELEMENTAL_RATE,
+
+        // Format - Item Attribute
+        /// <summary>
+        /// Format => {0} = {Attribute Title}, {1} = {Attribute Amount}
+        /// </summary>
+        UI_FORMAT_ITEM_ATTRIBUTE,
     }
 }
