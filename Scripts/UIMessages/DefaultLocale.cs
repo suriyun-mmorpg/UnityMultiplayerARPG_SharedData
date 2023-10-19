@@ -508,7 +508,9 @@ namespace MultiplayerARPG
             // Format - Item Mount
             Texts.Add(UIFormatKeys.UI_FORMAT_ITEM_MOUNT.ToString(), "Mount {0}");
             // Format - Item Skill
-            Texts.Add(UIFormatKeys.UI_FORMAT_ITEM_SKILL.ToString(), "Use Skill {0} Lv. {1}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_ITEM_SKILL.ToString(), "Skill {0}, Level: {1}");
+            // Format - Item Attribute
+            Texts.Add(UIFormatKeys.UI_FORMAT_ITEM_ATTRIBUTE.ToString(), "Attribute {0}, Amount: {1}");
             // Format - Skill Summon
             Texts.Add(UIFormatKeys.UI_FORMAT_SKILL_SUMMON.ToString(), "Summon {0} Lv. {1} x {2} (Max: {3}), {4} Secs.");
             // Format - Skill Mount
