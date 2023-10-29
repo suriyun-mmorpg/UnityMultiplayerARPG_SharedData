@@ -37,6 +37,7 @@ namespace MultiplayerARPG
         public float lockRemainsDuration;
         public long expireTime;
         public int randomSeed;
+        public int ammoDataId;
         public int ammo;
         public List<int> sockets = new List<int>();
         public byte version;
@@ -92,6 +93,7 @@ namespace MultiplayerARPG
                 lockRemainsDuration = lockRemainsDuration,
                 expireTime = expireTime,
                 randomSeed = randomSeed,
+                ammoDataId = ammoDataId,
                 ammo = ammo,
                 sockets = new List<int>(sockets),
                 version = version,
@@ -153,6 +155,7 @@ namespace MultiplayerARPG
 
             if (isWeapon)
             {
+                writer.PutPackedInt(ammoDataId);
                 writer.PutPackedInt(ammo);
             }
 
@@ -179,6 +182,7 @@ namespace MultiplayerARPG
                 lockRemainsDuration = 0;
                 expireTime = 0;
                 randomSeed = 0;
+                ammoDataId = 0;
                 ammo = 0;
                 Sockets.Clear();
                 return;
@@ -209,6 +213,7 @@ namespace MultiplayerARPG
 
             if (syncState.Has(CharacterItemSyncState.IsWeapon))
             {
+                ammoDataId = reader.GetPackedInt();
                 ammo = reader.GetPackedInt();
             }
 
