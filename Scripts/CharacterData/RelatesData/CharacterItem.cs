@@ -18,6 +18,7 @@ namespace MultiplayerARPG
         public float lockRemainsDuration;
         public long expireTime;
         public int randomSeed;
+        public int ammoDataId;
         public int ammo;
         public List<int> sockets = new List<int>();
         public byte version;
@@ -73,6 +74,7 @@ namespace MultiplayerARPG
                 lockRemainsDuration = lockRemainsDuration,
                 expireTime = expireTime,
                 randomSeed = randomSeed,
+                ammoDataId = ammoDataId,
                 ammo = ammo,
                 sockets = new List<int>(sockets),
                 version = version,
