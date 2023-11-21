@@ -875,5 +875,31 @@ namespace MultiplayerARPG
         /// Format => {0} = {Attribute Title}, {1} = {Attribute Amount}
         /// </summary>
         UI_FORMAT_ITEM_ATTRIBUTE,
+
+        // 1.86 Status Effect Applying
+        /// <summary>
+        /// Format => {0} = {Status Effect Title}, {1} = {Level}
+        /// </summary>
+        UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_SELF,
+        /// <summary>
+        /// Format => {0} = {Status Effect Title}, {1} = {Level}
+        /// </summary>
+        UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_ENEMY,
+        /// <summary>
+        /// Format => {0} = {Status Effect Title}, {1} = {Level}
+        /// </summary>
+        UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_SELF_WHEN_ATTACKING,
+        /// <summary>
+        /// Format => {0} = {Status Effect Title}, {1} = {Level}
+        /// </summary>
+        UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_ENEMY_WHEN_ATTACKING,
+        /// <summary>
+        /// Format => {0} = {Status Effect Title}, {1} = {Level}
+        /// </summary>
+        UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_SELF_WHEN_ATTACKED,
+        /// <summary>
+        /// Format => {0} = {Status Effect Title}, {1} = {Level}
+        /// </summary>
+        UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_ENEMY_WHEN_ATTACKED,
     }
 }
