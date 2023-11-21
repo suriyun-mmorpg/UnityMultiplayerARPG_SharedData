@@ -606,6 +606,13 @@ namespace MultiplayerARPG
             // 1.85 Damage Rate
             Texts.Add(UIFormatKeys.UI_FORMAT_DAMAGE_RATE.ToString(), "{0}~{1}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_DAMAGE_WITH_ELEMENTAL_RATE.ToString(), "{0} Damage: {1}~{2}%");
+            // 1.86 Status Effect Applying
+            Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_SELF.ToString(), "Applies {0}, Lv. {1} to user");
+            Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_ENEMY.ToString(), "Applies {0}, Lv. {1} to enemy");
+            Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_SELF_WHEN_ATTACKING.ToString(), "Applies {0}, Lv. {1} to user when attacking");
+            Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_ENEMY_WHEN_ATTACKING.ToString(), "Applies {0}, Lv. {1} to enemy when attacking");
+            Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_SELF_WHEN_ATTACKED.ToString(), "Applies {0}, Lv. {1} to user when attacked");
+            Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_ENEMY_WHEN_ATTACKED.ToString(), "Applies {0}, Lv. {1} to enemy when attacked");
         }
     }
 }
