@@ -901,5 +901,31 @@ namespace MultiplayerARPG
         /// Format => {0} = {Status Effect Title}, {1} = {Level}
         /// </summary>
         UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_ENEMY_WHEN_ATTACKED,
+
+        // 1.86 Buff
+        /// <summary>
+        /// Format => {0} = {Max Stack}
+        /// </summary>
+        UI_FORMAT_BUFF_MAX_STACK,
+        /// <summary>
+        /// Format => {0} = {Chance * 100}
+        /// </summary>
+        UI_FORMAT_BUFF_REMOVE_BUFF_WHEN_ATTACK_CHANCE,
+        /// <summary>
+        /// Format => {0} = {Chance * 100}
+        /// </summary>
+        UI_FORMAT_BUFF_REMOVE_BUFF_WHEN_ATTACKED_CHANCE,
+        /// <summary>
+        /// Format => {0} = {Chance * 100}
+        /// </summary>
+        UI_FORMAT_BUFF_REMOVE_BUFF_USE_SKILL_CHANCE,
+        /// <summary>
+        /// Format => {0} = {Chance * 100}
+        /// </summary>
+        UI_FORMAT_BUFF_REMOVE_BUFF_USE_ITEM_CHANCE,
+        /// <summary>
+        /// Format => {0} = {Chance * 100}
+        /// </summary>
+        UI_FORMAT_BUFF_REMOVE_BUFF_PICKUP_ITEM_CHANCE,
     }
 }

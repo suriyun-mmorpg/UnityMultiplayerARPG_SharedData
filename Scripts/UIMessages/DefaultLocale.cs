@@ -613,6 +613,30 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_ENEMY_WHEN_ATTACKING.ToString(), "Applies {0}, Lv. {1} to enemy when attacking");
             Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_SELF_WHEN_ATTACKED.ToString(), "Applies {0}, Lv. {1} to user when attacked");
             Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_APPLYING_TARGET_ENEMY_WHEN_ATTACKED.ToString(), "Applies {0}, Lv. {1} to enemy when attacked");
+            // 1.86 Buff formats
+            Texts.Add(UIFormatKeys.UI_FORMAT_BUFF_MAX_STACK.ToString(), "Max stack: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_BUFF_REMOVE_BUFF_WHEN_ATTACK_CHANCE.ToString(), "This buff have chance {0}% to be removed when attack");
+            Texts.Add(UIFormatKeys.UI_FORMAT_BUFF_REMOVE_BUFF_WHEN_ATTACKED_CHANCE.ToString(), "This buff have chance {0}% to be removed when attacked");
+            Texts.Add(UIFormatKeys.UI_FORMAT_BUFF_REMOVE_BUFF_USE_SKILL_CHANCE.ToString(), "This buff have chance {0}% to be removed when use skill");
+            Texts.Add(UIFormatKeys.UI_FORMAT_BUFF_REMOVE_BUFF_USE_ITEM_CHANCE.ToString(), "This buff have chance {0}% to be removed when use item");
+            Texts.Add(UIFormatKeys.UI_FORMAT_BUFF_REMOVE_BUFF_PICKUP_ITEM_CHANCE.ToString(), "This buff have chance {0}% to be removed when pick up item");
+            // 1.86 Buff labels
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_MOVE.ToString(), "Disallow to move while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_SPRINT.ToString(), "Disallow to sprint while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_WALK.ToString(), "Disallow to walk while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_JUMP.ToString(), "Disallow to jump while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_CROUCH.ToString(), "Disallow to crouch while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_CRAWL.ToString(), "Disallow to crawl while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_ATTACK.ToString(), "Disallow to attack while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_USE_SKILL.ToString(), "Disallow to use skill while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_USE_ITEM.ToString(), "Disallow to use item while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_FREEZE_ANIMATION.ToString(), "Character will be freezed while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_IS_HIDE.ToString(), "Character will be hidden from other characters");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_IS_REVEALS_HIDE.ToString(), "Character will be able to see hidden characters");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_IS_BLIND.ToString(), "Character will not be able to see other characters");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_MUTE_FOOTSTEP_SOUND.ToString(), "Mute footstep sound while this buff is activated");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DO_NOT_REMOVE_ON_DEAD.ToString(), "This buff will not be removed when character dead");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_IS_EXTEND_DURATION.ToString(), "Buff duration can be extended by activate this buff again");
         }
     }
 }
