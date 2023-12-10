@@ -637,6 +637,12 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_LABEL_BUFF_MUTE_FOOTSTEP_SOUND.ToString(), "Mute footstep sound while this buff is activated");
             Texts.Add(UITextKeys.UI_LABEL_BUFF_DO_NOT_REMOVE_ON_DEAD.ToString(), "This buff will not be removed when character dead");
             Texts.Add(UITextKeys.UI_LABEL_BUFF_IS_EXTEND_DURATION.ToString(), "Buff duration can be extended by activate this buff again");
+            // 1.86 Status Effect Resistance
+            Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_RESISTANCE_ENTRY.ToString(), "Lv.{0}|{1}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_STATUS_EFFECT_RESISTANCE_ENTRIES.ToString(), "{0} Resistance: {1}");
+            // 1.86 Buff Removal
+            Texts.Add(UIFormatKeys.UI_FORMAT_BUFF_REMOVAL_ENTRY.ToString(), "Lv.{0}|{1}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_BUFF_REMOVAL_ENTRIES.ToString(), "Chance to remove {0}: {1}");
         }
     }
 }
