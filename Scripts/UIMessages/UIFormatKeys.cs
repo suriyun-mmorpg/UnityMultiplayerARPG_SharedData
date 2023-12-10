@@ -927,5 +927,25 @@ namespace MultiplayerARPG
         /// Format => {0} = {Chance * 100}
         /// </summary>
         UI_FORMAT_BUFF_REMOVE_BUFF_PICKUP_ITEM_CHANCE,
+
+        // 1.86 Status Effect Resistance
+        /// <summary>
+        /// Format => {0} = {Level}, {1} = {Chance * 100}
+        /// </summary>
+        UI_FORMAT_STATUS_EFFECT_RESISTANCE_ENTRY,
+        /// <summary>
+        /// Format => {0} = {Status Effect}, {1} = {Entries}
+        /// </summary>
+        UI_FORMAT_STATUS_EFFECT_RESISTANCE_ENTRIES,
+
+        // 1.86 Buff Removal
+        /// <summary>
+        /// Format => {0} = {Level}, {1} = {Chance * 100}
+        /// </summary>
+        UI_FORMAT_BUFF_REMOVAL_ENTRY,
+        /// <summary>
+        /// Format => {0} = {Status Effect}, {1} = {Entries}
+        /// </summary>
+        UI_FORMAT_BUFF_REMOVAL_ENTRIES,
     }
 }
