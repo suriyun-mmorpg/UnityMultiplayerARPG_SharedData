@@ -643,6 +643,9 @@ namespace MultiplayerARPG
             // 1.86 Buff Removal
             Texts.Add(UIFormatKeys.UI_FORMAT_BUFF_REMOVAL_ENTRY.ToString(), "Lv.{0} {1}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_BUFF_REMOVAL_ENTRIES.ToString(), "Chance to remove {0} buff: {1}");
+            // 1.86d Items Limit Error
+            Texts.Add(UITextKeys.UI_ERROR_REACHED_DEALING_ITEMS_LIMIT.ToString(), "Cannot add more items to offer");
+            Texts.Add(UITextKeys.UI_ERROR_REACHED_REFINE_ENHANCER_ITEMS_LIMIT.ToString(), "Cannot add more items to enhance");
         }
     }
 }
