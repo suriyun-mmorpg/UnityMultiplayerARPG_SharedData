@@ -7,9 +7,9 @@ public static partial class GenericUtils
     private static System.Random randomizer = new System.Random();
     private static System.Random seedRandomizer = new System.Random(System.DateTime.Now.Millisecond);
 
-    public static string GetUniqueId(int length = 21, string mask = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_-")
+    public static string GetUniqueId()
     {
-        return Nanoid.Nanoid.Generate(mask, length);
+        return System.Guid.NewGuid().ToString("N");
     }
 
     public static string GetMD5(this string text)
