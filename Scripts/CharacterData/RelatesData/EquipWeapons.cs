@@ -43,7 +43,6 @@ namespace MultiplayerARPG
 
         public void Deserialize(NetDataReader reader)
         {
-            Validate();
             // Right hand
             rightHand = reader.Get(() => new CharacterItem());
             // Left hand
