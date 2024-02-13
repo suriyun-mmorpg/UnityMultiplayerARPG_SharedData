@@ -646,6 +646,14 @@ namespace MultiplayerARPG
             // 1.86d Items Limit Error
             Texts.Add(UITextKeys.UI_ERROR_REACHED_DEALING_ITEMS_LIMIT.ToString(), "Cannot add more items to offer");
             Texts.Add(UITextKeys.UI_ERROR_REACHED_REFINE_ENHANCER_ITEMS_LIMIT.ToString(), "Cannot add more items to enhance");
+            // Character Info Formats
+            Texts.Add(UIGenderKeys.UI_GENDER_MALE.ToString(), "Male");
+            Texts.Add(UIGenderKeys.UI_GENDER_FEMALE.ToString(), "Female");
+            Texts.Add(UIGenderKeys.UI_GENDER_UNSPECIFIED.ToString(), "Unspecified");
+            Texts.Add(UIFormatKeys.UI_FORMAT_CHARACTER_GENDER.ToString(), "Gender: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_CHARACTER_AGE.ToString(), "Age: <color=#d44849ff>{0}</color>");
+            Texts.Add(UIFormatKeys.UI_FORMAT_CHARACTER_HEIGHT.ToString(), "Height: <color=#d44849ff>{0} cm.</color>");
+            Texts.Add(UIFormatKeys.UI_FORMAT_CHARACTER_WEIGHT.ToString(), "Weight: <color=#d44849ff>{0} kg.</color>");
         }
     }
 }

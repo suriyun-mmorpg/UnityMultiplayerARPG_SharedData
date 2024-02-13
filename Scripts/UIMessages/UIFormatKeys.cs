@@ -947,5 +947,11 @@ namespace MultiplayerARPG
         /// Format => {0} = {Status Effect}, {1} = {Entries}
         /// </summary>
         UI_FORMAT_BUFF_REMOVAL_ENTRIES,
+
+        // Character Info Formats
+        UI_FORMAT_CHARACTER_GENDER,
+        UI_FORMAT_CHARACTER_AGE,
+        UI_FORMAT_CHARACTER_HEIGHT,
+        UI_FORMAT_CHARACTER_WEIGHT,
     }
 }
