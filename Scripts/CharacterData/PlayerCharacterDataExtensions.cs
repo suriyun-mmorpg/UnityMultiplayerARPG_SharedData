@@ -115,6 +115,7 @@ namespace MultiplayerARPG
 
         public static void SerializeCharacterData<T>(this T characterData, NetDataWriter writer,
             bool withTransforms = true,
+            bool withRespawningMap = true,
             bool withEquipWeapons = true,
             bool withAttributes = true,
             bool withSkills = true,
@@ -162,9 +163,9 @@ namespace MultiplayerARPG
                 writer.Put(characterData.CurrentRotation.y);
                 writer.Put(characterData.CurrentRotation.z);
             }
-            writer.Put(characterData.RespawnMapName);
-            if (withTransforms)
+            if (withRespawningMap)
             {
+                writer.Put(characterData.RespawnMapName);
                 writer.Put(characterData.RespawnPosition.x);
                 writer.Put(characterData.RespawnPosition.y);
                 writer.Put(characterData.RespawnPosition.z);
@@ -355,6 +356,7 @@ namespace MultiplayerARPG
 
         public static T DeserializeCharacterData<T>(this T characterData, NetDataReader reader,
             bool withTransforms = true,
+            bool withRespawningMap = true,
             bool withEquipWeapons = true,
             bool withAttributes = true,
             bool withSkills = true,
@@ -398,9 +400,9 @@ namespace MultiplayerARPG
                 characterData.CurrentPosition = new Vec3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
                 characterData.CurrentRotation = new Vec3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
             }
-            characterData.RespawnMapName = reader.GetString();
-            if (withTransforms)
+            if (withRespawningMap)
             {
+                characterData.RespawnMapName = reader.GetString();
                 characterData.RespawnPosition = new Vec3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
             }
             characterData.MountDataId = reader.GetPackedInt();
