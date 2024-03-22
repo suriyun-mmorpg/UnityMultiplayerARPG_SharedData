@@ -55,6 +55,7 @@ namespace MultiplayerARPG
 
         public CharacterItem Clone(bool generateNewId = false)
         {
+            List<int> sockets = this.sockets == null ? new List<int>() : new List<int>(this.sockets);
             return new CharacterItem()
             {
                 id = generateNewId ? GenericUtils.GetUniqueId() : id,
@@ -69,7 +70,7 @@ namespace MultiplayerARPG
                 randomSeed = randomSeed,
                 ammoDataId = ammoDataId,
                 ammo = ammo,
-                sockets = new List<int>(sockets),
+                sockets = sockets,
                 version = version,
             };
         }
