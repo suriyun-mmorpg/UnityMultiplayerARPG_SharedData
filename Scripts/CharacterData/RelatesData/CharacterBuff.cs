@@ -10,7 +10,7 @@
     }
 
     [System.Serializable]
-    public partial class CharacterBuff
+    public partial struct CharacterBuff
     {
         public static readonly CharacterBuff Empty = new CharacterBuff();
         public string id;

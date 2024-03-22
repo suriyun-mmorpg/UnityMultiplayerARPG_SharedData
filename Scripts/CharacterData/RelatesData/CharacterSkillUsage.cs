@@ -8,7 +8,7 @@
     }
 
     [System.Serializable]
-    public partial class CharacterSkillUsage
+    public partial struct CharacterSkillUsage
     {
         public static readonly CharacterSkillUsage Empty = new CharacterSkillUsage();
         public SkillUsageType type;

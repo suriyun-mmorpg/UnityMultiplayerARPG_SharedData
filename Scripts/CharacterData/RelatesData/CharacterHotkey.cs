@@ -9,7 +9,7 @@
     }
 
     [System.Serializable]
-    public partial class CharacterHotkey
+    public partial struct CharacterHotkey
     {
         public static readonly CharacterHotkey Empty = new CharacterHotkey();
         public string hotkeyId;

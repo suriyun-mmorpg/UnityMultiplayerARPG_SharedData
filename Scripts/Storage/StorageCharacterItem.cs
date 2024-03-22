@@ -11,7 +11,7 @@ namespace MultiplayerARPG
     }
 
     [System.Serializable]
-    public partial class StorageCharacterItem
+    public partial struct StorageCharacterItem
     {
         public static readonly StorageCharacterItem Empty = new StorageCharacterItem();
         public StorageType storageType;

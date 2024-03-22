@@ -1,11 +1,10 @@
 ﻿using Cysharp.Text;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class CharacterItem
+    public partial struct CharacterItem
     {
         public static readonly CharacterItem Empty = new CharacterItem();
         public string id;
@@ -20,41 +19,35 @@ namespace MultiplayerARPG
         public int randomSeed;
         public int ammoDataId;
         public int ammo;
-        public List<int> sockets = new List<int>();
+        public List<int> sockets;
         public byte version;
 
-        [IgnoreDataMember]
-        public List<int> Sockets
+        public List<int> ReadSockets(string socketsString, char separator = ';')
         {
-            get
-            {
-                if (sockets == null)
-                    sockets = new List<int>();
-                return sockets;
-            }
-        }
-
-        public List<int> ReadSockets(string sockets, char separator = ';')
-        {
-            Sockets.Clear();
-            string[] splitTexts = sockets.Split(separator);
+            if (sockets == null)
+                sockets = new List<int>();
+            sockets.Clear();
+            string[] splitTexts = socketsString.Split(separator);
             foreach (string text in splitTexts)
             {
                 if (string.IsNullOrEmpty(text))
                     continue;
-                Sockets.Add(int.Parse(text));
+                sockets.Add(int.Parse(text));
             }
-            return Sockets;
+            return sockets;
         }
 
         public string WriteSockets(char separator = ';')
         {
             using (Utf16ValueStringBuilder stringBuilder = ZString.CreateStringBuilder(true))
             {
-                foreach (int socket in Sockets)
+                if (sockets != null && sockets.Count > 0)
                 {
-                    stringBuilder.Append(socket);
-                    stringBuilder.Append(separator);
+                    foreach (int socket in sockets)
+                    {
+                        stringBuilder.Append(socket);
+                        stringBuilder.Append(separator);
+                    }
                 }
                 return stringBuilder.ToString();
             }

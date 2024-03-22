@@ -129,7 +129,7 @@ namespace MultiplayerARPG
             {
                 foreach (CharacterItem item in Items)
                 {
-                    if (item == null) continue;
+                    if (item.IsEmptySlot()) continue;
                     stringBuilder.Append(item.dataId);
                     stringBuilder.Append(':');
                     stringBuilder.Append(item.amount);
