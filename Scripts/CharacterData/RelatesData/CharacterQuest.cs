@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class CharacterQuest : INetSerializable
+    public partial struct CharacterQuest : INetSerializable
     {
         public static readonly CharacterQuest Empty = new CharacterQuest();
         public int dataId;
@@ -14,35 +14,15 @@ namespace MultiplayerARPG
         public bool isComplete;
         public long completeTime;
         public bool isTracking;
-        public Dictionary<int, int> killedMonsters = new Dictionary<int, int>();
-        public List<int> completedTasks = new List<int>();
+        public Dictionary<int, int> killedMonsters;
+        public List<int> completedTasks;
 
-        [IgnoreDataMember]
-        public Dictionary<int, int> KilledMonsters
+        public Dictionary<int, int> ReadKilledMonsters(string killedMonstersString)
         {
-            get
-            {
-                if (killedMonsters == null)
-                    killedMonsters = new Dictionary<int, int>();
-                return killedMonsters;
-            }
-        }
-
-        [IgnoreDataMember]
-        public List<int> CompletedTasks
-        {
-            get
-            {
-                if (completedTasks == null)
-                    completedTasks = new List<int>();
-                return completedTasks;
-            }
-        }
-
-        public Dictionary<int, int> ReadKilledMonsters(string killMonsters)
-        {
-            KilledMonsters.Clear();
-            string[] splitSets = killMonsters.Split(';');
+            if (killedMonsters == null)
+                killedMonsters = new Dictionary<int, int>();
+            killedMonsters.Clear();
+            string[] splitSets = killedMonstersString.Split(';');
             foreach (string set in splitSets)
             {
                 if (string.IsNullOrEmpty(set))
@@ -50,47 +30,55 @@ namespace MultiplayerARPG
                 string[] splitData = set.Split(':');
                 if (splitData.Length != 2)
                     continue;
-                KilledMonsters[int.Parse(splitData[0])] = int.Parse(splitData[1]);
+                killedMonsters[int.Parse(splitData[0])] = int.Parse(splitData[1]);
             }
-            return KilledMonsters;
+            return killedMonsters;
         }
 
         public string WriteKilledMonsters()
         {
             using (Utf16ValueStringBuilder stringBuilder = ZString.CreateStringBuilder(true))
             {
-                foreach (KeyValuePair<int, int> keyValue in KilledMonsters)
+                if (killedMonsters != null && killedMonsters.Count > 0)
                 {
-                    stringBuilder.Append(keyValue.Key);
-                    stringBuilder.Append(':');
-                    stringBuilder.Append(keyValue.Value);
-                    stringBuilder.Append(';');
+                    foreach (KeyValuePair<int, int> keyValue in killedMonsters)
+                    {
+                        stringBuilder.Append(keyValue.Key);
+                        stringBuilder.Append(':');
+                        stringBuilder.Append(keyValue.Value);
+                        stringBuilder.Append(';');
+                    }
                 }
                 return stringBuilder.ToString();
             }
         }
 
-        public List<int> ReadCompletedTasks(string completedTasks)
+        public List<int> ReadCompletedTasks(string completedTasksString)
         {
-            CompletedTasks.Clear();
-            string[] splitTexts = completedTasks.Split(';');
+            if (completedTasks == null)
+                completedTasks = new List<int>();
+            completedTasks.Clear();
+            string[] splitTexts = completedTasksString.Split(';');
             foreach (string text in splitTexts)
             {
                 if (string.IsNullOrEmpty(text))
                     continue;
-                CompletedTasks.Add(int.Parse(text));
+                completedTasks.Add(int.Parse(text));
             }
-            return CompletedTasks;
+            return completedTasks;
         }
 
         public string WriteCompletedTasks()
         {
             using (Utf16ValueStringBuilder stringBuilder = ZString.CreateStringBuilder(true))
             {
-                foreach (int completedTask in CompletedTasks)
+                if (completedTasks != null && completedTasks.Count > 0)
                 {
-                    stringBuilder.Append(completedTask);
-                    stringBuilder.Append(';');
+                    foreach (int completedTask in completedTasks)
+                    {
+                        stringBuilder.Append(completedTask);
+                        stringBuilder.Append(';');
+                    }
                 }
                 return stringBuilder.ToString();
             }
@@ -133,21 +121,25 @@ namespace MultiplayerARPG
             writer.Put(isComplete);
             writer.PutPackedLong(completeTime);
             writer.Put(isTracking);
-            byte killMonstersCount = (byte)KilledMonsters.Count;
-            writer.Put(killMonstersCount);
-            if (killMonstersCount > 0)
+            byte killedMonstersCount = 0;
+            if (killedMonsters != null)
+                killedMonstersCount = (byte)killedMonsters.Count;
+            writer.Put(killedMonstersCount);
+            if (killedMonstersCount > 0)
             {
-                foreach (KeyValuePair<int, int> killedMonster in KilledMonsters)
+                foreach (KeyValuePair<int, int> killedMonster in killedMonsters)
                 {
                     writer.PutPackedInt(killedMonster.Key);
                     writer.PutPackedInt(killedMonster.Value);
                 }
             }
-            byte completedTasksCount = (byte)CompletedTasks.Count;
+            byte completedTasksCount = 0;
+            if (completedTasks != null)
+                completedTasksCount = (byte)completedTasks.Count;
             writer.Put(completedTasksCount);
             if (completedTasksCount > 0)
             {
-                foreach (int talkedNpc in CompletedTasks)
+                foreach (int talkedNpc in completedTasks)
                 {
                     writer.PutPackedInt(talkedNpc);
                 }
@@ -156,22 +148,26 @@ namespace MultiplayerARPG
 
         public void Deserialize(NetDataReader reader)
         {
+            if (killedMonsters == null)
+                killedMonsters = new Dictionary<int, int>();
+            if (completedTasks == null)
+                completedTasks = new List<int>();
             dataId = reader.GetPackedInt();
             randomTasksIndex = reader.GetByte();
             isComplete = reader.GetBool();
             completeTime = reader.GetPackedLong();
             isTracking = reader.GetBool();
             int killMonstersCount = reader.GetByte();
-            KilledMonsters.Clear();
+            killedMonsters.Clear();
             for (int i = 0; i < killMonstersCount; ++i)
             {
-                KilledMonsters.Add(reader.GetPackedInt(), reader.GetPackedInt());
+                killedMonsters.Add(reader.GetPackedInt(), reader.GetPackedInt());
             }
             int completedTasksCount = reader.GetByte();
-            CompletedTasks.Clear();
+            completedTasks.Clear();
             for (int i = 0; i < completedTasksCount; ++i)
             {
-                CompletedTasks.Add(reader.GetPackedInt());
+                completedTasks.Add(reader.GetPackedInt());
             }
         }
     }

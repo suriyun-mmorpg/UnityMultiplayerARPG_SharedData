@@ -10,7 +10,7 @@ namespace MultiplayerARPG
     }
 
     [System.Serializable]
-    public partial class CharacterSkillUsage : INetSerializable
+    public partial struct CharacterSkillUsage : INetSerializable
     {
         public static readonly CharacterSkillUsage Empty = new CharacterSkillUsage();
         public SkillUsageType type;

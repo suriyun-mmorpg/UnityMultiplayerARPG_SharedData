@@ -3,7 +3,7 @@
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class CharacterAttribute : INetSerializable
+    public partial struct CharacterAttribute : INetSerializable
     {
         public static readonly CharacterAttribute Empty = new CharacterAttribute();
         public int dataId;

@@ -11,7 +11,7 @@ namespace MultiplayerARPG
     }
 
     [System.Serializable]
-    public partial class CharacterSummon : INetSerializable
+    public partial struct CharacterSummon : INetSerializable
     {
         public static readonly CharacterSummon Empty = new CharacterSummon();
         public string id;
