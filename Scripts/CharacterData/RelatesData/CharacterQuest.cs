@@ -1,6 +1,5 @@
 ﻿using Cysharp.Text;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 namespace MultiplayerARPG
 {
@@ -93,13 +92,16 @@ namespace MultiplayerARPG
             clone.isTracking = isTracking;
             // Clone killed monsters
             Dictionary<int, int> killedMonsters = new Dictionary<int, int>();
-            foreach (KeyValuePair<int, int> cloneEntry in this.killedMonsters)
+            if (this.killedMonsters != null && this.killedMonsters.Count > 0)
             {
-                killedMonsters[cloneEntry.Key] = cloneEntry.Value;
+                foreach (KeyValuePair<int, int> cloneEntry in this.killedMonsters)
+                {
+                    killedMonsters[cloneEntry.Key] = cloneEntry.Value;
+                }
             }
             clone.killedMonsters = killedMonsters;
             // Clone complete tasks
-            clone.completedTasks = new List<int>(completedTasks);
+            clone.completedTasks = completedTasks == null ? new List<int>() : new List<int>(completedTasks);
             return clone;
         }
 
@@ -110,6 +112,8 @@ namespace MultiplayerARPG
                 dataId = dataId,
                 randomTasksIndex = randomTasksIndex,
                 isComplete = false,
+                killedMonsters = new Dictionary<int, int>(),
+                completedTasks = new List<int>(),
             };
         }
     }
