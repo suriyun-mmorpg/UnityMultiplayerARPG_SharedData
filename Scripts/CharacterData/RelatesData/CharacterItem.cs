@@ -74,6 +74,7 @@ namespace MultiplayerARPG
 
         public CharacterItem Clone(bool generateNewId = false)
         {
+            List<int> sockets = this.sockets == null ? new List<int>() : new List<int>(this.sockets);
             return new CharacterItem()
             {
                 id = generateNewId ? GenericUtils.GetUniqueId() : id,
@@ -88,23 +89,22 @@ namespace MultiplayerARPG
                 randomSeed = randomSeed,
                 ammoDataId = ammoDataId,
                 ammo = ammo,
-                sockets = new List<int>(sockets),
+                sockets = sockets,
                 version = version,
             };
         }
 
         public void Serialize(NetDataWriter writer)
         {
-            MakeCache();
-            if (amount <= 0 || _cacheItem == null)
+            if (amount <= 0 || GetItem() == null)
             {
                 writer.Put((byte)CharacterItemSyncState.IsEmpty);
                 writer.Put(id);
                 return;
             }
-            bool isEquipment = _cacheEquipmentItem != null;
-            bool isWeapon = isEquipment && _cacheWeaponItem != null;
-            bool isPet = _cachePetItem != null;
+            bool isEquipment = GetEquipmentItem() != null;
+            bool isWeapon = isEquipment && GetWeaponItem() != null;
+            bool isPet = GetPetItem() != null;
             CharacterItemSyncState syncState = CharacterItemSyncState.None;
             if (isEquipment)
             {
