@@ -12,7 +12,7 @@ namespace MultiplayerARPG
     }
 
     [System.Serializable]
-    public partial class CharacterBuff : INetSerializable
+    public partial struct CharacterBuff : INetSerializable
     {
         public static readonly CharacterBuff Empty = new CharacterBuff();
         public string id;

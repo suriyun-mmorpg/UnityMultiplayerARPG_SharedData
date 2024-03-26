@@ -3,7 +3,7 @@
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class CharacterCurrency : INetSerializable
+    public partial struct CharacterCurrency : INetSerializable
     {
         public static readonly CharacterCurrency Empty = new CharacterCurrency();
         public int dataId;

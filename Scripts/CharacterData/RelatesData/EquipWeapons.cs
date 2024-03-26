@@ -3,26 +3,11 @@
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class EquipWeapons : INetSerializable
+    public partial struct EquipWeapons : INetSerializable
     {
         public CharacterItem rightHand;
         public CharacterItem leftHand;
-
-        public EquipWeapons()
-        {
-            rightHand = new CharacterItem();
-            leftHand = new CharacterItem();
-        }
-
-        private void Validate()
-        {
-            if (rightHand == null)
-                rightHand = new CharacterItem();
-
-            if (leftHand == null)
-                leftHand = new CharacterItem();
-        }
-
+        
         public EquipWeapons Clone(bool generateNewId = false)
         {
             return new EquipWeapons()
@@ -34,7 +19,6 @@ namespace MultiplayerARPG
 
         public void Serialize(NetDataWriter writer)
         {
-            Validate();
             // Right hand
             writer.Put(rightHand);
             // Left hand
@@ -44,9 +28,9 @@ namespace MultiplayerARPG
         public void Deserialize(NetDataReader reader)
         {
             // Right hand
-            rightHand = reader.Get(() => new CharacterItem());
+            rightHand = reader.Get<CharacterItem>();
             // Left hand
-            leftHand = reader.Get(() => new CharacterItem());
+            leftHand = reader.Get<CharacterItem>();
         }
     }
 }

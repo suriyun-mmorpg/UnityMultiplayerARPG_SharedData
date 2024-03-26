@@ -31,7 +31,7 @@ namespace MultiplayerARPG
         {
             storageType = (StorageType)reader.GetByte();
             storageOwnerId = reader.GetString();
-            characterItem = reader.Get(() => new CharacterItem());
+            characterItem = reader.Get<CharacterItem>();
         }
     }
 

@@ -1,7 +1,6 @@
 ﻿using Cysharp.Text;
 using LiteNetLib.Utils;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 namespace MultiplayerARPG
 {
@@ -24,7 +23,7 @@ namespace MultiplayerARPG
     }
 
     [System.Serializable]
-    public partial class CharacterItem : INetSerializable
+    public partial struct CharacterItem : INetSerializable
     {
         public static readonly CharacterItem Empty = new CharacterItem();
         public string id;
@@ -39,41 +38,35 @@ namespace MultiplayerARPG
         public int randomSeed;
         public int ammoDataId;
         public int ammo;
-        public List<int> sockets = new List<int>();
+        public List<int> sockets;
         public byte version;
 
-        [IgnoreDataMember]
-        public List<int> Sockets
+        public List<int> ReadSockets(string socketsString, char separator = ';')
         {
-            get
-            {
-                if (sockets == null)
-                    sockets = new List<int>();
-                return sockets;
-            }
-        }
-
-        public List<int> ReadSockets(string sockets, char separator = ';')
-        {
-            Sockets.Clear();
-            string[] splitTexts = sockets.Split(separator);
+            if (sockets == null)
+                sockets = new List<int>();
+            sockets.Clear();
+            string[] splitTexts = socketsString.Split(separator);
             foreach (string text in splitTexts)
             {
                 if (string.IsNullOrEmpty(text))
                     continue;
-                Sockets.Add(int.Parse(text));
+                sockets.Add(int.Parse(text));
             }
-            return Sockets;
+            return sockets;
         }
 
         public string WriteSockets(char separator = ';')
         {
             using (Utf16ValueStringBuilder stringBuilder = ZString.CreateStringBuilder(true))
             {
-                foreach (int socket in Sockets)
+                if (sockets != null && sockets.Count > 0)
                 {
-                    stringBuilder.Append(socket);
-                    stringBuilder.Append(separator);
+                    foreach (int socket in sockets)
+                    {
+                        stringBuilder.Append(socket);
+                        stringBuilder.Append(separator);
+                    }
                 }
                 return stringBuilder.ToString();
             }
@@ -81,6 +74,7 @@ namespace MultiplayerARPG
 
         public CharacterItem Clone(bool generateNewId = false)
         {
+            List<int> sockets = this.sockets == null ? new List<int>() : new List<int>(this.sockets);
             return new CharacterItem()
             {
                 id = generateNewId ? GenericUtils.GetUniqueId() : id,
@@ -95,23 +89,22 @@ namespace MultiplayerARPG
                 randomSeed = randomSeed,
                 ammoDataId = ammoDataId,
                 ammo = ammo,
-                sockets = new List<int>(sockets),
+                sockets = sockets,
                 version = version,
             };
         }
 
         public void Serialize(NetDataWriter writer)
         {
-            MakeCache();
-            if (amount <= 0 || _cacheItem == null)
+            if (amount <= 0 || GetItem() == null)
             {
                 writer.Put((byte)CharacterItemSyncState.IsEmpty);
                 writer.Put(id);
                 return;
             }
-            bool isEquipment = _cacheEquipmentItem != null;
-            bool isWeapon = isEquipment && _cacheWeaponItem != null;
-            bool isPet = _cachePetItem != null;
+            bool isEquipment = GetEquipmentItem() != null;
+            bool isWeapon = isEquipment && GetWeaponItem() != null;
+            bool isPet = GetPetItem() != null;
             CharacterItemSyncState syncState = CharacterItemSyncState.None;
             if (isEquipment)
             {
@@ -140,11 +133,13 @@ namespace MultiplayerARPG
                 writer.Put(durability);
                 writer.PutPackedInt(exp);
 
-                byte socketCount = (byte)Sockets.Count;
+                byte socketCount = 0;
+                if (sockets != null)
+                    socketCount = (byte)sockets.Count;
                 writer.Put(socketCount);
                 if (socketCount > 0)
                 {
-                    foreach (int socketDataId in Sockets)
+                    foreach (int socketDataId in sockets)
                     {
                         writer.PutPackedInt(socketDataId);
                     }
@@ -169,6 +164,8 @@ namespace MultiplayerARPG
 
         public void Deserialize(NetDataReader reader)
         {
+            if (sockets == null)
+                sockets = new List<int>();
             CharacterItemSyncState syncState = (CharacterItemSyncState)reader.GetByte();
             if (syncState == CharacterItemSyncState.IsEmpty)
             {
@@ -184,7 +181,7 @@ namespace MultiplayerARPG
                 randomSeed = 0;
                 ammoDataId = 0;
                 ammo = 0;
-                Sockets.Clear();
+                sockets.Clear();
                 return;
             }
 
@@ -202,10 +199,10 @@ namespace MultiplayerARPG
                 exp = reader.GetPackedInt();
 
                 byte socketCount = reader.GetByte();
-                Sockets.Clear();
+                sockets.Clear();
                 for (byte i = 0; i < socketCount; ++i)
                 {
-                    Sockets.Add(reader.GetPackedInt());
+                    sockets.Add(reader.GetPackedInt());
                 }
 
                 randomSeed = reader.GetPackedInt();

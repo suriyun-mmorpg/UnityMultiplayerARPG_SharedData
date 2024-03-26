@@ -3,7 +3,7 @@
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class CharacterSkill : INetSerializable
+    public partial struct CharacterSkill : INetSerializable
     {
         public static readonly CharacterSkill Empty = new CharacterSkill();
         public int dataId;
