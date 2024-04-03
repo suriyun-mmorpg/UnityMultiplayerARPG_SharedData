@@ -3,7 +3,7 @@
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public partial class MailListEntry : INetSerializable
+    public partial struct MailListEntry : INetSerializable
     {
         public string Id { get; set; }
         public string SenderName { get; set; }
