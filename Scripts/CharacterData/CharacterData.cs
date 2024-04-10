@@ -149,9 +149,7 @@ namespace MultiplayerARPG
             }
             set
             {
-#if !NET && !NETCOREAPP
                 this.FillWeaponSetsIfNeeded(EquipWeaponSet);
-#endif
                 SelectableWeaponSets[EquipWeaponSet] = value;
             }
         }
@@ -357,7 +355,7 @@ namespace MultiplayerARPG
         private void List_ListChanged(object sender, NotifiableListAction action, int index)
         {
 #if !NET && !NETCOREAPP
-                this.MarkToMakeCaches();
+            this.MarkToMakeCaches();
 #endif
         }
     }
