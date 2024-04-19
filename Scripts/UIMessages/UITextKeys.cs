@@ -376,5 +376,7 @@ namespace MultiplayerARPG
         // 1.86d Items Limit Error
         UI_ERROR_REACHED_DEALING_ITEMS_LIMIT,
         UI_ERROR_REACHED_REFINE_ENHANCER_ITEMS_LIMIT,
+        // 1.87 Buff
+        UI_LABEL_BUFF_DISALLOW_DASH,
     }
 }
