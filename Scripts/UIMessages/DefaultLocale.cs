@@ -654,6 +654,9 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_CHARACTER_AGE.ToString(), "Age: <color=#d44849ff>{0}</color>");
             Texts.Add(UIFormatKeys.UI_FORMAT_CHARACTER_HEIGHT.ToString(), "Height: <color=#d44849ff>{0} cm.</color>");
             Texts.Add(UIFormatKeys.UI_FORMAT_CHARACTER_WEIGHT.ToString(), "Weight: <color=#d44849ff>{0} kg.</color>");
+            // 1.87
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_DASH.ToString(), "Disallow Dash");
+            Texts.Add(UIFormatKeys.UI_FORMAT_SKILL_ATTACK_WEAPON_DAMAGE_MULTIPLICATOR.ToString(), "Attack Weapon Damage Multiplicator: {0}");
         }
     }
 }
