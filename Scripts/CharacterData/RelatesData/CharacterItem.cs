@@ -96,15 +96,17 @@ namespace MultiplayerARPG
 
         public void Serialize(NetDataWriter writer)
         {
-            if (amount <= 0 || GetItem() == null)
+            if (amount <= 0 || dataId == 0)
             {
                 writer.Put((byte)CharacterItemSyncState.IsEmpty);
                 writer.Put(id);
                 return;
             }
-            bool isEquipment = GetEquipmentItem() != null;
-            bool isWeapon = isEquipment && GetWeaponItem() != null;
-            bool isPet = GetPetItem() != null;
+            // Unknow item data syncing changed to sync all data
+            bool isUnknowItem = GetItem() == null;
+            bool isEquipment = isUnknowItem || GetEquipmentItem() != null;
+            bool isWeapon = isUnknowItem || isEquipment && GetWeaponItem() != null;
+            bool isPet = isUnknowItem || GetPetItem() != null;
             CharacterItemSyncState syncState = CharacterItemSyncState.None;
             if (isEquipment)
             {
