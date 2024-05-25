@@ -42,6 +42,11 @@ namespace MultiplayerARPG
             return GetId().GetHashCode();
         }
 
+        public override bool Equals(object obj)
+        {
+            return GetHashCode() == obj.GetHashCode();
+        }
+
         public override string ToString()
         {
             return GetId();
@@ -70,6 +75,11 @@ namespace MultiplayerARPG
         public override int GetHashCode()
         {
             return GetId().GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return GetHashCode() == obj.GetHashCode();
         }
 
         public override string ToString()
