@@ -58,7 +58,7 @@ namespace MultiplayerARPG
             List<int> sockets = this.sockets == null ? new List<int>() : new List<int>(this.sockets);
             return new CharacterItem()
             {
-                id = generateNewId ? GenericUtils.GetUniqueId() : id,
+                id = generateNewId || string.IsNullOrWhiteSpace(id) ? GenericUtils.GetUniqueId() : id,
                 dataId = dataId,
                 level = level,
                 amount = amount,
