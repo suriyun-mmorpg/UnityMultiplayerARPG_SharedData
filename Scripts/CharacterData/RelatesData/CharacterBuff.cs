@@ -25,7 +25,7 @@ namespace MultiplayerARPG
         {
             return new CharacterBuff()
             {
-                id = generateNewId ? GenericUtils.GetUniqueId() : id,
+                id = generateNewId || string.IsNullOrWhiteSpace(id) ? GenericUtils.GetUniqueId() : id,
                 type = type,
                 dataId = dataId,
                 level = level,

@@ -26,9 +26,9 @@ namespace MultiplayerARPG
 
         public CharacterSummon Clone(bool generateNewId = false)
         {
-            return new CharacterSummon()
+            CharacterSummon result= new CharacterSummon()
             {
-                id = generateNewId ? GenericUtils.GetUniqueId() : id,
+                id = generateNewId || string.IsNullOrWhiteSpace(id) ? GenericUtils.GetUniqueId() : id,
                 type = type,
                 dataId = dataId,
                 summonRemainsDuration = summonRemainsDuration,
@@ -38,6 +38,7 @@ namespace MultiplayerARPG
                 currentHp = currentHp,
                 currentMp = currentMp,
             };
+            return result;
         }
 
         public static CharacterSummon Create(SummonType type, int dataId)
