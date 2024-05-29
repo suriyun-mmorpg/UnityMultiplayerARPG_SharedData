@@ -185,8 +185,11 @@ namespace MultiplayerARPG
                     _selectableEquipWeapons.ListChanged += List_ListChanged;
                 }
                 _selectableEquipWeapons.Clear();
-                foreach (EquipWeapons entry in value)
-                    _selectableEquipWeapons.Add(entry);
+                if (value != null)
+                {
+                    foreach (EquipWeapons entry in value)
+                        _selectableEquipWeapons.Add(entry);
+                }
             }
         }
 
@@ -209,8 +212,11 @@ namespace MultiplayerARPG
                     _attributes.ListChanged += List_ListChanged;
                 }
                 _attributes.Clear();
-                foreach (CharacterAttribute entry in value)
-                    _attributes.Add(entry);
+                if (value != null)
+                {
+                    foreach (CharacterAttribute entry in value)
+                        _attributes.Add(entry);
+                }
             }
         }
 
@@ -233,8 +239,11 @@ namespace MultiplayerARPG
                     _skills.ListChanged += List_ListChanged;
                 }
                 _skills.Clear();
-                foreach (CharacterSkill entry in value)
-                    _skills.Add(entry);
+                if (value != null)
+                {
+                    foreach (CharacterSkill entry in value)
+                        _skills.Add(entry);
+                }
             }
         }
 
@@ -251,8 +260,11 @@ namespace MultiplayerARPG
                 if (_skillUsages == null)
                     _skillUsages = new List<CharacterSkillUsage>();
                 _skillUsages.Clear();
-                foreach (CharacterSkillUsage entry in value)
-                    _skillUsages.Add(entry);
+                if (value != null)
+                {
+                    foreach (CharacterSkillUsage entry in value)
+                        _skillUsages.Add(entry);
+                }
             }
         }
 
@@ -275,8 +287,11 @@ namespace MultiplayerARPG
                     _buffs.ListChanged += List_ListChanged;
                 }
                 _buffs.Clear();
-                foreach (CharacterBuff entry in value)
-                    _buffs.Add(entry);
+                if (value != null)
+                {
+                    foreach (CharacterBuff entry in value)
+                        _buffs.Add(entry);
+                }
             }
         }
 
@@ -299,8 +314,11 @@ namespace MultiplayerARPG
                     _equipItems.ListChanged += List_ListChanged;
                 }
                 _equipItems.Clear();
-                foreach (CharacterItem entry in value)
-                    _equipItems.Add(entry);
+                if (value != null)
+                {
+                    foreach (CharacterItem entry in value)
+                        _equipItems.Add(entry);
+                }
             }
         }
 
@@ -323,8 +341,11 @@ namespace MultiplayerARPG
                     _nonEquipItems.ListChanged += List_ListChanged;
                 }
                 _nonEquipItems.Clear();
-                foreach (CharacterItem entry in value)
-                    _nonEquipItems.Add(entry);
+                if (value != null)
+                {
+                    foreach (CharacterItem entry in value)
+                        _nonEquipItems.Add(entry);
+                }
             }
         }
 
@@ -347,8 +368,11 @@ namespace MultiplayerARPG
                     _summons.ListChanged += List_ListChanged;
                 }
                 _summons.Clear();
-                foreach (CharacterSummon entry in value)
-                    _summons.Add(entry);
+                if (value != null)
+                {
+                    foreach (CharacterSummon entry in value)
+                        _summons.Add(entry);
+                }
             }
         }
 

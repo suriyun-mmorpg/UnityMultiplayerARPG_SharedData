@@ -51,7 +51,8 @@ namespace MultiplayerARPG
             set
             {
                 _hotkeys = new List<CharacterHotkey>();
-                _hotkeys.AddRange(value);
+                if (value != null)
+                    _hotkeys.AddRange(value);
             }
         }
 
@@ -61,7 +62,8 @@ namespace MultiplayerARPG
             set
             {
                 _quests = new List<CharacterQuest>();
-                _quests.AddRange(value);
+                if (value != null)
+                    _quests.AddRange(value);
             }
         }
 
@@ -71,17 +73,19 @@ namespace MultiplayerARPG
             set
             {
                 _currencies = new List<CharacterCurrency>();
-                _currencies.AddRange(value);
+                if (value != null)
+                    _currencies.AddRange(value);
             }
         }
-
+        
         public IList<CharacterDataBoolean> ServerBools
         {
             get { return _serverBools; }
             set
             {
                 _serverBools = new List<CharacterDataBoolean>();
-                _serverBools.AddRange(value);
+                if (value != null)
+                    _serverBools.AddRange(value);
             }
         }
 
@@ -91,7 +95,8 @@ namespace MultiplayerARPG
             set
             {
                 _serverInts = new List<CharacterDataInt32>();
-                _serverInts.AddRange(value);
+                if (value != null)
+                    _serverInts.AddRange(value);
             }
         }
 
@@ -101,7 +106,8 @@ namespace MultiplayerARPG
             set
             {
                 _serverFloats = new List<CharacterDataFloat32>();
-                _serverFloats.AddRange(value);
+                if (value != null)
+                    _serverFloats.AddRange(value);
             }
         }
 
@@ -111,7 +117,8 @@ namespace MultiplayerARPG
             set
             {
                 _privateBools = new List<CharacterDataBoolean>();
-                _privateBools.AddRange(value);
+                if (value != null)
+                    _privateBools.AddRange(value);
             }
         }
 
@@ -121,7 +128,8 @@ namespace MultiplayerARPG
             set
             {
                 _privateInts = new List<CharacterDataInt32>();
-                _privateInts.AddRange(value);
+                if (value != null)
+                    _privateInts.AddRange(value);
             }
         }
 
@@ -131,7 +139,8 @@ namespace MultiplayerARPG
             set
             {
                 _privateFloats = new List<CharacterDataFloat32>();
-                _privateFloats.AddRange(value);
+                if (value != null)
+                    _privateFloats.AddRange(value);
             }
         }
 
@@ -141,7 +150,8 @@ namespace MultiplayerARPG
             set
             {
                 _publicBools = new List<CharacterDataBoolean>();
-                _publicBools.AddRange(value);
+                if (value != null)
+                    _publicBools.AddRange(value);
             }
         }
 
@@ -151,7 +161,8 @@ namespace MultiplayerARPG
             set
             {
                 _publicInts = new List<CharacterDataInt32>();
-                _publicInts.AddRange(value);
+                if (value != null)
+                    _publicInts.AddRange(value);
             }
         }
 
@@ -161,7 +172,8 @@ namespace MultiplayerARPG
             set
             {
                 _publicFloats = new List<CharacterDataFloat32>();
-                _publicFloats.AddRange(value);
+                if (value != null)
+                    _publicFloats.AddRange(value);
             }
         }
 
