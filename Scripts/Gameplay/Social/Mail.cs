@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using Cysharp.Text;
 using LiteNetLib.Utils;
 
@@ -84,7 +85,7 @@ namespace MultiplayerARPG
                     level = 1;
 
                 float durability;
-                if (splitData.Length < 4 || !float.TryParse(splitData[3], out durability))
+                if (splitData.Length < 4 || !float.TryParse(splitData[3].Replace(',', '.'), out durability))
                     durability = 0f;
 
                 int exp;
@@ -92,7 +93,7 @@ namespace MultiplayerARPG
                     exp = 0;
 
                 float lockRemainsDuration;
-                if (splitData.Length < 6 || !float.TryParse(splitData[5], out lockRemainsDuration))
+                if (splitData.Length < 6 || !float.TryParse(splitData[5].Replace(',', '.'), out lockRemainsDuration))
                     lockRemainsDuration = 0f;
 
                 long expireTime;
@@ -137,11 +138,11 @@ namespace MultiplayerARPG
                     stringBuilder.Append(':');
                     stringBuilder.Append(item.level);
                     stringBuilder.Append(':');
-                    stringBuilder.Append(item.durability.ToString("N2"));
+                    stringBuilder.Append(item.durability.ToString("N2", CultureInfo.InvariantCulture.NumberFormat));
                     stringBuilder.Append(':');
                     stringBuilder.Append(item.exp);
                     stringBuilder.Append(':');
-                    stringBuilder.Append(item.lockRemainsDuration.ToString("N2"));
+                    stringBuilder.Append(item.lockRemainsDuration.ToString("N2", CultureInfo.InvariantCulture.NumberFormat));
                     stringBuilder.Append(':');
                     stringBuilder.Append(item.expireTime);
                     stringBuilder.Append(':');
