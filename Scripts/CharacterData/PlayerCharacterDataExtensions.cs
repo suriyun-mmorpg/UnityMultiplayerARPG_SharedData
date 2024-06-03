@@ -422,6 +422,7 @@ namespace MultiplayerARPG
             // Attributes
             if (withAttributes)
             {
+                characterData.Attributes.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -431,6 +432,7 @@ namespace MultiplayerARPG
             // Buffs
             if (withBuffs)
             {
+                characterData.Buffs.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -440,6 +442,7 @@ namespace MultiplayerARPG
             // Skills
             if (withSkills)
             {
+                characterData.Skills.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -449,6 +452,7 @@ namespace MultiplayerARPG
             // Skill Usages
             if (withSkillUsages)
             {
+                characterData.SkillUsages.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -458,6 +462,7 @@ namespace MultiplayerARPG
             // Summons
             if (withSummons)
             {
+                characterData.Summons.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -467,6 +472,7 @@ namespace MultiplayerARPG
             // Equip Items
             if (withEquipItems)
             {
+                characterData.EquipItems.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -476,6 +482,7 @@ namespace MultiplayerARPG
             // Non Equip Items
             if (withNonEquipItems)
             {
+                characterData.NonEquipItems.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -485,6 +492,7 @@ namespace MultiplayerARPG
             // Hotkeys
             if (withHotkeys)
             {
+                characterData.Hotkeys.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -494,6 +502,7 @@ namespace MultiplayerARPG
             // Quests
             if (withQuests)
             {
+                characterData.Quests.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -503,6 +512,7 @@ namespace MultiplayerARPG
             // Currencies
             if (withCurrencies)
             {
+                characterData.Currencies.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -512,16 +522,19 @@ namespace MultiplayerARPG
             // Server custom data
             if (withServerCustomData)
             {
+                characterData.ServerBools.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
                     characterData.ServerBools.Add(reader.Get<CharacterDataBoolean>());
                 }
+                characterData.ServerInts.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
                     characterData.ServerInts.Add(reader.Get<CharacterDataInt32>());
                 }
+                characterData.ServerFloats.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -531,16 +544,19 @@ namespace MultiplayerARPG
             // Private custom data
             if (withPrivateCustomData)
             {
+                characterData.PrivateBools.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
                     characterData.PrivateBools.Add(reader.Get<CharacterDataBoolean>());
                 }
+                characterData.PrivateInts.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
                     characterData.PrivateInts.Add(reader.Get<CharacterDataInt32>());
                 }
+                characterData.PrivateFloats.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -550,16 +566,19 @@ namespace MultiplayerARPG
             // Public custom data
             if (withPublicCustomData)
             {
+                characterData.PublicBools.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
                     characterData.PublicBools.Add(reader.Get<CharacterDataBoolean>());
                 }
+                characterData.PublicInts.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
                     characterData.PublicInts.Add(reader.Get<CharacterDataInt32>());
                 }
+                characterData.PublicFloats.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
@@ -571,6 +590,7 @@ namespace MultiplayerARPG
             // Selectable weapon sets
             if (withEquipWeapons)
             {
+                characterData.SelectableWeaponSets.Clear();
                 count = reader.GetPackedInt();
                 for (int i = 0; i < count; ++i)
                 {
