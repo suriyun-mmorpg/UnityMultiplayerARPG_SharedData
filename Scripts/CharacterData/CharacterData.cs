@@ -1,4 +1,5 @@
-﻿using NotifiableCollection;
+﻿using Newtonsoft.Json;
+using NotifiableCollection;
 using System.Collections.Generic;
 
 namespace MultiplayerARPG
@@ -139,6 +140,7 @@ namespace MultiplayerARPG
             }
         }
 
+        [JsonIgnore]
         public EquipWeapons EquipWeapons
         {
             get
