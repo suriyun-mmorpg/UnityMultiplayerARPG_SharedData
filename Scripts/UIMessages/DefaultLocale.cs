@@ -122,6 +122,9 @@ namespace MultiplayerARPG
             // Format - Gold Amount
             Texts.Add(UIFormatKeys.UI_FORMAT_REQUIRE_GOLD.ToString(), "Gold: {0}/{1}");
             Texts.Add(UIFormatKeys.UI_FORMAT_REQUIRE_GOLD_NOT_ENOUGH.ToString(), "Gold: <color=red>{0}/{1}</color>");
+            // Format - Cash Amount
+            Texts.Add(UIFormatKeys.UI_FORMAT_REQUIRE_CASH.ToString(), "Cash: {0}/{1}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_REQUIRE_CASH_NOT_ENOUGH.ToString(), "Cash: <color=red>{0}/{1}</color>");
             // Format - UI Equipment Set
             Texts.Add(UIFormatKeys.UI_FORMAT_EQUIPMENT_SET.ToString(), "<color=#ffa500ff>{0}</color>\n{1}");
             Texts.Add(UIFormatKeys.UI_FORMAT_EQUIPMENT_SET_APPLIED_EFFECT.ToString(), "<color=#ffa500ff>({0}) {1}</color>");

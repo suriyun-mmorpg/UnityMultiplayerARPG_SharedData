@@ -956,5 +956,15 @@ namespace MultiplayerARPG
 
         // 1.87
         UI_FORMAT_SKILL_ATTACK_WEAPON_DAMAGE_MULTIPLICATOR,
+
+        // Format - Cash Amount
+        /// <summary>
+        /// Format => {0} = {Current Cash Amount}, {1} = {Target Amount}
+        /// </summary>
+        UI_FORMAT_REQUIRE_CASH,
+        /// <summary>
+        /// Format => {0} = {Current Cash Amount}, {1} = {Target Amount}
+        /// </summary>
+        UI_FORMAT_REQUIRE_CASH_NOT_ENOUGH,
     }
 }
