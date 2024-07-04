@@ -111,6 +111,7 @@ namespace MultiplayerARPG
                     sockets = splitData[8];
 
                 CharacterItem characterItem = new CharacterItem();
+                characterItem.id = GenericUtils.GetUniqueId();
                 characterItem.dataId = dataId;
                 characterItem.level = level;
                 characterItem.amount = amount;
