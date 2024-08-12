@@ -20,7 +20,7 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_SIMPLE_MIN_TO_MAX.ToString(), "{0}~{1}");
             Texts.Add(UIFormatKeys.UI_FORMAT_SIMPLE_MIN_BY_MAX.ToString(), "{0}/{1}");
             Texts.Add(UIFormatKeys.UI_FORMAT_LEVEL.ToString(), "Lv: {0}");
-            Texts.Add(UIFormatKeys.UI_FORMAT_CURRENT_EXP.ToString(), "Exp: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_CURRENT_EXP.ToString(), "Exp: {0}/{1}");
             Texts.Add(UIFormatKeys.UI_FORMAT_STAT_POINTS.ToString(), "Stat Points: {0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_SKILL_POINTS.ToString(), "Skill Points: {0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_CURRENT_HP.ToString(), "Hp: {0}/{1}");
