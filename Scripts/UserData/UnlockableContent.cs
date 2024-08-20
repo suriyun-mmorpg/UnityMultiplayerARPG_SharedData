@@ -1,3 +1,4 @@
+using Cysharp.Text;
 using LiteNetLib.Utils;
 
 namespace MultiplayerARPG
@@ -24,6 +25,11 @@ namespace MultiplayerARPG
             writer.PutPackedInt(dataId);
             writer.PutPackedInt(progression);
             writer.Put(unlocked);
+        }
+
+        public string GetId()
+        {
+            return ZString.Concat((byte)type, dataId);
         }
     }
 }
