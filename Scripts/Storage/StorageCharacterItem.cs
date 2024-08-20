@@ -8,6 +8,7 @@ namespace MultiplayerARPG
         Player,
         Guild,
         Building,
+        Protected,
     }
 
     [System.Serializable]
