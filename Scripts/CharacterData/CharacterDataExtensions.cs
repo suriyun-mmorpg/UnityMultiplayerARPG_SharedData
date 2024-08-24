@@ -1,5 +1,7 @@
+using Cysharp.Text;
 using LiteNetLibManager;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace MultiplayerARPG
 {
@@ -84,6 +86,168 @@ namespace MultiplayerARPG
             while (data.SelectableWeaponSets.Count <= equipWeaponSet)
             {
                 data.SelectableWeaponSets.Add(new EquipWeapons());
+            }
+        }
+
+        public static List<int> ReadCharacterItemSockets(this string socketsString, char separator = ';')
+        {
+            List<int> sockets = new List<int>();
+            string[] splitTexts = socketsString.Split(separator);
+            foreach (string text in splitTexts)
+            {
+                if (string.IsNullOrEmpty(text))
+                    continue;
+                sockets.Add(int.Parse(text));
+            }
+            return sockets;
+        }
+
+        public static string WriteCharacterItemSockets(this IList<int> sockets, char separator = ';')
+        {
+            if (sockets == null || sockets.Count == 0)
+                return string.Empty;
+
+            using (Utf16ValueStringBuilder stringBuilder = ZString.CreateStringBuilder(true))
+            {
+                foreach (int socket in sockets)
+                {
+                    stringBuilder.Append(socket);
+                    stringBuilder.Append(separator);
+                }
+                return stringBuilder.ToString();
+            }
+        }
+
+        public static List<CharacterCurrency> ReadCurrencies(this string currenciesString)
+        {
+            List<CharacterCurrency> currencies = new List<CharacterCurrency>();
+            string[] splitSets = currenciesString.Split(';');
+            foreach (string set in splitSets)
+            {
+                if (string.IsNullOrEmpty(set))
+                    continue;
+                string[] splitData = set.Split(':');
+                if (splitData.Length != 2)
+                    continue;
+                currencies.Add(new CharacterCurrency()
+                {
+                    dataId = int.Parse(splitData[0]),
+                    amount = int.Parse(splitData[1]),
+                });
+            }
+            return currencies;
+        }
+
+        public static string WriteCurrencies(this List<CharacterCurrency> currencies)
+        {
+            if (currencies == null || currencies.Count == 0)
+                return string.Empty;
+
+            using (Utf16ValueStringBuilder stringBuilder = ZString.CreateStringBuilder(true))
+            {
+                foreach (CharacterCurrency currency in currencies)
+                {
+                    stringBuilder.Append(currency.dataId);
+                    stringBuilder.Append(currency.amount);
+                }
+                return stringBuilder.ToString();
+            }
+        }
+
+        public static List<CharacterItem> ReadItems(this string itemsString)
+        {
+            List<CharacterItem> items = new List<CharacterItem>();
+            string[] splitSets = itemsString.Split(';');
+            foreach (string set in splitSets)
+            {
+                if (string.IsNullOrEmpty(set))
+                    continue;
+                string[] splitData = set.Split(':');
+
+                int dataId;
+                if (splitData.Length < 1 || !int.TryParse(splitData[0], out dataId))
+                    continue;
+
+                int amount;
+                if (splitData.Length < 2 || !int.TryParse(splitData[1], out amount))
+                    amount = 1;
+
+                int level;
+                if (splitData.Length < 3 || !int.TryParse(splitData[2], out level))
+                    level = 1;
+
+                float durability;
+                if (splitData.Length < 4 || !float.TryParse(splitData[3].Replace(',', '.'), out durability))
+                    durability = 0f;
+
+                int exp;
+                if (splitData.Length < 5 || !int.TryParse(splitData[4], out exp))
+                    exp = 0;
+
+                float lockRemainsDuration;
+                if (splitData.Length < 6 || !float.TryParse(splitData[5].Replace(',', '.'), out lockRemainsDuration))
+                    lockRemainsDuration = 0f;
+
+                long expireTime;
+                if (splitData.Length < 7 || !long.TryParse(splitData[6], out expireTime))
+                    expireTime = 0;
+
+                int randomSeed;
+                if (splitData.Length < 8 || !int.TryParse(splitData[7], out randomSeed))
+                    randomSeed = 0;
+
+                string sockets;
+                if (splitData.Length < 9)
+                    sockets = "";
+                else
+                    sockets = splitData[8];
+
+                CharacterItem characterItem = new CharacterItem();
+                characterItem.id = GenericUtils.GetUniqueId();
+                characterItem.dataId = dataId;
+                characterItem.level = level;
+                characterItem.amount = amount;
+                characterItem.durability = durability;
+                characterItem.exp = exp;
+                characterItem.lockRemainsDuration = lockRemainsDuration;
+                characterItem.expireTime = expireTime;
+                characterItem.randomSeed = randomSeed;
+                characterItem.ReadSockets(sockets, '|');
+                items.Add(characterItem);
+            }
+            return items;
+        }
+
+        public static string WriteItems(this List<CharacterItem> items)
+        {
+            if (items == null || items.Count == 0)
+                return string.Empty;
+
+            using (Utf16ValueStringBuilder stringBuilder = ZString.CreateStringBuilder(false))
+            {
+                foreach (CharacterItem item in items)
+                {
+                    if (item.IsEmptySlot()) continue;
+                    stringBuilder.Append(item.dataId);
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.amount);
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.level);
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.durability.ToString("N2", CultureInfo.InvariantCulture.NumberFormat));
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.exp);
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.lockRemainsDuration.ToString("N2", CultureInfo.InvariantCulture.NumberFormat));
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.expireTime);
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.randomSeed);
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.WriteSockets('|'));
+                    stringBuilder.Append(';');
+                }
+                return stringBuilder.ToString();
             }
         }
     }
