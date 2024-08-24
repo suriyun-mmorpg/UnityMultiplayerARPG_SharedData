@@ -22,7 +22,7 @@ namespace MultiplayerARPG
         public Dictionary<string, byte> memberRoles;
         public Dictionary<int, int> skillLevels;
 
-        private bool _isCached;
+        public bool IsCached { get; private set; }
 
         public byte LowestMemberRole
         {
@@ -196,13 +196,13 @@ namespace MultiplayerARPG
             level += 1;
             skillPoint -= 1;
             skillLevels[dataId] = level;
-            _isCached = false;
+            IsCached = false;
         }
 
         public void SetSkillLevel(int dataId, int level)
         {
             skillLevels[dataId] = level;
-            _isCached = false;
+            IsCached = false;
         }
 
         public bool IncreaseGuildExp(
