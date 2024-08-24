@@ -24,33 +24,13 @@ namespace MultiplayerARPG
 
         public List<int> ReadSockets(string socketsString, char separator = ';')
         {
-            if (sockets == null)
-                sockets = new List<int>();
-            sockets.Clear();
-            string[] splitTexts = socketsString.Split(separator);
-            foreach (string text in splitTexts)
-            {
-                if (string.IsNullOrEmpty(text))
-                    continue;
-                sockets.Add(int.Parse(text));
-            }
+            sockets = socketsString.ReadCharacterItemSockets(separator);
             return sockets;
         }
 
         public string WriteSockets(char separator = ';')
         {
-            using (Utf16ValueStringBuilder stringBuilder = ZString.CreateStringBuilder(true))
-            {
-                if (sockets != null && sockets.Count > 0)
-                {
-                    foreach (int socket in sockets)
-                    {
-                        stringBuilder.Append(socket);
-                        stringBuilder.Append(separator);
-                    }
-                }
-                return stringBuilder.ToString();
-            }
+            return sockets.WriteCharacterItemSockets(separator);
         }
 
         public CharacterItem Clone(bool generateNewId = false)
