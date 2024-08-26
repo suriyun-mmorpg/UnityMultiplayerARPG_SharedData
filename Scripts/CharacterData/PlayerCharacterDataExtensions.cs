@@ -24,6 +24,7 @@ namespace MultiplayerARPG
             bool withServerCustomData = true,
             bool withPrivateCustomData = true,
             bool withPublicCustomData = true,
+            bool withCurrentLocationData = true,
             bool generateNewIdForRelatesData = false) where T : IPlayerCharacterData
         {
             to.Id = from.Id;
@@ -49,9 +50,12 @@ namespace MultiplayerARPG
             to.GuildRole = from.GuildRole;
             to.SharedGuildExp = from.SharedGuildExp;
             to.EquipWeaponSet = from.EquipWeaponSet;
-            to.CurrentMapName = from.CurrentMapName;
-            to.CurrentPosition = from.CurrentPosition;
-            to.CurrentRotation = from.CurrentRotation;
+            if (withCurrentLocationData)
+            {
+                to.CurrentMapName = from.CurrentMapName;
+                to.CurrentPosition = from.CurrentPosition;
+                to.CurrentRotation = from.CurrentRotation;
+            }
             to.RespawnMapName = from.RespawnMapName;
             to.RespawnPosition = from.RespawnPosition;
             to.MountDataId = from.MountDataId;
