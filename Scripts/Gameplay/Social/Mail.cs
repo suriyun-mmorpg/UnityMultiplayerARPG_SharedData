@@ -16,6 +16,7 @@ namespace MultiplayerARPG
         public int Cash { get; set; }
         public List<CharacterCurrency> Currencies { get; } = new List<CharacterCurrency>();
         public List<CharacterItem> Items { get; } = new List<CharacterItem>();
+        public List<UnlockableContent> UnlockableContents { get; } = new List<UnlockableContent>();
         public bool IsRead { get; set; }
         public long ReadTimestamp { get; set; }
         public bool IsClaim { get; set; }
@@ -26,7 +27,9 @@ namespace MultiplayerARPG
 
         public bool HaveItemsToClaim()
         {
-            return Gold != 0 || Cash != 0 || Currencies.Count > 0 || Items.Count > 0;
+            return Gold != 0 || Cash != 0 ||
+                Currencies.Count > 0 || Items.Count > 0 ||
+                UnlockableContents.Count > 0;
         }
 
         public List<CharacterCurrency> ReadCurrencies(string currenciesString)
@@ -39,6 +42,18 @@ namespace MultiplayerARPG
         public string WriteCurrencies()
         {
             return Currencies.WriteCurrencies();
+        }
+
+        public List<UnlockableContent> ReadUnlockableContents(string unlockableContentsString)
+        {
+            UnlockableContents.Clear();
+            UnlockableContents.AddRange(unlockableContentsString.ReadUnlockableContents());
+            return UnlockableContents;
+        }
+
+        public string WriteUnlockableContents()
+        {
+            return UnlockableContents.WriteUnlockableContents();
         }
 
         public List<CharacterItem> ReadItems(string itemsString)
