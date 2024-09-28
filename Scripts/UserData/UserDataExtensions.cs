@@ -13,16 +13,29 @@ namespace MultiplayerARPG
             {
                 if (string.IsNullOrEmpty(set))
                     continue;
+
                 string[] splitData = set.Split(':');
                 if (splitData.Length != 4)
                     continue;
-                unlockableContents.Add(new UnlockableContent()
-                {
-                    type = (UnlockableContentType)byte.Parse(splitData[0]),
-                    dataId = int.Parse(splitData[1]),
-                    progression = int.Parse(splitData[2]),
-                    unlocked = bool.Parse(splitData[3]),
-                });
+
+                if (!byte.TryParse(splitData[0], out byte contentType))
+                    continue;
+
+                if (!int.TryParse(splitData[1], out int dataId))
+                    dataId = splitData[1].GenerateHashId();
+
+                if (!int.TryParse(splitData[2], out int progression))
+                    progression = 0;
+
+                if (!bool.TryParse(splitData[3], out bool unlocked))
+                    unlocked = false;
+
+                UnlockableContent unlockableContent = new UnlockableContent();
+                unlockableContent.dataId = dataId;
+                unlockableContent.type = (UnlockableContentType)contentType;
+                unlockableContent.progression = progression;
+                unlockableContent.unlocked = unlocked;
+                unlockableContents.Add(unlockableContent);
             }
             return unlockableContents;
         }

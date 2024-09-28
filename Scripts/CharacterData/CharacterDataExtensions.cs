@@ -125,14 +125,21 @@ namespace MultiplayerARPG
             {
                 if (string.IsNullOrEmpty(set))
                     continue;
+
                 string[] splitData = set.Split(':');
                 if (splitData.Length != 2)
                     continue;
-                currencies.Add(new CharacterCurrency()
-                {
-                    dataId = int.Parse(splitData[0]),
-                    amount = int.Parse(splitData[1]),
-                });
+
+                if (!int.TryParse(splitData[0], out int dataId))
+                    dataId = splitData[0].GenerateHashId();
+
+                if (!int.TryParse(splitData[1], out int amount))
+                    amount = 0;
+
+                CharacterCurrency characterCurrency = new CharacterCurrency();
+                characterCurrency.dataId = dataId;
+                characterCurrency.amount = amount;
+                currencies.Add(characterCurrency);
             }
             return currencies;
         }
@@ -161,11 +168,13 @@ namespace MultiplayerARPG
             {
                 if (string.IsNullOrEmpty(set))
                     continue;
-                string[] splitData = set.Split(':');
 
-                int dataId;
-                if (splitData.Length < 1 || !int.TryParse(splitData[0], out dataId))
+                string[] splitData = set.Split(':');
+                if (splitData.Length < 1)
                     continue;
+
+                if (!int.TryParse(splitData[0], out int dataId))
+                    dataId = splitData[0].GenerateHashId();
 
                 int amount;
                 if (splitData.Length < 2 || !int.TryParse(splitData[1], out amount))
