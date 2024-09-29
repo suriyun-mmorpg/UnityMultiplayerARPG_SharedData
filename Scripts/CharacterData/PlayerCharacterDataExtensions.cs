@@ -62,7 +62,6 @@ namespace MultiplayerARPG
             to.RespawnMapName = from.RespawnMapName;
             to.RespawnPosition = from.RespawnPosition;
 #endif
-            to.MountDataId = from.MountDataId;
             to.IconDataId = from.IconDataId;
             to.FrameDataId = from.FrameDataId;
             to.TitleDataId = from.TitleDataId;
@@ -184,7 +183,6 @@ namespace MultiplayerARPG
                 writer.Put(characterData.RespawnPosition.z);
             }
 #endif
-            writer.PutPackedInt(characterData.MountDataId);
             writer.PutPackedInt(characterData.IconDataId);
             writer.PutPackedInt(characterData.FrameDataId);
             writer.PutPackedInt(characterData.TitleDataId);
@@ -427,7 +425,6 @@ namespace MultiplayerARPG
                 characterData.RespawnPosition = new Vec3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
             }
 #endif
-            characterData.MountDataId = reader.GetPackedInt();
             characterData.IconDataId = reader.GetPackedInt();
             characterData.FrameDataId = reader.GetPackedInt();
             characterData.TitleDataId = reader.GetPackedInt();

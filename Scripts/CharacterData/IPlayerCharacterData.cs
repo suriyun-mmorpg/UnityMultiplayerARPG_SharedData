@@ -59,7 +59,6 @@ namespace MultiplayerARPG
         string RespawnMapName { get; set; }
         Vec3 RespawnPosition { get; set; }
 #endif
-        int MountDataId { get; set; }
         long LastDeadTime { get; set; }
         long UnmuteTime { get; set; }
         long LastUpdate { get; set; }

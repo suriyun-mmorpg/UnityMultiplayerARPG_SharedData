@@ -34,7 +34,6 @@ namespace MultiplayerARPG
         public Vec3 CurrentRotation { get; set; }
         public string RespawnMapName { get; set; }
         public Vec3 RespawnPosition { get; set; }
-        public int MountDataId { get; set; }
         public long LastDeadTime { get; set; }
         public long UnmuteTime { get; set; }
         public long LastUpdate { get; set; }
