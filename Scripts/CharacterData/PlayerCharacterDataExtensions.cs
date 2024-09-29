@@ -60,7 +60,6 @@ namespace MultiplayerARPG
             to.RespawnMapName = from.RespawnMapName;
             to.RespawnPosition = from.RespawnPosition;
 #endif
-            to.MountDataId = from.MountDataId;
             to.IconDataId = from.IconDataId;
             to.FrameDataId = from.FrameDataId;
             to.TitleDataId = from.TitleDataId;
