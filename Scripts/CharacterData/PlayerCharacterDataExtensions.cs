@@ -58,8 +58,10 @@ namespace MultiplayerARPG
                 to.CurrentPosition = from.CurrentPosition;
                 to.CurrentRotation = from.CurrentRotation;
             }
+#if !DISABLE_DIFFER_MAP_RESPAWNING
             to.RespawnMapName = from.RespawnMapName;
             to.RespawnPosition = from.RespawnPosition;
+#endif
             to.MountDataId = from.MountDataId;
             to.IconDataId = from.IconDataId;
             to.FrameDataId = from.FrameDataId;
@@ -67,12 +69,14 @@ namespace MultiplayerARPG
             to.LastDeadTime = from.LastDeadTime;
             to.UnmuteTime = from.UnmuteTime;
             to.LastUpdate = from.LastUpdate;
+#if !DISABLE_CLASSIC_PK
             to.IsPkOn = from.IsPkOn;
             to.LastPkOnTime = from.LastPkOnTime;
             to.PkPoint = from.PkPoint;
             to.ConsecutivePkKills = from.ConsecutivePkKills;
             to.HighestPkPoint = from.HighestPkPoint;
             to.HighestConsecutivePkKills = from.HighestConsecutivePkKills;
+#endif
             if (withEquipWeapons)
                 to.SelectableWeaponSets = from.SelectableWeaponSets.Clone(generateNewIdForRelatesData);
             if (withAttributes)
@@ -93,8 +97,11 @@ namespace MultiplayerARPG
                 to.Hotkeys = from.Hotkeys.Clone();
             if (withQuests)
                 to.Quests = from.Quests.Clone();
+#if !DISABLE_CUSTOM_CHARACTER_CURRENCIES
             if (withCurrencies)
                 to.Currencies = from.Currencies.Clone();
+#endif
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             if (withServerCustomData)
             {
                 to.ServerBools = from.ServerBools.Clone();
@@ -113,6 +120,7 @@ namespace MultiplayerARPG
                 to.PublicInts = from.PublicInts.Clone();
                 to.PublicFloats = from.PublicFloats.Clone();
             }
+#endif
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "CloneTo", from, to);
             return to;
         }
@@ -167,6 +175,7 @@ namespace MultiplayerARPG
                 writer.Put(characterData.CurrentRotation.y);
                 writer.Put(characterData.CurrentRotation.z);
             }
+#if !DISABLE_DIFFER_MAP_RESPAWNING
             if (withRespawningMap)
             {
                 writer.Put(characterData.RespawnMapName);
@@ -174,6 +183,7 @@ namespace MultiplayerARPG
                 writer.Put(characterData.RespawnPosition.y);
                 writer.Put(characterData.RespawnPosition.z);
             }
+#endif
             writer.PutPackedInt(characterData.MountDataId);
             writer.PutPackedInt(characterData.IconDataId);
             writer.PutPackedInt(characterData.FrameDataId);
@@ -181,12 +191,14 @@ namespace MultiplayerARPG
             writer.PutPackedLong(characterData.LastDeadTime);
             writer.PutPackedLong(characterData.UnmuteTime);
             writer.PutPackedLong(characterData.LastUpdate);
+#if !DISABLE_CLASSIC_PK
             writer.Put(characterData.IsPkOn);
             writer.PutPackedLong(characterData.LastPkOnTime);
             writer.PutPackedInt(characterData.PkPoint);
             writer.PutPackedInt(characterData.ConsecutivePkKills);
             writer.PutPackedInt(characterData.HighestPkPoint);
             writer.PutPackedInt(characterData.HighestConsecutivePkKills);
+#endif
             // Attributes
             if (withAttributes)
             {
@@ -268,6 +280,7 @@ namespace MultiplayerARPG
                     writer.Put(entry);
                 }
             }
+#if !DISABLE_CUSTOM_CHARACTER_CURRENCIES
             // Currencies
             if (withCurrencies)
             {
@@ -277,6 +290,8 @@ namespace MultiplayerARPG
                     writer.Put(entry);
                 }
             }
+#endif
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             // Server custom data
             if (withServerCustomData)
             {
@@ -334,6 +349,7 @@ namespace MultiplayerARPG
                     writer.Put(entry);
                 }
             }
+#endif
             // Equip weapon set
             writer.Put(characterData.EquipWeaponSet);
             // Selectable weapon sets
@@ -404,11 +420,13 @@ namespace MultiplayerARPG
                 characterData.CurrentPosition = new Vec3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
                 characterData.CurrentRotation = new Vec3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
             }
+#if !DISABLE_DIFFER_MAP_RESPAWNING
             if (withRespawningMap)
             {
                 characterData.RespawnMapName = reader.GetString();
                 characterData.RespawnPosition = new Vec3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
             }
+#endif
             characterData.MountDataId = reader.GetPackedInt();
             characterData.IconDataId = reader.GetPackedInt();
             characterData.FrameDataId = reader.GetPackedInt();
@@ -416,12 +434,14 @@ namespace MultiplayerARPG
             characterData.LastDeadTime = reader.GetPackedLong();
             characterData.UnmuteTime = reader.GetPackedLong();
             characterData.LastUpdate = reader.GetPackedLong();
+#if !DISABLE_CLASSIC_PK
             characterData.IsPkOn = reader.GetBool();
             characterData.LastPkOnTime = reader.GetPackedLong();
             characterData.PkPoint = reader.GetPackedInt();
             characterData.ConsecutivePkKills = reader.GetPackedInt();
             characterData.HighestPkPoint = reader.GetPackedInt();
             characterData.HighestConsecutivePkKills = reader.GetPackedInt();
+#endif
             int count;
             // Attributes
             if (withAttributes)
@@ -513,6 +533,7 @@ namespace MultiplayerARPG
                     characterData.Quests.Add(reader.Get<CharacterQuest>());
                 }
             }
+#if !DISABLE_CUSTOM_CHARACTER_CURRENCIES
             // Currencies
             if (withCurrencies)
             {
@@ -523,6 +544,8 @@ namespace MultiplayerARPG
                     characterData.Currencies.Add(reader.Get<CharacterCurrency>());
                 }
             }
+#endif
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             // Server custom data
             if (withServerCustomData)
             {
@@ -589,6 +612,7 @@ namespace MultiplayerARPG
                     characterData.PublicFloats.Add(reader.Get<CharacterDataFloat32>());
                 }
             }
+#endif
             // Equip weapon set
             characterData.EquipWeaponSet = reader.GetByte();
             // Selectable weapon sets
@@ -617,142 +641,236 @@ namespace MultiplayerARPG
 
         public static int IndexOfCurrency(this IPlayerCharacterData data, int dataId)
         {
+#if !DISABLE_CUSTOM_CHARACTER_CURRENCIES
             return data.Currencies.IndexOf(dataId);
+#else
+            return -1;
+#endif
         }
 
         public static int IndexOfServerBoolean(this IPlayerCharacterData data, int hashedKey)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.ServerBools.IndexOf(hashedKey);
+#else
+            return -1;
+#endif
         }
 
         public static int IndexOfServerInt32(this IPlayerCharacterData data, int hashedKey)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.ServerInts.IndexOf(hashedKey);
+#else
+            return -1;
+#endif
         }
 
         public static int IndexOfServerFloat32(this IPlayerCharacterData data, int hashedKey)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.ServerFloats.IndexOf(hashedKey);
+#else
+            return -1;
+#endif
         }
 
         public static int IndexOfPrivateBoolean(this IPlayerCharacterData data, int hashedKey)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PrivateBools.IndexOf(hashedKey);
+#else
+            return -1;
+#endif
         }
 
         public static int IndexOfPrivateInt32(this IPlayerCharacterData data, int hashedKey)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PrivateInts.IndexOf(hashedKey);
+#else
+            return -1;
+#endif
         }
 
         public static int IndexOfPrivateFloat32(this IPlayerCharacterData data, int hashedKey)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PrivateFloats.IndexOf(hashedKey);
+#else
+            return -1;
+#endif
         }
 
         public static int IndexOfPublicBoolean(this IPlayerCharacterData data, int hashedKey)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PublicBools.IndexOf(hashedKey);
+#else
+            return -1;
+#endif
         }
 
         public static int IndexOfPublicInt32(this IPlayerCharacterData data, int hashedKey)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PublicInts.IndexOf(hashedKey);
+#else
+            return -1;
+#endif
         }
 
         public static int IndexOfPublicFloat32(this IPlayerCharacterData data, int hashedKey)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PublicFloats.IndexOf(hashedKey);
+#else
+            return -1;
+#endif
         }
 
         public static bool GetServerBoolean(this IPlayerCharacterData data, int hashedKey, bool defaultValue = false)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.ServerBools.GetValue(hashedKey, defaultValue);
+#else
+            return false;
+#endif
         }
 
         public static void SetServerBoolean(this IPlayerCharacterData data, int hashedKey, bool value)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             data.ServerBools.SetValue(hashedKey, value);
+#endif
         }
 
         public static int GetServerInt32(this IPlayerCharacterData data, int hashedKey, int defaultValue = 0)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.ServerInts.GetValue(hashedKey, defaultValue);
+#else
+            return 0;
+#endif
         }
 
         public static void SetServerInt32(this IPlayerCharacterData data, int hashedKey, int value)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             data.ServerInts.SetValue(hashedKey, value);
+#endif
         }
 
         public static float GetServerFloat32(this IPlayerCharacterData data, int hashedKey, float defaultValue = 0f)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.ServerFloats.GetValue(hashedKey, defaultValue);
+#else
+            return 0f;
+#endif
         }
 
         public static void SetServerFloat32(this IPlayerCharacterData data, int hashedKey, float value)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             data.ServerFloats.SetValue(hashedKey, value);
+#endif
         }
 
         public static bool GetPrivateBoolean(this IPlayerCharacterData data, int hashedKey, bool defaultValue = false)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PrivateBools.GetValue(hashedKey, defaultValue);
+#else
+            return false;
+#endif
         }
 
         public static void SetPrivateBoolean(this IPlayerCharacterData data, int hashedKey, bool value)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             data.PrivateBools.SetValue(hashedKey, value);
+#endif
         }
 
         public static int GetPrivateInt32(this IPlayerCharacterData data, int hashedKey, int defaultValue = 0)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PrivateInts.GetValue(hashedKey, defaultValue);
+#else
+            return 0;
+#endif
         }
 
         public static void SetPrivateInt32(this IPlayerCharacterData data, int hashedKey, int value)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             data.PrivateInts.SetValue(hashedKey, value);
+#endif
         }
 
         public static float GetPrivateFloat32(this IPlayerCharacterData data, int hashedKey, float defaultValue = 0f)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PrivateFloats.GetValue(hashedKey, defaultValue);
+#else
+            return 0f;
+#endif
         }
 
         public static void SetPrivateFloat32(this IPlayerCharacterData data, int hashedKey, float value)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             data.PrivateFloats.SetValue(hashedKey, value);
+#endif
         }
 
         public static bool GetPublicBoolean(this IPlayerCharacterData data, int hashedKey, bool defaultValue = false)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PublicBools.GetValue(hashedKey, defaultValue);
+#else
+            return false;
+#endif
         }
 
         public static void SetPublicBoolean(this IPlayerCharacterData data, int hashedKey, bool value)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             data.PublicBools.SetValue(hashedKey, value);
+#endif
         }
 
         public static int GetPublicInt32(this IPlayerCharacterData data, int hashedKey, int defaultValue = 0)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PublicInts.GetValue(hashedKey, defaultValue);
+#else
+            return 0;
+#endif
         }
 
         public static void SetPublicInt32(this IPlayerCharacterData data, int hashedKey, int value)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             data.PublicInts.SetValue(hashedKey, value);
+#endif
         }
 
         public static float GetPublicFloat32(this IPlayerCharacterData data, int hashedKey, float defaultValue = 0f)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             return data.PublicFloats.GetValue(hashedKey, defaultValue);
+#else
+            return 0f;
+#endif
         }
 
         public static void SetPublicFloat32(this IPlayerCharacterData data, int hashedKey, float value)
         {
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             data.PublicFloats.SetValue(hashedKey, value);
+#endif
         }
     }
 }
