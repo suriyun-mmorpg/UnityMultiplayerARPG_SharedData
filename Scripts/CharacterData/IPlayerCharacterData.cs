@@ -51,25 +51,32 @@ namespace MultiplayerARPG
         string CurrentMapName { get; set; }
         Vec3 CurrentPosition { get; set; }
         Vec3 CurrentRotation { get; set; }
+#if !DISABLE_DIFFER_MAP_RESPAWNING
         /// <summary>
         /// Respawn Map Name will be work with MMORPG system only
         /// For Lan game it will be scene name which set in game instance
         /// </summary>
         string RespawnMapName { get; set; }
         Vec3 RespawnPosition { get; set; }
+#endif
         int MountDataId { get; set; }
         long LastDeadTime { get; set; }
         long UnmuteTime { get; set; }
         long LastUpdate { get; set; }
+#if !DISABLE_CLASSIC_PK
         bool IsPkOn { get; set; }
         long LastPkOnTime { get; set; }
         int PkPoint { get; set; }
         int ConsecutivePkKills { get; set; }
         int HighestPkPoint { get; set; }
         int HighestConsecutivePkKills { get; set; }
+#endif
         IList<CharacterHotkey> Hotkeys { get; set; }
         IList<CharacterQuest> Quests { get; set; }
+#if !DISABLE_CUSTOM_CHARACTER_CURRENCIES
         IList<CharacterCurrency> Currencies { get; set; }
+#endif
+#if !DISABLE_CUSTOM_CHARACTER_DATA
         /// <summary>
         /// Server boolean will not being synced with clients
         /// </summary>
@@ -106,5 +113,6 @@ namespace MultiplayerARPG
         /// Public float will be synced to all clients
         /// </summary>
         IList<CharacterDataFloat32> PublicFloats { get; set; }
+#endif
     }
 }
