@@ -20,9 +20,11 @@ namespace MultiplayerARPG
             result.UserId = userId;
             result.CharacterName = characterName;
             result.FactionId = factionId;
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             result.PublicBools = publicBools;
             result.PublicInts = publicInts;
             result.PublicFloats = publicFloats;
+#endif
             return result;
         }
 
@@ -33,9 +35,11 @@ namespace MultiplayerARPG
             data.UserId = userId;
             data.CharacterName = characterName;
             data.FactionId = factionId;
+#if !DISABLE_CUSTOM_CHARACTER_DATA
             data.PublicBools = publicBools;
             data.PublicInts = publicInts;
             data.PublicFloats = publicFloats;
+#endif
         }
     }
 }
