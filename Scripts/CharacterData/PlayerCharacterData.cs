@@ -8,7 +8,10 @@ namespace MultiplayerARPG
     {
         private List<CharacterHotkey> _hotkeys = new List<CharacterHotkey>();
         private List<CharacterQuest> _quests = new List<CharacterQuest>();
+#if !DISABLE_CUSTOM_CHARACTER_CURRENCIES
         private List<CharacterCurrency> _currencies = new List<CharacterCurrency>();
+#endif
+#if !DISABLE_CUSTOM_CHARACTER_DATA
         private List<CharacterDataBoolean> _serverBools = new List<CharacterDataBoolean>();
         private List<CharacterDataInt32> _serverInts = new List<CharacterDataInt32>();
         private List<CharacterDataFloat32> _serverFloats = new List<CharacterDataFloat32>();
@@ -18,6 +21,7 @@ namespace MultiplayerARPG
         private List<CharacterDataBoolean> _publicBools = new List<CharacterDataBoolean>();
         private List<CharacterDataInt32> _publicInts = new List<CharacterDataInt32>();
         private List<CharacterDataFloat32> _publicFloats = new List<CharacterDataFloat32>();
+#endif
 
         public string UserId { get; set; }
         public float StatPoint { get; set; }
@@ -29,20 +33,27 @@ namespace MultiplayerARPG
         public int GuildId { get; set; }
         public byte GuildRole { get; set; }
         public int SharedGuildExp { get; set; }
+        public string CurrentChannel { get; set; }
         public string CurrentMapName { get; set; }
         public Vec3 CurrentPosition { get; set; }
         public Vec3 CurrentRotation { get; set; }
+        public string CurrentSafeArea { get; set; }
+#if !DISABLE_DIFFER_MAP_RESPAWNING
         public string RespawnMapName { get; set; }
         public Vec3 RespawnPosition { get; set; }
+#endif
         public long LastDeadTime { get; set; }
         public long UnmuteTime { get; set; }
         public long LastUpdate { get; set; }
+#if !DISABLE_CLASSIC_PK
         public bool IsPkOn { get; set; }
         public long LastPkOnTime { get; set; }
         public int PkPoint { get; set; }
         public int ConsecutivePkKills { get; set; }
         public int HighestPkPoint { get; set; }
         public int HighestConsecutivePkKills { get; set; }
+#endif
+        public int Reputation { get; set; }
 
         public IList<CharacterHotkey> Hotkeys
         {
@@ -66,6 +77,7 @@ namespace MultiplayerARPG
             }
         }
 
+#if !DISABLE_CUSTOM_CHARACTER_CURRENCIES
         public IList<CharacterCurrency> Currencies
         {
             get { return _currencies; }
@@ -76,7 +88,9 @@ namespace MultiplayerARPG
                     _currencies.AddRange(value);
             }
         }
-        
+#endif
+
+#if !DISABLE_CUSTOM_CHARACTER_DATA
         public IList<CharacterDataBoolean> ServerBools
         {
             get { return _serverBools; }
@@ -175,6 +189,7 @@ namespace MultiplayerARPG
                     _publicFloats.AddRange(value);
             }
         }
+#endif
 
         public void Deserialize(NetDataReader reader)
         {
