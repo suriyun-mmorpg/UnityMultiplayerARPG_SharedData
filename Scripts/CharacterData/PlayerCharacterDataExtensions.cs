@@ -54,9 +54,11 @@ namespace MultiplayerARPG
             to.EquipWeaponSet = from.EquipWeaponSet;
             if (withCurrentLocationData)
             {
+                to.CurrentChannel = from.CurrentChannel;
                 to.CurrentMapName = from.CurrentMapName;
                 to.CurrentPosition = from.CurrentPosition;
                 to.CurrentRotation = from.CurrentRotation;
+                to.CurrentSafeArea = from.CurrentSafeArea;
             }
 #if !DISABLE_DIFFER_MAP_RESPAWNING
             to.RespawnMapName = from.RespawnMapName;
@@ -76,6 +78,7 @@ namespace MultiplayerARPG
             to.HighestPkPoint = from.HighestPkPoint;
             to.HighestConsecutivePkKills = from.HighestConsecutivePkKills;
 #endif
+            to.Reputation = from.Reputation;
             if (withEquipWeapons)
                 to.SelectableWeaponSets = from.SelectableWeaponSets.Clone(generateNewIdForRelatesData);
             if (withAttributes)
@@ -164,6 +167,7 @@ namespace MultiplayerARPG
             writer.PutPackedInt(characterData.GuildId);
             writer.Put(characterData.GuildRole);
             writer.PutPackedInt(characterData.SharedGuildExp);
+            writer.Put(characterData.CurrentChannel);
             writer.Put(characterData.CurrentMapName);
             if (withTransforms)
             {
@@ -174,6 +178,7 @@ namespace MultiplayerARPG
                 writer.Put(characterData.CurrentRotation.y);
                 writer.Put(characterData.CurrentRotation.z);
             }
+            writer.Put(characterData.CurrentSafeArea);
 #if !DISABLE_DIFFER_MAP_RESPAWNING
             if (withRespawningMap)
             {
@@ -197,6 +202,7 @@ namespace MultiplayerARPG
             writer.PutPackedInt(characterData.HighestPkPoint);
             writer.PutPackedInt(characterData.HighestConsecutivePkKills);
 #endif
+            writer.PutPackedInt(characterData.Reputation);
             // Attributes
             if (withAttributes)
             {
@@ -412,12 +418,14 @@ namespace MultiplayerARPG
             characterData.GuildId = reader.GetPackedInt();
             characterData.GuildRole = reader.GetByte();
             characterData.SharedGuildExp = reader.GetPackedInt();
+            characterData.CurrentChannel = reader.GetString();
             characterData.CurrentMapName = reader.GetString();
             if (withTransforms)
             {
                 characterData.CurrentPosition = new Vec3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
                 characterData.CurrentRotation = new Vec3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
             }
+            characterData.CurrentSafeArea = reader.GetString();
 #if !DISABLE_DIFFER_MAP_RESPAWNING
             if (withRespawningMap)
             {
@@ -439,6 +447,7 @@ namespace MultiplayerARPG
             characterData.HighestPkPoint = reader.GetPackedInt();
             characterData.HighestConsecutivePkKills = reader.GetPackedInt();
 #endif
+            characterData.Reputation = reader.GetPackedInt();
             int count;
             // Attributes
             if (withAttributes)
