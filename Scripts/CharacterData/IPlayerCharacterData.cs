@@ -44,6 +44,7 @@ namespace MultiplayerARPG
         /// Shared exp to guild
         /// </summary>
         int SharedGuildExp { get; set; }
+        string CurrentChannel { get; set; }
         /// <summary>
         /// Current Map Name will be work with MMORPG system only
         /// For Lan game it will be scene name which set in game instance
@@ -51,6 +52,7 @@ namespace MultiplayerARPG
         string CurrentMapName { get; set; }
         Vec3 CurrentPosition { get; set; }
         Vec3 CurrentRotation { get; set; }
+        string CurrentSafeArea { get; set; }
 #if !DISABLE_DIFFER_MAP_RESPAWNING
         /// <summary>
         /// Respawn Map Name will be work with MMORPG system only
@@ -70,6 +72,7 @@ namespace MultiplayerARPG
         int HighestPkPoint { get; set; }
         int HighestConsecutivePkKills { get; set; }
 #endif
+        int Reputation { get; set; }
         IList<CharacterHotkey> Hotkeys { get; set; }
         IList<CharacterQuest> Quests { get; set; }
 #if !DISABLE_CUSTOM_CHARACTER_CURRENCIES
