@@ -52,9 +52,11 @@ namespace MultiplayerARPG
             to.EquipWeaponSet = from.EquipWeaponSet;
             if (withCurrentLocationData)
             {
+                to.CurrentChannel = from.CurrentChannel;
                 to.CurrentMapName = from.CurrentMapName;
                 to.CurrentPosition = from.CurrentPosition;
                 to.CurrentRotation = from.CurrentRotation;
+                to.CurrentSafeArea = from.CurrentSafeArea;
             }
 #if !DISABLE_DIFFER_MAP_RESPAWNING
             to.RespawnMapName = from.RespawnMapName;
@@ -74,6 +76,7 @@ namespace MultiplayerARPG
             to.HighestPkPoint = from.HighestPkPoint;
             to.HighestConsecutivePkKills = from.HighestConsecutivePkKills;
 #endif
+            to.Reputation = from.Reputation;
             if (withEquipWeapons)
                 to.SelectableWeaponSets = from.SelectableWeaponSets.Clone(generateNewIdForRelatesData);
             if (withAttributes)
