@@ -82,6 +82,7 @@ namespace MultiplayerARPG
             {
                 writer.Put((byte)CharacterItemSyncState.IsEmpty);
                 writer.Put(id);
+                GameExtensionInstance.onCharacterItemSerialize?.Invoke(ref this, writer);
                 return;
             }
 
@@ -145,6 +146,7 @@ namespace MultiplayerARPG
             }
 
             writer.Put(version);
+            GameExtensionInstance.onCharacterItemSerialize?.Invoke(ref this, writer);
         }
 
         public void Deserialize(NetDataReader reader)
@@ -168,6 +170,7 @@ namespace MultiplayerARPG
                 ammoDataId = 0;
                 ammo = 0;
                 sockets.Clear();
+                GameExtensionInstance.onCharacterItemDeserialize?.Invoke(ref this, reader);
                 return;
             }
 
@@ -206,6 +209,7 @@ namespace MultiplayerARPG
             }
 
             version = reader.GetByte();
+            GameExtensionInstance.onCharacterItemDeserialize?.Invoke(ref this, reader);
         }
     }
 }
