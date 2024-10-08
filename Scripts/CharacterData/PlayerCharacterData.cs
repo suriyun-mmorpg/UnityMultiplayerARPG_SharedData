@@ -189,6 +189,7 @@ namespace MultiplayerARPG
             }
         }
     }
+#endif
 
     public class PlayerCharacterDataLastUpdateComparer : IComparer<PlayerCharacterData>
     {
