@@ -54,7 +54,7 @@ namespace MultiplayerARPG
         public CharacterItem Clone(bool generateNewId = false)
         {
             List<int> sockets = this.sockets == null ? new List<int>() : new List<int>(this.sockets);
-            return new CharacterItem()
+            CharacterItem destination = new CharacterItem()
             {
                 id = generateNewId || string.IsNullOrWhiteSpace(id) ? GenericUtils.GetUniqueId() : id,
                 dataId = dataId,
@@ -71,6 +71,9 @@ namespace MultiplayerARPG
                 sockets = new List<int>(sockets),
                 version = version,
             };
+            if (GameExtensionInstance.onCharacterItemClone == null)
+                return destination;
+            return GameExtensionInstance.onCharacterItemClone(ref this, destination);
         }
 
         public void Serialize(NetDataWriter writer)
@@ -81,6 +84,7 @@ namespace MultiplayerARPG
                 writer.Put(id);
                 return;
             }
+
             // Unknow item data syncing changed to sync all data
             bool isUnknowItem = GetItem() == null;
             bool isEquipment = isUnknowItem || GetEquipmentItem() != null;
@@ -147,6 +151,7 @@ namespace MultiplayerARPG
         {
             if (sockets == null)
                 sockets = new List<int>();
+
             CharacterItemSyncState syncState = (CharacterItemSyncState)reader.GetByte();
             if (syncState == CharacterItemSyncState.IsEmpty)
             {
