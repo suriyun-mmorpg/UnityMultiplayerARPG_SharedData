@@ -26,7 +26,7 @@ namespace MultiplayerARPG
 
         public CharacterSummon Clone(bool generateNewId = false)
         {
-            CharacterSummon result= new CharacterSummon()
+            CharacterSummon result = new CharacterSummon()
             {
                 id = generateNewId || string.IsNullOrWhiteSpace(id) ? GenericUtils.GetUniqueId() : id,
                 type = type,
