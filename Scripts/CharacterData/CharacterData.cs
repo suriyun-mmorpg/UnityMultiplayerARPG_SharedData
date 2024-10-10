@@ -21,6 +21,7 @@ namespace MultiplayerARPG
         private NotifiableList<CharacterSummon> _summons;
         private int _titleDataId;
         private int _factionId;
+        private CharacterMount _mount;
 
         ~CharacterData()
         {
@@ -375,6 +376,18 @@ namespace MultiplayerARPG
                     foreach (CharacterSummon entry in value)
                         _summons.Add(entry);
                 }
+            }
+        }
+
+        public CharacterMount Mount
+        {
+            get { return _mount; }
+            set
+            {
+                _mount = value;
+#if !NET && !NETCOREAPP
+                this.MarkToMakeCaches();
+#endif
             }
         }
 
