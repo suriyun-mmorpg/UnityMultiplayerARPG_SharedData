@@ -31,5 +31,6 @@ namespace MultiplayerARPG
         IList<CharacterItem> EquipItems { get; set; }
         IList<CharacterItem> NonEquipItems { get; set; }
         IList<CharacterSummon> Summons { get; set; }
+        CharacterMount Mount { get; set; }
     }
 }

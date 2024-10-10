@@ -123,6 +123,7 @@ namespace MultiplayerARPG
                 to.PublicFloats = from.PublicFloats.Clone();
             }
 #endif
+            to.Mount = from.Mount.Clone();
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "CloneTo", from, to);
             return to;
         }
@@ -365,6 +366,8 @@ namespace MultiplayerARPG
                     writer.Put(entry);
                 }
             }
+
+            writer.Put(characterData.Mount);
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "SerializeCharacterData", characterData, writer);
         }
 
@@ -631,6 +634,8 @@ namespace MultiplayerARPG
                     characterData.SelectableWeaponSets.Add(reader.Get<EquipWeapons>());
                 }
             }
+
+            characterData.Mount = reader.Get<CharacterMount>();
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "DeserializeCharacterData", characterData, reader);
             return characterData;
         }
