@@ -58,12 +58,7 @@ namespace MultiplayerARPG
             if (type != SummonType.None)
             {
                 writer.PutPackedInt(dataId);
-                switch (type)
-                {
-                    case SummonType.Skill:
-                        writer.Put(summonRemainsDuration);
-                        break;
-                }
+                writer.Put(summonRemainsDuration);
                 writer.PutPackedUInt(objectId);
                 writer.PutPackedInt(level);
                 writer.PutPackedInt(exp);
@@ -79,12 +74,7 @@ namespace MultiplayerARPG
             if (type != SummonType.None)
             {
                 dataId = reader.GetPackedInt();
-                switch (type)
-                {
-                    case SummonType.Skill:
-                        summonRemainsDuration = reader.GetFloat();
-                        break;
-                }
+                summonRemainsDuration = reader.GetFloat();
                 objectId = reader.GetPackedUInt();
                 level = reader.GetPackedInt();
                 exp = reader.GetPackedInt();
