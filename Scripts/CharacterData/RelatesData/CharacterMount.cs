@@ -48,25 +48,33 @@ namespace MultiplayerARPG
             };
         }
 
-        public void Deserialize(NetDataReader reader)
-        {
-            type = (MountType)reader.GetByte();
-            if (type != MountType.None)
-            {
-                dataId = reader.GetPackedInt();
-                level = reader.GetPackedInt();
-                exp = reader.GetPackedInt();
-            }
-        }
-
         public void Serialize(NetDataWriter writer)
         {
             writer.Put((byte)type);
             if (type != MountType.None)
             {
                 writer.PutPackedInt(dataId);
+                writer.Put(mountRemainsDuration);
+                writer.PutPackedUInt(objectId);
                 writer.PutPackedInt(level);
                 writer.PutPackedInt(exp);
+                writer.PutPackedInt(currentHp);
+                writer.PutPackedInt(currentMp);
+            }
+        }
+
+        public void Deserialize(NetDataReader reader)
+        {
+            type = (MountType)reader.GetByte();
+            if (type != MountType.None)
+            {
+                dataId = reader.GetPackedInt();
+                mountRemainsDuration = reader.GetFloat();
+                objectId = reader.GetPackedUInt();
+                level = reader.GetPackedInt();
+                exp = reader.GetPackedInt();
+                currentHp = reader.GetPackedInt();
+                currentMp = reader.GetPackedInt();
             }
         }
     }
