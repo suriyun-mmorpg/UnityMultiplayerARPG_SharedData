@@ -7,6 +7,11 @@ namespace MultiplayerARPG
         None,
         Skill,
         MountItem,
+        SkillBuff,
+        SkillDebuff,
+        PotionBuff,
+        GuildSkillBuff,
+        StatusEffect,
         Custom = 254,
     }
 
