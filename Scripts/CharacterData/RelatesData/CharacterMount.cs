@@ -25,6 +25,20 @@ namespace MultiplayerARPG
         public int level;
         public int currentHp;
 
+        public bool IsBuffMount()
+        {
+            switch (type)
+            {
+                case MountType.SkillBuff:
+                case MountType.SkillDebuff:
+                case MountType.PotionBuff:
+                case MountType.GuildSkillBuff:
+                case MountType.StatusEffect:
+                    return true;
+            }
+            return false;
+        }
+
         public CharacterMount Clone()
         {
             CharacterMount result = new CharacterMount()
