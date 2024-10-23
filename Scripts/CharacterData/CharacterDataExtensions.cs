@@ -24,6 +24,11 @@ namespace MultiplayerARPG
             return data.Buffs.IndexOf(type, dataId);
         }
 
+        public static int IndexOfBuff(this ICharacterData data, string id)
+        {
+            return data.Buffs.IndexOf(id);
+        }
+
         public static List<int> IndexesOfBuff(this ICharacterData data, BuffType type, int dataId)
         {
             return data.Buffs.IndexesOf(type, dataId);

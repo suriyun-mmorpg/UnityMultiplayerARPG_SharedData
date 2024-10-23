@@ -226,6 +226,16 @@ namespace MultiplayerARPG
             return -1;
         }
 
+        public static int IndexOf(this IList<CharacterBuff> list, string id)
+        {
+            for (int i = 0; i < list.Count; ++i)
+            {
+                if (!string.IsNullOrEmpty(list[i].id) && list[i].id.Equals(id))
+                    return i;
+            }
+            return -1;
+        }
+
         public static List<int> IndexesOf(this IList<CharacterBuff> list, BuffType type, int dataId)
         {
             List<int> result = new List<int>();

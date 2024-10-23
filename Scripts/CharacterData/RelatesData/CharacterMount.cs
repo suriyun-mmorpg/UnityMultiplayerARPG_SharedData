@@ -7,11 +7,7 @@ namespace MultiplayerARPG
         None,
         Skill,
         MountItem,
-        SkillBuff,
-        SkillDebuff,
-        PotionBuff,
-        GuildSkillBuff,
-        StatusEffect,
+        Buff,
         Custom = 254,
     }
 
@@ -20,31 +16,17 @@ namespace MultiplayerARPG
     {
         public static readonly CharacterMount Empty = new CharacterMount();
         public MountType type;
-        public int dataId;
+        public string sourceId;
         public float mountRemainsDuration;
         public int level;
         public int currentHp;
-
-        public bool IsBuffMount()
-        {
-            switch (type)
-            {
-                case MountType.SkillBuff:
-                case MountType.SkillDebuff:
-                case MountType.PotionBuff:
-                case MountType.GuildSkillBuff:
-                case MountType.StatusEffect:
-                    return true;
-            }
-            return false;
-        }
 
         public CharacterMount Clone()
         {
             CharacterMount result = new CharacterMount()
             {
                 type = type,
-                dataId = dataId,
+                sourceId = sourceId,
                 mountRemainsDuration = mountRemainsDuration,
                 level = level,
                 currentHp = currentHp,
@@ -57,7 +39,7 @@ namespace MultiplayerARPG
             writer.Put((byte)type);
             if (type != MountType.None)
             {
-                writer.PutPackedInt(dataId);
+                writer.Put(sourceId);
                 writer.Put(mountRemainsDuration);
                 writer.PutPackedInt(level);
                 writer.PutPackedInt(currentHp);
@@ -69,7 +51,7 @@ namespace MultiplayerARPG
             type = (MountType)reader.GetByte();
             if (type != MountType.None)
             {
-                dataId = reader.GetPackedInt();
+                sourceId = reader.GetString();
                 mountRemainsDuration = reader.GetFloat();
                 level = reader.GetPackedInt();
                 currentHp = reader.GetPackedInt();
