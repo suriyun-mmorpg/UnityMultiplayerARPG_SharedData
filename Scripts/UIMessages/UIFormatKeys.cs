@@ -966,5 +966,15 @@ namespace MultiplayerARPG
         /// Format => {0} = {Current Cash Amount}, {1} = {Target Amount}
         /// </summary>
         UI_FORMAT_REQUIRE_CASH_NOT_ENOUGH,
+
+        // 1.90
+        /// <summary>
+        /// Format => {0} = {Level}
+        /// </summary>
+        UI_FORMAT_LEVEL_UP,
+        /// <summary>
+        /// Format => {0} = {Status Effect}
+        /// </summary>
+        UI_FORMAT_BUFF_REMOVAL_NO_ENTRIES,
     }
 }
