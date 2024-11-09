@@ -215,6 +215,18 @@ namespace MultiplayerARPG
                 else
                     sockets = splitData[8];
 
+                int ammoDataId;
+                if (splitData.Length < 10 || !int.TryParse(splitData[9], out ammoDataId))
+                    ammoDataId = 0;
+
+                int ammo;
+                if (splitData.Length < 11 || !int.TryParse(splitData[10], out ammo))
+                    ammo = 0;
+
+                byte version;
+                if (splitData.Length < 12 || !byte.TryParse(splitData[11], out version))
+                    version = 0;
+
                 CharacterItem characterItem = new CharacterItem();
                 characterItem.id = GenericUtils.GetUniqueId();
                 characterItem.dataId = dataId;
@@ -225,6 +237,9 @@ namespace MultiplayerARPG
                 characterItem.lockRemainsDuration = lockRemainsDuration;
                 characterItem.expireTime = expireTime;
                 characterItem.randomSeed = randomSeed;
+                characterItem.ammoDataId = ammoDataId;
+                characterItem.ammo = ammo;
+                characterItem.version = version;
                 characterItem.ReadSockets(sockets, '|');
                 items.Add(characterItem);
             }
@@ -258,6 +273,12 @@ namespace MultiplayerARPG
                     stringBuilder.Append(item.randomSeed);
                     stringBuilder.Append(':');
                     stringBuilder.Append(item.WriteSockets('|'));
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.ammoDataId);
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.ammo);
+                    stringBuilder.Append(':');
+                    stringBuilder.Append(item.version);
                     stringBuilder.Append(';');
                 }
                 return stringBuilder.ToString();
