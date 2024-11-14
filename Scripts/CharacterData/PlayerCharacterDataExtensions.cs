@@ -50,7 +50,6 @@ namespace MultiplayerARPG
             to.PartyId = from.PartyId;
             to.GuildId = from.GuildId;
             to.GuildRole = from.GuildRole;
-            to.SharedGuildExp = from.SharedGuildExp;
             to.EquipWeaponSet = from.EquipWeaponSet;
             if (withCurrentLocationData)
             {
@@ -167,7 +166,6 @@ namespace MultiplayerARPG
             writer.PutPackedInt(characterData.PartyId);
             writer.PutPackedInt(characterData.GuildId);
             writer.Put(characterData.GuildRole);
-            writer.PutPackedInt(characterData.SharedGuildExp);
             writer.Put(characterData.CurrentChannel);
             writer.Put(characterData.CurrentMapName);
             if (withTransforms)
@@ -420,7 +418,6 @@ namespace MultiplayerARPG
             characterData.PartyId = reader.GetPackedInt();
             characterData.GuildId = reader.GetPackedInt();
             characterData.GuildRole = reader.GetByte();
-            characterData.SharedGuildExp = reader.GetPackedInt();
             characterData.CurrentChannel = reader.GetString();
             characterData.CurrentMapName = reader.GetString();
             if (withTransforms)
