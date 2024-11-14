@@ -48,7 +48,6 @@ namespace MultiplayerARPG
             to.PartyId = from.PartyId;
             to.GuildId = from.GuildId;
             to.GuildRole = from.GuildRole;
-            to.SharedGuildExp = from.SharedGuildExp;
             to.EquipWeaponSet = from.EquipWeaponSet;
             if (withCurrentLocationData)
             {

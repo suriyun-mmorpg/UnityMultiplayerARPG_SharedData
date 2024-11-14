@@ -40,10 +40,6 @@ namespace MultiplayerARPG
         /// Current guild role
         /// </summary>
         byte GuildRole { get; set; }
-        /// <summary>
-        /// Shared exp to guild
-        /// </summary>
-        int SharedGuildExp { get; set; }
         string CurrentChannel { get; set; }
         /// <summary>
         /// Current Map Name will be work with MMORPG system only

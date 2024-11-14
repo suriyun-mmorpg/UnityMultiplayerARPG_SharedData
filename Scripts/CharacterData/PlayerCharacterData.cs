@@ -31,7 +31,6 @@ namespace MultiplayerARPG
         public int PartyId { get; set; }
         public int GuildId { get; set; }
         public byte GuildRole { get; set; }
-        public int SharedGuildExp { get; set; }
         public string CurrentChannel { get; set; }
         public string CurrentMapName { get; set; }
         public Vec3 CurrentPosition { get; set; }
