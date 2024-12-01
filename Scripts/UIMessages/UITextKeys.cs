@@ -378,5 +378,8 @@ namespace MultiplayerARPG
         UI_ERROR_REACHED_REFINE_ENHANCER_ITEMS_LIMIT,
         // 1.87 Buff
         UI_LABEL_BUFF_DISALLOW_DASH,
+        // 1.91 Repair Error Messages
+        UI_ERROR_CANNOT_REPAIR_ITEM_NOT_BROKEN,
+        UI_ERROR_CANNOT_REPAIR_ITEM_UNBREAKABLE,
     }
 }

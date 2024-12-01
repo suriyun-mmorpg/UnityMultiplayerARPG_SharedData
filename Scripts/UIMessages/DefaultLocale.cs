@@ -684,6 +684,9 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_BUY_ITEM_PRICE_RATE_RATE.ToString(), "% of Buy Item Price Rate: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_SELL_ITEM_PRICE_RATE.ToString(), "Sell Item Price Rate: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_SELL_ITEM_PRICE_RATE_RATE.ToString(), "% of Sell Item Price Rate: {0}%");
+            // 1.91 Repair Error Messages
+            Texts.Add(UITextKeys.UI_ERROR_CANNOT_REPAIR_ITEM_NOT_BROKEN.ToString(), "Cannot repair the item, it is not broken");
+            Texts.Add(UITextKeys.UI_ERROR_CANNOT_REPAIR_ITEM_UNBREAKABLE.ToString(), "Cannot repair the item, it is unbreakable");
         }
     }
 }
