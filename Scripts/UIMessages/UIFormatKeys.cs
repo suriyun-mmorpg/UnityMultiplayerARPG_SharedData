@@ -1021,11 +1021,11 @@ namespace MultiplayerARPG
         /// <summary>
         /// Format => {0} = {Amount * 100}
         /// </summary>
-        UI_FORMAT_FIRE_STAGGER_RATE,
+        UI_FORMAT_FIRE_SPREAD_RANGE_RATE,
         /// <summary>
         /// Format => {0} = {Amount * 100}
         /// </summary>
-        UI_FORMAT_FIRE_STAGGER_RATE_RATE,
+        UI_FORMAT_FIRE_SPREAD_RANGE_RATE_RATE,
         /// <summary>
         /// Format => {0} = {Amount}
         /// </summary>
