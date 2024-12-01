@@ -14,6 +14,7 @@
         public static readonly CharacterSummon Empty = new CharacterSummon();
         public string id;
         public SummonType type;
+        public string sourceId;
         public int dataId;
         public float summonRemainsDuration;
         public uint objectId;
@@ -28,6 +29,7 @@
             {
                 id = generateNewId || string.IsNullOrWhiteSpace(id) ? GenericUtils.GetUniqueId() : id,
                 type = type,
+                sourceId = sourceId,
                 dataId = dataId,
                 summonRemainsDuration = summonRemainsDuration,
                 objectId = objectId,
@@ -39,12 +41,13 @@
             return result;
         }
 
-        public static CharacterSummon Create(SummonType type, int dataId)
+        public static CharacterSummon Create(SummonType type, string sourceId, int dataId)
         {
             return new CharacterSummon()
             {
                 id = GenericUtils.GetUniqueId(),
                 type = type,
+                sourceId = sourceId,
                 dataId = dataId,
             };
         }
