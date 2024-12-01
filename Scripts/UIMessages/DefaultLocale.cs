@@ -662,6 +662,28 @@ namespace MultiplayerARPG
             // 1.87
             Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_DASH.ToString(), "Disallow Dash");
             Texts.Add(UIFormatKeys.UI_FORMAT_SKILL_ATTACK_WEAPON_DAMAGE_MULTIPLICATOR.ToString(), "Attack Weapon Damage Multiplicator: {0}");
+            // 1.91 New Stats
+            Texts.Add(UIFormatKeys.UI_FORMAT_PROTECTED_SLOT_LIMIT.ToString(), "Protected Inventory Slots: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_PROTECTED_SLOT_LIMIT_RATE.ToString(), "Protected Inventory Slots Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_AMMO_CAPACITY.ToString(), "Ammo Capacity: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_AMMO_CAPACITY_RATE.ToString(), "Ammo Capacity Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_RATE.ToString(), "Recoil Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_RATE_RATE.ToString(), "% of Recoil Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RATE_OF_FIRE.ToString(), "Rate Of Fire: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RATE_OF_FIRE_RATE.ToString(), "Rate Of Fire Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RELOAD_DURATION.ToString(), "Reload Duration: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RELOAD_DURATION_RATE.ToString(), "Reload Duration Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_RANGE_RATE.ToString(), "Fire Spread Range Rate: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_RANGE_RATE_RATE.ToString(), "% of Fire Spread Range Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD.ToString(), "Fire Spread: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_RATE.ToString(), "Fire Spread Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_DECREASE_FOOD_DECREATION.ToString(), "Food Decreation: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_DECREASE_WATER_DECREATION.ToString(), "Water Decreation: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_DECREASE_STAMINA_DECREATION.ToString(), "Stamina Decreation: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_BUY_ITEM_PRICE_RATE.ToString(), "Buy Item Price Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_BUY_ITEM_PRICE_RATE_RATE.ToString(), "% of Buy Item Price Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_SELL_ITEM_PRICE_RATE.ToString(), "Sell Item Price Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_SELL_ITEM_PRICE_RATE_RATE.ToString(), "% of Sell Item Price Rate: {0}%");
         }
     }
 }
