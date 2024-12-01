@@ -16,6 +16,7 @@ namespace MultiplayerARPG
         public static readonly CharacterSummon Empty = new CharacterSummon();
         public string id;
         public SummonType type;
+        public string sourceId;
         public int dataId;
         public float summonRemainsDuration;
         public uint objectId;
@@ -30,6 +31,7 @@ namespace MultiplayerARPG
             {
                 id = generateNewId || string.IsNullOrWhiteSpace(id) ? GenericUtils.GetUniqueId() : id,
                 type = type,
+                sourceId = sourceId,
                 dataId = dataId,
                 summonRemainsDuration = summonRemainsDuration,
                 objectId = objectId,
@@ -41,12 +43,13 @@ namespace MultiplayerARPG
             return result;
         }
 
-        public static CharacterSummon Create(SummonType type, int dataId)
+        public static CharacterSummon Create(SummonType type, string sourceId, int dataId)
         {
             return new CharacterSummon()
             {
                 id = GenericUtils.GetUniqueId(),
                 type = type,
+                sourceId = sourceId,
                 dataId = dataId,
             };
         }
@@ -57,6 +60,7 @@ namespace MultiplayerARPG
             writer.Put((byte)type);
             if (type != SummonType.None)
             {
+                writer.Put(sourceId);
                 writer.PutPackedInt(dataId);
                 writer.Put(summonRemainsDuration);
                 writer.PutPackedUInt(objectId);
@@ -73,6 +77,7 @@ namespace MultiplayerARPG
             type = (SummonType)reader.GetByte();
             if (type != SummonType.None)
             {
+                sourceId = reader.GetString();
                 dataId = reader.GetPackedInt();
                 summonRemainsDuration = reader.GetFloat();
                 objectId = reader.GetPackedUInt();
