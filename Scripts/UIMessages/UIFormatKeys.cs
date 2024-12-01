@@ -826,7 +826,7 @@ namespace MultiplayerARPG
         /// </summary>
         UI_FORMAT_INVALID_REQUIRE_FACTION,
 
-        // 1.83g2 New Formats
+        // 1.83g2 New Stats
         /// <summary>
         /// Format => {0} = {Amount * 100}
         /// </summary>
@@ -976,5 +976,103 @@ namespace MultiplayerARPG
         /// Format => {0} = {Status Effect}
         /// </summary>
         UI_FORMAT_BUFF_REMOVAL_NO_ENTRIES,
+
+        // 1.91 New Stats
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_PROTECTED_SLOT_LIMIT,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_PROTECTED_SLOT_LIMIT_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_AMMO_CAPACITY,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_AMMO_CAPACITY_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RECOIL_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RECOIL_RATE_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_RATE_OF_FIRE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RATE_OF_FIRE_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_RELOAD_DURATION,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RELOAD_DURATION_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_FIRE_STAGGER_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_FIRE_STAGGER_RATE_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_FIRE_SPREAD,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_FIRE_SPREAD_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_DECREASE_FOOD_DECREATION,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_DECREASE_FOOD_DECREATION_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_DECREASE_WATER_DECREATION,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_DECREASE_WATER_DECREATION_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_DECREASE_STAMINA_DECREATION,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_DECREASE_STAMINA_DECREATION_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_BUY_ITEM_PRICE_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_BUY_ITEM_PRICE_RATE_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_SELL_ITEM_PRICE_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_SELL_ITEM_PRICE_RATE_RATE,
     }
 }
