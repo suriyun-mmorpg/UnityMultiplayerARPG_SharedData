@@ -687,6 +687,8 @@ namespace MultiplayerARPG
             // 1.91 Repair Error Messages
             Texts.Add(UITextKeys.UI_ERROR_CANNOT_REPAIR_ITEM_NOT_BROKEN.ToString(), "Cannot repair the item, it is not broken");
             Texts.Add(UITextKeys.UI_ERROR_CANNOT_REPAIR_ITEM_UNBREAKABLE.ToString(), "Cannot repair the item, it is unbreakable");
+            // 1.92
+            Texts.Add(UIFormatKeys.UI_FORMAT_TAX.ToString(), "Tax: {0}");
         }
     }
 }
