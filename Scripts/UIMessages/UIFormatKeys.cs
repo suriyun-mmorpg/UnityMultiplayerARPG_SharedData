@@ -1074,5 +1074,9 @@ namespace MultiplayerARPG
         /// Format => {0} = {Amount * 100}
         /// </summary>
         UI_FORMAT_SELL_ITEM_PRICE_RATE_RATE,
+        /// <summary>
+        /// Format => {0} = {Tax Amount}
+        /// </summary>
+        UI_FORMAT_TAX,
     }
 }
