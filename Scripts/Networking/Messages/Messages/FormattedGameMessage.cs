@@ -11,13 +11,13 @@ namespace MultiplayerARPG
         public void Deserialize(NetDataReader reader)
         {
             format = (UIFormatKeys)reader.GetPackedUShort();
-            args = reader.GetArray<string>();
+            args = reader.GetArrayExtension<string>();
         }
 
         public void Serialize(NetDataWriter writer)
         {
             writer.PutPackedUShort((ushort)format);
-            writer.PutArray<string>(args);
+            writer.PutArrayExtension(args);
         }
     }
 }
