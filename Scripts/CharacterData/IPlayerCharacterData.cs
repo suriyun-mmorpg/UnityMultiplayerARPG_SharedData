@@ -68,7 +68,6 @@ namespace MultiplayerARPG
         int HighestPkPoint { get; set; }
         int HighestConsecutivePkKills { get; set; }
 #endif
-        int Reputation { get; set; }
         IList<CharacterHotkey> Hotkeys { get; set; }
         IList<CharacterQuest> Quests { get; set; }
 #if !DISABLE_CUSTOM_CHARACTER_CURRENCIES

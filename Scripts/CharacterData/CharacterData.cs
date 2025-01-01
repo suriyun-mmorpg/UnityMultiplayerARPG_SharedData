@@ -141,6 +141,8 @@ namespace MultiplayerARPG
             }
         }
 
+        public int Reputation { get; set; }
+
         [JsonIgnore]
         public EquipWeapons EquipWeapons
         {
