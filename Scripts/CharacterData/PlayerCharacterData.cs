@@ -51,7 +51,6 @@ namespace MultiplayerARPG
         public int HighestPkPoint { get; set; }
         public int HighestConsecutivePkKills { get; set; }
 #endif
-        public int Reputation { get; set; }
 
         public IList<CharacterHotkey> Hotkeys
         {
