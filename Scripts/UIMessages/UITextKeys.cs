@@ -381,5 +381,11 @@ namespace MultiplayerARPG
         // 1.91 Repair Error Messages
         UI_ERROR_CANNOT_REPAIR_ITEM_NOT_BROKEN,
         UI_ERROR_CANNOT_REPAIR_ITEM_UNBREAKABLE,
+        // Chat Error
+        UI_ERROR_CHAT_MUTED,
+        UI_ERROR_CHAT_ENTER_TOO_FAST,
+        // ID
+        UI_USER_ID_COPIED,
+        UI_CHARACTER_ID_COPIED,
     }
 }
