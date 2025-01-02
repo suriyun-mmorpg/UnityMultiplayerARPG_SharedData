@@ -689,6 +689,12 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_CANNOT_REPAIR_ITEM_UNBREAKABLE.ToString(), "Cannot repair the item, it is unbreakable");
             // 1.92
             Texts.Add(UIFormatKeys.UI_FORMAT_TAX.ToString(), "Tax: {0}");
+            // Chat Error
+            Texts.Add(UITextKeys.UI_ERROR_CHAT_MUTED.ToString(), "You have been muted");
+            Texts.Add(UITextKeys.UI_ERROR_CHAT_ENTER_TOO_FAST.ToString(), "Please wait a moment before sending your next chat message");
+            // ID
+            Texts.Add(UITextKeys.UI_USER_ID_COPIED.ToString(), "User's ID is copied");
+            Texts.Add(UITextKeys.UI_CHARACTER_ID_COPIED.ToString(), "Character's ID is copied");
         }
     }
 }
