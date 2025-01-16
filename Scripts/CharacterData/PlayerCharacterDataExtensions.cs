@@ -119,6 +119,7 @@ namespace MultiplayerARPG
                 to.PublicFloats = from.PublicFloats.Clone();
             }
 #endif
+            to.GuildSkills = from.GuildSkills.Clone();
             to.Mount = from.Mount.Clone();
             DevExtUtils.InvokeStaticDevExtMethods(ClassType, "CloneTo", from, to);
             return to;

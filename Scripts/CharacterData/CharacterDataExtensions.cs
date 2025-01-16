@@ -78,6 +78,11 @@ namespace MultiplayerARPG
             return data.Summons.IndexOf(type, dataId);
         }
 
+        public static int IndexOfGuildSkill(this IPlayerCharacterData data, int dataId)
+        {
+            return data.GuildSkills.IndexOf(dataId);
+        }
+
         public static void FillWeaponSetsIfNeeded(this ICharacterData data, byte equipWeaponSet)
         {
 #if UNITY_2017_1_OR_NEWER
