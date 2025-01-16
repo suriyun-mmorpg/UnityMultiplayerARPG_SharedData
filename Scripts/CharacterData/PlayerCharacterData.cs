@@ -22,6 +22,7 @@ namespace MultiplayerARPG
         private List<CharacterDataInt32> _publicInts = new List<CharacterDataInt32>();
         private List<CharacterDataFloat32> _publicFloats = new List<CharacterDataFloat32>();
 #endif
+        private List<CharacterSkill> _guildSkills = new List<CharacterSkill>();
 
         public string UserId { get; set; }
         public float StatPoint { get; set; }
@@ -188,6 +189,17 @@ namespace MultiplayerARPG
             }
         }
 #endif
+
+        public IList<CharacterSkill> GuildSkills
+        {
+            get { return _guildSkills; }
+            set
+            {
+                _guildSkills = new List<CharacterSkill>();
+                if (value != null)
+                    _guildSkills.AddRange(value);
+            }
+        }
 
         public void Deserialize(NetDataReader reader)
         {

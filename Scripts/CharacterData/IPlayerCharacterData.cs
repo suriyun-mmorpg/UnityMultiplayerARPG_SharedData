@@ -111,5 +111,6 @@ namespace MultiplayerARPG
         /// </summary>
         IList<CharacterDataFloat32> PublicFloats { get; set; }
 #endif
+        IList<CharacterSkill> GuildSkills { get; set; }
     }
 }
