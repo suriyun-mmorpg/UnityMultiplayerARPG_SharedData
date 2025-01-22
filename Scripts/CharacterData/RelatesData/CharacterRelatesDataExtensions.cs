@@ -8,13 +8,16 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<EquipWeapons> src, bool generateNewId = false) where T : IList<EquipWeapons>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(new EquipWeapons()
+                for (int i = 0; i < src.Count; ++i)
                 {
-                    rightHand = src[i].rightHand.Clone(generateNewId),
-                    leftHand = src[i].leftHand.Clone(generateNewId),
-                });
+                    result.Add(new EquipWeapons()
+                    {
+                        rightHand = src[i].rightHand.Clone(generateNewId),
+                        leftHand = src[i].leftHand.Clone(generateNewId),
+                    });
+                }
             }
             return result;
         }
@@ -27,9 +30,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterAttribute> src) where T : IList<CharacterAttribute>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone());
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone());
+                }
             }
             return result;
         }
@@ -42,9 +48,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterBuff> src, bool generateNewId = false) where T : IList<CharacterBuff>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone(generateNewId));
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone(generateNewId));
+                }
             }
             return result;
         }
@@ -57,9 +66,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterItem> src, bool generateNewId = false) where T : List<CharacterItem>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone(generateNewId));
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone(generateNewId));
+                }
             }
             return result;
         }
@@ -72,9 +84,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterSkill> src) where T : IList<CharacterSkill>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone());
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone());
+                }
             }
             return result;
         }
@@ -87,9 +102,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterSkillUsage> src) where T : IList<CharacterSkillUsage>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone());
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone());
+                }
             }
             return result;
         }
@@ -102,9 +120,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterSummon> src, bool generateNewId = false) where T : IList<CharacterSummon>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone(generateNewId));
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone(generateNewId));
+                }
             }
             return result;
         }
@@ -117,9 +138,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterHotkey> src) where T : IList<CharacterHotkey>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone());
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone());
+                }
             }
             return result;
         }
@@ -132,9 +156,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterQuest> src) where T : IList<CharacterQuest>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone());
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone());
+                }
             }
             return result;
         }
@@ -147,9 +174,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterCurrency> src) where T : IList<CharacterCurrency>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone());
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone());
+                }
             }
             return result;
         }
@@ -162,9 +192,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterDataBoolean> src) where T : IList<CharacterDataBoolean>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone());
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone());
+                }
             }
             return result;
         }
@@ -177,9 +210,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterDataInt32> src) where T : IList<CharacterDataInt32>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone());
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone());
+                }
             }
             return result;
         }
@@ -192,9 +228,12 @@ namespace MultiplayerARPG
         public static T Clone<T>(this IList<CharacterDataFloat32> src) where T : IList<CharacterDataFloat32>, new()
         {
             T result = new T();
-            for (int i = 0; i < src.Count; ++i)
+            if (src != null)
             {
-                result.Add(src[i].Clone());
+                for (int i = 0; i < src.Count; ++i)
+                {
+                    result.Add(src[i].Clone());
+                }
             }
             return result;
         }
