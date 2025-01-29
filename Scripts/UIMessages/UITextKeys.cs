@@ -387,5 +387,8 @@ namespace MultiplayerARPG
         // ID
         UI_USER_ID_COPIED,
         UI_CHARACTER_ID_COPIED,
+        // Character Name Changing
+        UI_CHARACTER_NAME_CHANGE,
+        UI_CHARACTER_NAME_CHANGE_DESCRIPTION,
     }
 }

@@ -695,6 +695,9 @@ namespace MultiplayerARPG
             // ID
             Texts.Add(UITextKeys.UI_USER_ID_COPIED.ToString(), "User's ID is copied");
             Texts.Add(UITextKeys.UI_CHARACTER_ID_COPIED.ToString(), "Character's ID is copied");
+            // Character Name Changing
+            Texts.Add(UITextKeys.UI_CHARACTER_NAME_CHANGE.ToString(), "Character Name Changing");
+            Texts.Add(UITextKeys.UI_CHARACTER_NAME_CHANGE_DESCRIPTION.ToString(), "Which name do you want to make changes?");
         }
     }
 }
