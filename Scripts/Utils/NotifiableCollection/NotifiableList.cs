@@ -6,9 +6,11 @@ namespace NotifiableCollection
     public class NotifiableList<TType> : IList<TType>
     {
         public delegate void OnChangedDelegate(NotifiableListAction action, int index, TType oldItem, TType newItem);
+        public delegate void OnChangedWithoutItemDelegate(NotifiableListAction action, int index);
         protected readonly List<TType> _list;
 
         public event OnChangedDelegate ListChanged;
+        public event OnChangedWithoutItemDelegate ListChangedWithoutItem;
 
         public NotifiableList()
         {
@@ -131,6 +133,7 @@ namespace NotifiableCollection
         private void InvokeNotifiableListAction(NotifiableListAction action, int index, TType oldItem, TType newItem)
         {
             ListChanged?.Invoke(action, index, oldItem, newItem);
+            ListChangedWithoutItem?.Invoke(action, index);
         }
     }
 }
