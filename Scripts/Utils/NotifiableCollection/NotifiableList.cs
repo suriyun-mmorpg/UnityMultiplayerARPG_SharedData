@@ -5,9 +5,10 @@ namespace NotifiableCollection
 {
     public class NotifiableList<TType> : IList<TType>
     {
+        public delegate void OnChangedDelegate(NotifiableListAction action, int index, TType oldItem, TType newItem);
         protected readonly List<TType> _list;
 
-        public event NotifiableListChangedEventHandler ListChanged;
+        public event OnChangedDelegate ListChanged;
 
         public NotifiableList()
         {
@@ -29,8 +30,9 @@ namespace NotifiableCollection
             get { return _list[index]; }
             set
             {
+                TType oldItem = _list[index];
                 _list[index] = value;
-                InvokeNotifiableListAction(NotifiableListAction.Set, index);
+                InvokeNotifiableListAction(NotifiableListAction.Set, index, oldItem, value);
             }
         }
 
@@ -42,7 +44,7 @@ namespace NotifiableCollection
         {
             int index = _list.Count;
             _list.Add(item);
-            InvokeNotifiableListAction(NotifiableListAction.Add, index);
+            InvokeNotifiableListAction(NotifiableListAction.Add, index, default, item);
         }
 
         public void AddRange(IEnumerable<TType> collection)
@@ -56,7 +58,7 @@ namespace NotifiableCollection
         public void Clear()
         {
             _list.Clear();
-            InvokeNotifiableListAction(NotifiableListAction.Clear, -1);
+            InvokeNotifiableListAction(NotifiableListAction.Clear, -1, default, default);
         }
 
         public bool Contains(TType item)
@@ -82,7 +84,7 @@ namespace NotifiableCollection
         public void Insert(int index, TType item)
         {
             _list.Insert(index, item);
-            InvokeNotifiableListAction(NotifiableListAction.Insert, index);
+            InvokeNotifiableListAction(NotifiableListAction.Insert, index, default, item);
         }
 
         public bool Remove(TType item)
@@ -98,20 +100,21 @@ namespace NotifiableCollection
 
         public void RemoveAt(int index)
         {
+            TType oldItem = _list[index];
             if (index == 0)
             {
                 _list.RemoveAt(index);
-                InvokeNotifiableListAction(NotifiableListAction.RemoveFirst, 0);
+                InvokeNotifiableListAction(NotifiableListAction.RemoveFirst, index, oldItem, default);
             }
             else if (index == _list.Count - 1)
             {
                 _list.RemoveAt(index);
-                InvokeNotifiableListAction(NotifiableListAction.RemoveLast, index);
+                InvokeNotifiableListAction(NotifiableListAction.RemoveLast, index, oldItem, default);
             }
             else
             {
                 _list.RemoveAt(index);
-                InvokeNotifiableListAction(NotifiableListAction.RemoveAt, index);
+                InvokeNotifiableListAction(NotifiableListAction.RemoveAt, index, oldItem, default);
             }
         }
 
@@ -122,12 +125,12 @@ namespace NotifiableCollection
 
         public void Dirty(int index)
         {
-            InvokeNotifiableListAction(NotifiableListAction.Dirty, index);
+            InvokeNotifiableListAction(NotifiableListAction.Dirty, index, this[index], this[index]);
         }
 
-        private void InvokeNotifiableListAction(NotifiableListAction action, int index)
+        private void InvokeNotifiableListAction(NotifiableListAction action, int index, TType oldItem, TType newItem)
         {
-            ListChanged?.Invoke(this, action, index);
+            ListChanged?.Invoke(action, index, oldItem, newItem);
         }
     }
 }
