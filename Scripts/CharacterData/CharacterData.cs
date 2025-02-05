@@ -178,7 +178,7 @@ namespace MultiplayerARPG
                 if (_selectableEquipWeapons == null)
                 {
                     _selectableEquipWeapons = new NotifiableList<EquipWeapons>();
-                    _selectableEquipWeapons.ListChanged += List_ListChanged;
+                    _selectableEquipWeapons.ListChangedWithoutItem += List_ListChanged;
                 }
                 return _selectableEquipWeapons;
             }
@@ -187,7 +187,7 @@ namespace MultiplayerARPG
                 if (_selectableEquipWeapons == null)
                 {
                     _selectableEquipWeapons = new NotifiableList<EquipWeapons>();
-                    _selectableEquipWeapons.ListChanged += List_ListChanged;
+                    _selectableEquipWeapons.ListChangedWithoutItem += List_ListChanged;
                 }
                 _selectableEquipWeapons.Clear();
                 if (value != null)
@@ -205,7 +205,7 @@ namespace MultiplayerARPG
                 if (_attributes == null)
                 {
                     _attributes = new NotifiableList<CharacterAttribute>();
-                    _attributes.ListChanged += List_ListChanged;
+                    _attributes.ListChangedWithoutItem += List_ListChanged;
                 }
                 return _attributes;
             }
@@ -214,7 +214,7 @@ namespace MultiplayerARPG
                 if (_attributes == null)
                 {
                     _attributes = new NotifiableList<CharacterAttribute>();
-                    _attributes.ListChanged += List_ListChanged;
+                    _attributes.ListChangedWithoutItem += List_ListChanged;
                 }
                 _attributes.Clear();
                 if (value != null)
@@ -232,7 +232,7 @@ namespace MultiplayerARPG
                 if (_skills == null)
                 {
                     _skills = new NotifiableList<CharacterSkill>();
-                    _skills.ListChanged += List_ListChanged;
+                    _skills.ListChangedWithoutItem += List_ListChanged;
                 }
                 return _skills;
             }
@@ -241,7 +241,7 @@ namespace MultiplayerARPG
                 if (_skills == null)
                 {
                     _skills = new NotifiableList<CharacterSkill>();
-                    _skills.ListChanged += List_ListChanged;
+                    _skills.ListChangedWithoutItem += List_ListChanged;
                 }
                 _skills.Clear();
                 if (value != null)
@@ -280,7 +280,7 @@ namespace MultiplayerARPG
                 if (_buffs == null)
                 {
                     _buffs = new NotifiableList<CharacterBuff>();
-                    _buffs.ListChanged += List_ListChanged;
+                    _buffs.ListChangedWithoutItem += List_ListChanged;
                 }
                 return _buffs;
             }
@@ -289,7 +289,7 @@ namespace MultiplayerARPG
                 if (_buffs == null)
                 {
                     _buffs = new NotifiableList<CharacterBuff>();
-                    _buffs.ListChanged += List_ListChanged;
+                    _buffs.ListChangedWithoutItem += List_ListChanged;
                 }
                 _buffs.Clear();
                 if (value != null)
@@ -307,7 +307,7 @@ namespace MultiplayerARPG
                 if (_equipItems == null)
                 {
                     _equipItems = new NotifiableList<CharacterItem>();
-                    _equipItems.ListChanged += List_ListChanged;
+                    _equipItems.ListChangedWithoutItem += List_ListChanged;
                 }
                 return _equipItems;
             }
@@ -316,7 +316,7 @@ namespace MultiplayerARPG
                 if (_equipItems == null)
                 {
                     _equipItems = new NotifiableList<CharacterItem>();
-                    _equipItems.ListChanged += List_ListChanged;
+                    _equipItems.ListChangedWithoutItem += List_ListChanged;
                 }
                 _equipItems.Clear();
                 if (value != null)
@@ -334,7 +334,7 @@ namespace MultiplayerARPG
                 if (_nonEquipItems == null)
                 {
                     _nonEquipItems = new NotifiableList<CharacterItem>();
-                    _nonEquipItems.ListChanged += List_ListChanged;
+                    _nonEquipItems.ListChangedWithoutItem += List_ListChanged;
                 }
                 return _nonEquipItems;
             }
@@ -343,7 +343,7 @@ namespace MultiplayerARPG
                 if (_nonEquipItems == null)
                 {
                     _nonEquipItems = new NotifiableList<CharacterItem>();
-                    _nonEquipItems.ListChanged += List_ListChanged;
+                    _nonEquipItems.ListChangedWithoutItem += List_ListChanged;
                 }
                 _nonEquipItems.Clear();
                 if (value != null)
@@ -361,7 +361,7 @@ namespace MultiplayerARPG
                 if (_summons == null)
                 {
                     _summons = new NotifiableList<CharacterSummon>();
-                    _summons.ListChanged += List_ListChanged;
+                    _summons.ListChangedWithoutItem += List_ListChanged;
                 }
                 return _summons;
             }
@@ -370,7 +370,7 @@ namespace MultiplayerARPG
                 if (_summons == null)
                 {
                     _summons = new NotifiableList<CharacterSummon>();
-                    _summons.ListChanged += List_ListChanged;
+                    _summons.ListChangedWithoutItem += List_ListChanged;
                 }
                 _summons.Clear();
                 if (value != null)
@@ -393,7 +393,7 @@ namespace MultiplayerARPG
             }
         }
 
-        private void List_ListChanged(object sender, NotifiableListAction action, int index)
+        private void List_ListChanged(NotifiableListAction action, int index)
         {
 #if !NET && !NETCOREAPP
             this.MarkToMakeCaches();
