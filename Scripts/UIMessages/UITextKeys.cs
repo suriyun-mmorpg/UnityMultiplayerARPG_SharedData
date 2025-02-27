@@ -391,5 +391,6 @@ namespace MultiplayerARPG
         // Character Name Changing
         UI_CHARACTER_NAME_CHANGE,
         UI_CHARACTER_NAME_CHANGE_DESCRIPTION,
+        UI_CHARACTER_NAME_CHANGE_SUCCESS,
     }
 }
