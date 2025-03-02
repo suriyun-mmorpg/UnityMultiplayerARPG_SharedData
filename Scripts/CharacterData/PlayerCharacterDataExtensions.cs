@@ -1,3 +1,4 @@
+using Insthync.DevExtension;
 using LiteNetLib.Utils;
 
 namespace MultiplayerARPG
