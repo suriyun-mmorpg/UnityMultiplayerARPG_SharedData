@@ -700,6 +700,9 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_CHARACTER_NAME_CHANGE.ToString(), "Character Name Changing");
             Texts.Add(UITextKeys.UI_CHARACTER_NAME_CHANGE_DESCRIPTION.ToString(), "Which name do you want to make changes?");
             Texts.Add(UITextKeys.UI_CHARACTER_NAME_CHANGE_SUCCESS.ToString(), "Character name change success");
+            // 1.94
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_MODIFIER.ToString(), "Recoil: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_MODIFIER_RATE.ToString(), "% of Recoil: {0}%");
         }
     }
 }
