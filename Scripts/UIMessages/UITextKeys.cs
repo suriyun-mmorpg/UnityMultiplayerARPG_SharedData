@@ -43,6 +43,7 @@ namespace MultiplayerARPG
         UI_ERROR_WILL_OVERWHELMING,
         UI_ERROR_NOT_ABLE_TO_LOOT,
         UI_ERROR_TOO_FAST_ACTION,
+        UI_ERROR_SERVER_CLOSE,
         // Error - Game Data
         UI_ERROR_INVALID_DATA,
         UI_ERROR_INVALID_CHARACTER_DATA,

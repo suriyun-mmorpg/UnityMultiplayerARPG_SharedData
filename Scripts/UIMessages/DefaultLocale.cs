@@ -198,6 +198,7 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_WILL_OVERWHELMING.ToString(), "Cannot carry all items");
             Texts.Add(UITextKeys.UI_ERROR_NOT_ABLE_TO_LOOT.ToString(), "Not allowed to loot");
             Texts.Add(UITextKeys.UI_ERROR_TOO_FAST_ACTION.ToString(), "Please wait a bit before trying that again");
+            Texts.Add(UITextKeys.UI_ERROR_SERVER_CLOSE.ToString(), "Server is temporarily closed for maintenance");
             // Error - Game Data
             Texts.Add(UITextKeys.UI_ERROR_INVALID_DATA.ToString(), "Invalid data");
             Texts.Add(UITextKeys.UI_ERROR_INVALID_CHARACTER_DATA.ToString(), "Invalid character data");
