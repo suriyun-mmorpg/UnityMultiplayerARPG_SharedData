@@ -1086,5 +1086,9 @@ namespace MultiplayerARPG
         /// Format => {0} = {Amount * 100}
         /// </summary>
         UI_FORMAT_RECOIL_MODIFIER_RATE,
+        /// <summary>
+        /// Format => {0} = {Fee Amount}
+        /// </summary>
+        UI_FORMAT_FEE,
     }
 }
