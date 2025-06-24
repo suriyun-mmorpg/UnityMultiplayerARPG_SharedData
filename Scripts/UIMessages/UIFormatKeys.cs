@@ -1090,5 +1090,13 @@ namespace MultiplayerARPG
         /// Format => {0} = {Fee Amount}
         /// </summary>
         UI_FORMAT_FEE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_SPRINT_SPEED,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_SPRINT_SPEED_RATE,
     }
 }

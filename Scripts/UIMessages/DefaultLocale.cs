@@ -706,6 +706,8 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_MODIFIER_RATE.ToString(), "% of Recoil: {0}%");
             // 1.95
             Texts.Add(UIFormatKeys.UI_FORMAT_FEE.ToString(), "Fee: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_SPRINT_SPEED.ToString(), "Sprint Speed: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_SPRINT_SPEED_RATE.ToString(), "Sprint Speed: {0}%");
         }
     }
 }
