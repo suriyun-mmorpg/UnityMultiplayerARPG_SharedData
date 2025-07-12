@@ -708,6 +708,18 @@ namespace MultiplayerARPG
             Texts.Add(UIFormatKeys.UI_FORMAT_FEE.ToString(), "Fee: {0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_SPRINT_SPEED.ToString(), "Sprint Speed: {0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_SPRINT_SPEED_RATE.ToString(), "Sprint Speed: {0}%");
+            Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_JUMP.ToString(), "Unable To Jump");
+            Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_DASH.ToString(), "Unable To Dash");
+            Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_CROUCH.ToString(), "Unable To Crouch");
+            Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_CRAWL.ToString(), "Unable To Crawl");
+
+            // Enter game error
+            Texts.Add(UITextKeys.UI_ERROR_INVALID_PACKET_VERSION.ToString(), "Invalid packet version");
+            Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_VALIDATE_USER.ToString(), "Unable to validate user");
+            Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_VALIDATE_CHARACTER.ToString(), "Unable to validate character");
+            Texts.Add(UITextKeys.UI_ERROR_CHARACTER_NOT_PLAYABLE.ToString(), "Character is not playable");
+            Texts.Add(UITextKeys.UI_ERROR_USER_IS_ALREADY_ONLINE.ToString(), "User is already online");
+            Texts.Add(UITextKeys.UI_ERROR_CHARACTER_IS_ALREADY_ONLINE.ToString(), "Character is already online");
         }
     }
 }
