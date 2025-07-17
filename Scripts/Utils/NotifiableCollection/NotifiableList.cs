@@ -7,11 +7,22 @@ namespace NotifiableCollection
     {
         public delegate void OnChangedDelegate(NotifiableListAction action, int index, TType oldItem, TType newItem);
         public delegate void OnChangedWithoutItemDelegate(NotifiableListAction action, int index);
+        public event OnChangedDelegate ListChanged;
+        public event OnChangedWithoutItemDelegate ListChangedWithoutItem;
         protected readonly List<TType> _list;
         private readonly object _lockObject = new object();
 
-        public event OnChangedDelegate ListChanged;
-        public event OnChangedWithoutItemDelegate ListChangedWithoutItem;
+        private uint _version = 0;
+        public uint Version
+        {
+            get
+            {
+                lock (_lockObject)
+                {
+                    return _version;
+                }
+            }
+        }
 
         public NotifiableList()
         {
@@ -28,6 +39,19 @@ namespace NotifiableCollection
             _list = new List<TType>(capacity);
         }
 
+        public int Count
+        {
+            get
+            {
+                lock (_lockObject)
+                {
+                    return _list.Count;
+                }
+            }
+        }
+
+        public bool IsReadOnly => false;
+
         public TType this[int index]
         {
             get
@@ -43,23 +67,16 @@ namespace NotifiableCollection
                 {
                     TType oldItem = _list[index];
                     _list[index] = value;
+                    IncrementVersion();
                     InvokeNotifiableListAction(NotifiableListAction.Set, index, oldItem, value);
                 }
             }
         }
 
-        public int Count
+        private void IncrementVersion()
         {
-            get
-            {
-                lock (_lockObject)
-                {
-                    return _list.Count;
-                }
-            }
+            _version++;
         }
-
-        public bool IsReadOnly => false;
 
         public void Add(TType item)
         {
@@ -67,6 +84,7 @@ namespace NotifiableCollection
             {
                 int index = _list.Count;
                 _list.Add(item);
+                IncrementVersion();
                 InvokeNotifiableListAction(NotifiableListAction.Add, index, default, item);
             }
         }
@@ -84,6 +102,7 @@ namespace NotifiableCollection
             lock (_lockObject)
             {
                 _list.Clear();
+                IncrementVersion();
                 InvokeNotifiableListAction(NotifiableListAction.Clear, -1, default, default);
             }
         }
@@ -133,6 +152,7 @@ namespace NotifiableCollection
             lock (_lockObject)
             {
                 _list.Insert(index, item);
+                IncrementVersion();
                 InvokeNotifiableListAction(NotifiableListAction.Insert, index, default, item);
             }
         }
@@ -144,8 +164,9 @@ namespace NotifiableCollection
                 int index = _list.IndexOf(item);
                 if (index >= 0)
                 {
-                    _list.RemoveAt(index);
                     TType oldItem = _list[index];
+                    _list.RemoveAt(index);
+                    IncrementVersion();
                     InvokeNotifiableListAction(NotifiableListAction.RemoveAt, index, oldItem, default);
                     return true;
                 }
@@ -162,13 +183,17 @@ namespace NotifiableCollection
             {
                 TType oldItem = _list[index];
                 _list.RemoveAt(index);
+                IncrementVersion();
                 InvokeNotifiableListAction(NotifiableListAction.RemoveAt, index, oldItem, default);
             }
         }
 
         public void Dirty(int index)
         {
-            InvokeNotifiableListAction(NotifiableListAction.Dirty, index, this[index], this[index]);
+            if (index < 0 || index >= Count)
+                return;
+            TType value = this[index];
+            InvokeNotifiableListAction(NotifiableListAction.Dirty, index, value, value);
         }
 
         private void InvokeNotifiableListAction(NotifiableListAction action, int index, TType oldItem, TType newItem)

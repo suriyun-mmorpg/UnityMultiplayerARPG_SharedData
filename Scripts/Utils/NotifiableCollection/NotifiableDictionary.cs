@@ -7,8 +7,22 @@ namespace NotifiableCollection
     {
         public delegate void OnChangedDelegate(NotifiableDictionaryAction action, TKey key, TValue oldItem, TValue newItem);
         public delegate void OnChangedWithoutItemDelegate(NotifiableDictionaryAction action, TKey key);
+        public event OnChangedDelegate DictionaryChanged;
+        public event OnChangedWithoutItemDelegate DictionaryChangedWithoutItem;
         protected readonly Dictionary<TKey, TValue> _dictionary;
         private readonly object _lockObject = new object();
+
+        private uint _version = 0;
+        public uint Version
+        {
+            get
+            {
+                lock (_lockObject)
+                {
+                    return _version;
+                }
+            }
+        }
 
         public NotifiableDictionary()
         {
@@ -123,6 +137,7 @@ namespace NotifiableCollection
                     if (_dictionary.TryGetValue(key, out TValue oldValue))
                     {
                         _dictionary[key] = value;
+                        IncrementVersion();
                         InvokeNotifiableDictionaryAction(NotifiableDictionaryAction.Set, key, oldValue, value);
                     }
                     else
@@ -133,14 +148,17 @@ namespace NotifiableCollection
             }
         }
 
-        public event OnChangedDelegate DictionaryChanged;
-        public event OnChangedWithoutItemDelegate DictionaryChangedWithoutItem;
+        private void IncrementVersion()
+        {
+            _version++;
+        }
 
         public void Add(TKey key, TValue value)
         {
             lock (_lockObject)
             {
                 _dictionary.Add(key, value);
+                IncrementVersion();
                 InvokeNotifiableDictionaryAction(NotifiableDictionaryAction.Add, key, default, value);
             }
         }
@@ -164,6 +182,7 @@ namespace NotifiableCollection
             {
                 if (_dictionary.Remove(key, out TValue value))
                 {
+                    IncrementVersion();
                     InvokeNotifiableDictionaryAction(NotifiableDictionaryAction.Remove, key, value, default);
                     return true;
                 }
@@ -180,8 +199,9 @@ namespace NotifiableCollection
                 {
                     if (EqualityComparer<TValue>.Default.Equals(value, item.Value))
                     {
-                        if (_dictionary.Remove(key, out TValue value2))
+                        if (_dictionary.Remove(key, out _))
                         {
+                            IncrementVersion();
                             InvokeNotifiableDictionaryAction(NotifiableDictionaryAction.Remove, key, value, default);
                             return true;
                         }
@@ -204,6 +224,7 @@ namespace NotifiableCollection
             lock (_lockObject)
             {
                 _dictionary.Clear();
+                IncrementVersion();
                 InvokeNotifiableDictionaryAction(NotifiableDictionaryAction.Clear, default, default, default);
             }
         }
