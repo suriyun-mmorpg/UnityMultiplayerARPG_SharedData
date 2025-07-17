@@ -48,7 +48,16 @@ namespace NotifiableCollection
             }
         }
 
-        public int Count => _list.Count;
+        public int Count
+        {
+            get
+            {
+                lock (_lockObject)
+                {
+                    return _list.Count;
+                }
+            }
+        }
 
         public bool IsReadOnly => false;
 
