@@ -18,14 +18,14 @@ namespace NotifiableCollection
             _list = new List<TType>();
         }
 
-        public NotifiableList(int capacity)
-        {
-            _list = new List<TType>(capacity);
-        }
-
         public NotifiableList(IEnumerable<TType> collection)
         {
             _list = new List<TType>(collection);
+        }
+
+        public NotifiableList(int capacity)
+        {
+            _list = new List<TType>(capacity);
         }
 
         public TType this[int index]
