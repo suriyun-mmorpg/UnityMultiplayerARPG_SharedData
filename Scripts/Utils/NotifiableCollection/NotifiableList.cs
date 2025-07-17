@@ -73,12 +73,9 @@ namespace NotifiableCollection
 
         public void AddRange(IEnumerable<TType> collection)
         {
-            lock (_lockObject)
+            foreach (TType item in collection)
             {
-                foreach (TType item in collection)
-                {
-                    Add(item);
-                }
+                Add(item);
             }
         }
 
@@ -111,7 +108,10 @@ namespace NotifiableCollection
         {
             lock (_lockObject)
             {
-                return _list.GetEnumerator();
+                foreach (var item in _list)
+                {
+                    yield return item;
+                }
             }
         }
 
@@ -139,13 +139,21 @@ namespace NotifiableCollection
 
         public bool Remove(TType item)
         {
-            int index = IndexOf(item);
-            if (index >= 0)
+            lock (_lockObject)
             {
-                RemoveAt(index);
-                return true;
+                int index = _list.IndexOf(item);
+                if (index >= 0)
+                {
+                    _list.RemoveAt(index);
+                    TType oldItem = _list[index];
+                    InvokeNotifiableListAction(NotifiableListAction.RemoveAt, index, oldItem, default);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            return false;
         }
 
         public void RemoveAt(int index)
