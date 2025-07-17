@@ -50,6 +50,17 @@ namespace NotifiableCollection
             _dictionary = new Dictionary<TKey, TValue>(capacity, comparer);
         }
 
+        public IEnumerable<TKey> Keys
+        {
+            get
+            {
+                lock (_lockObject)
+                {
+                    return _dictionary.Keys;
+                }
+            }
+        }
+
         ICollection<TKey> IDictionary<TKey, TValue>.Keys
         {
             get
@@ -57,6 +68,17 @@ namespace NotifiableCollection
                 lock (_lockObject)
                 {
                     return _dictionary.Keys;
+                }
+            }
+        }
+
+        public IEnumerable<TValue> Values
+        {
+            get
+            {
+                lock (_lockObject)
+                {
+                    return _dictionary.Values;
                 }
             }
         }
