@@ -8,7 +8,5 @@ namespace NotifiableCollection
         RemoveAt,
         Set,
         Dirty,
-        RemoveFirst,
-        RemoveLast,
     }
 }

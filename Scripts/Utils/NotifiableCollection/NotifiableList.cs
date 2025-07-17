@@ -139,16 +139,13 @@ namespace NotifiableCollection
 
         public bool Remove(TType item)
         {
-            lock (_lockObject)
+            int index = IndexOf(item);
+            if (index >= 0)
             {
-                int index = IndexOf(item);
-                if (index >= 0)
-                {
-                    RemoveAt(index);
-                    return true;
-                }
-                return false;
+                RemoveAt(index);
+                return true;
             }
+            return false;
         }
 
         public void RemoveAt(int index)
@@ -156,21 +153,8 @@ namespace NotifiableCollection
             lock (_lockObject)
             {
                 TType oldItem = _list[index];
-                if (index == 0)
-                {
-                    _list.RemoveAt(index);
-                    InvokeNotifiableListAction(NotifiableListAction.RemoveFirst, index, oldItem, default);
-                }
-                else if (index == _list.Count - 1)
-                {
-                    _list.RemoveAt(index);
-                    InvokeNotifiableListAction(NotifiableListAction.RemoveLast, index, oldItem, default);
-                }
-                else
-                {
-                    _list.RemoveAt(index);
-                    InvokeNotifiableListAction(NotifiableListAction.RemoveAt, index, oldItem, default);
-                }
+                _list.RemoveAt(index);
+                InvokeNotifiableListAction(NotifiableListAction.RemoveAt, index, oldItem, default);
             }
         }
 
