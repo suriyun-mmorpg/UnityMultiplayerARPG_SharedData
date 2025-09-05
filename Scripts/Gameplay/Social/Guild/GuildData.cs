@@ -191,13 +191,16 @@ namespace MultiplayerARPG
             return 0;
         }
 
-        public void AddSkillLevel(int dataId)
+        public bool AddSkillLevel(int dataId)
         {
+            if (skillPoint <= 0)
+                return false;
             int level = skillLevels.ContainsKey(dataId) ? skillLevels[dataId] : 0;
             level += 1;
             skillPoint -= 1;
             skillLevels[dataId] = level;
             IsCached = false;
+            return true;
         }
 
         public void SetSkillLevel(int dataId, int level)
