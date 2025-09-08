@@ -712,6 +712,7 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_DASH.ToString(), "Unable To Dash");
             Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_CROUCH.ToString(), "Unable To Crouch");
             Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_CRAWL.ToString(), "Unable To Crawl");
+            Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_STAND.ToString(), "Unable To Stand");
 
             // Enter game error
             Texts.Add(UITextKeys.UI_ERROR_INVALID_PACKET_VERSION.ToString(), "Invalid packet version");

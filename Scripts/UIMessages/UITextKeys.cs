@@ -398,6 +398,7 @@ namespace MultiplayerARPG
         UI_ERROR_UNABLE_TO_DASH,
         UI_ERROR_UNABLE_TO_CROUCH,
         UI_ERROR_UNABLE_TO_CRAWL,
+        UI_ERROR_UNABLE_TO_STAND,
         // Enter Game Errror
         UI_ERROR_INVALID_PACKET_VERSION,
         UI_ERROR_UNABLE_TO_VALIDATE_USER,
