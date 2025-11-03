@@ -18,6 +18,7 @@ namespace MultiplayerARPG
         int CurrentWater { get; set; }
         int IconDataId { get; set; }
         int FrameDataId { get; set; }
+        int BackgroundDataId { get; set; }
         int TitleDataId { get; set; }
         int FactionId { get; set; }
         int Reputation { get; set; }

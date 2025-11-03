@@ -118,6 +118,7 @@ namespace MultiplayerARPG
         public int CurrentWater { get; set; }
         public int IconDataId { get; set; }
         public int FrameDataId { get; set; }
+        public int BackgroundDataId { get; set; }
         public int TitleDataId
         {
             get { return _titleDataId; }
