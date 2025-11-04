@@ -20,6 +20,7 @@ namespace MultiplayerARPG
         public int maxMp;
         public int iconDataId;
         public int frameDataId;
+        public int backgroundDataId;
         public int titleDataId;
 
         public static SocialCharacterData Create(IPlayerCharacterData character)
@@ -38,6 +39,7 @@ namespace MultiplayerARPG
                 currentMp = character.CurrentMp,
                 iconDataId = character.IconDataId,
                 frameDataId = character.FrameDataId,
+                backgroundDataId = character.BackgroundDataId,
                 titleDataId = character.TitleDataId,
             };
         }
@@ -73,6 +75,7 @@ namespace MultiplayerARPG
             guildRole = reader.GetByte();
             iconDataId = reader.GetPackedInt();
             frameDataId = reader.GetPackedInt();
+            backgroundDataId = reader.GetPackedInt();
             titleDataId = reader.GetPackedInt();
         }
 
@@ -89,6 +92,7 @@ namespace MultiplayerARPG
             writer.Put(guildRole);
             writer.PutPackedInt(iconDataId);
             writer.PutPackedInt(frameDataId);
+            writer.PutPackedInt(backgroundDataId);
             writer.PutPackedInt(titleDataId);
         }
     }
