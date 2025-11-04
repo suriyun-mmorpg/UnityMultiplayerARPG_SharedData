@@ -18,6 +18,7 @@
         public int maxMp;
         public int iconDataId;
         public int frameDataId;
+        public int backgroundDataId;
         public int titleDataId;
 
         public static SocialCharacterData Create(IPlayerCharacterData character)
@@ -36,6 +37,7 @@
                 currentMp = character.CurrentMp,
                 iconDataId = character.IconDataId,
                 frameDataId = character.FrameDataId,
+                backgroundDataId = character.BackgroundDataId,
                 titleDataId = character.TitleDataId,
             };
         }
