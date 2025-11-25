@@ -1098,5 +1098,13 @@ namespace MultiplayerARPG
         /// Format => {0} = {Amount * 100}
         /// </summary>
         UI_FORMAT_SPRINT_SPEED_RATE,
+        /// <summary>
+        /// Format => {0} = {Item Title}, {1} = {Amount}
+        /// </summary>
+        UI_FORMAT_NOTIFY_UNLOCKABLE_CONTENT_UPDATED,
+        /// <summary>
+        /// Format => {0} = {Item Title}
+        /// </summary>
+        UI_FORMAT_NOTIFY_UNLOCKABLE_CONTENT_UNLOCKED,
     }
 }

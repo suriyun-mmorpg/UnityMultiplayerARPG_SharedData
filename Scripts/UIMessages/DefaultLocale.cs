@@ -664,6 +664,11 @@ namespace MultiplayerARPG
             // 1.87
             Texts.Add(UITextKeys.UI_LABEL_BUFF_DISALLOW_DASH.ToString(), "Disallow Dash");
             Texts.Add(UIFormatKeys.UI_FORMAT_SKILL_ATTACK_WEAPON_DAMAGE_MULTIPLICATOR.ToString(), "Attack Weapon Damage Multiplicator: {0}");
+            // 1.89
+            Texts.Add(UITextKeys.UI_ERROR_CONTENT_IS_LOCKED.ToString(), "Content is not unlocked yet");
+            Texts.Add(UITextKeys.UI_ERROR_CONTENT_IS_UNLOCKED.ToString(), "Content is already unlocked");
+            Texts.Add(UITextKeys.UI_ERROR_NOT_ENOUGH_UNLOCK_PROGRESSION.ToString(), "Not enough unlock progression");
+            Texts.Add(UITextKeys.UI_ERROR_CONTENT_IS_NOT_LOCKED.ToString(), "Content is not locked, don't have to unlock");
             // 1.91 New Stats
             Texts.Add(UIFormatKeys.UI_FORMAT_PROTECTED_SLOT_LIMIT.ToString(), "Protected Inventory Slots: {0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_PROTECTED_SLOT_LIMIT_RATE.ToString(), "Protected Inventory Slots Rate: {0}%");
@@ -713,7 +718,9 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_CROUCH.ToString(), "Unable To Crouch");
             Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_CRAWL.ToString(), "Unable To Crawl");
             Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_STAND.ToString(), "Unable To Stand");
-
+            // 1.96
+            Texts.Add(UIFormatKeys.UI_FORMAT_NOTIFY_UNLOCKABLE_CONTENT_UPDATED.ToString(), "Obtain {0} x {1} ea");
+            Texts.Add(UIFormatKeys.UI_FORMAT_NOTIFY_UNLOCKABLE_CONTENT_UNLOCKED.ToString(), "{0} is unlocked");
             // Enter game error
             Texts.Add(UITextKeys.UI_ERROR_INVALID_PACKET_VERSION.ToString(), "Invalid packet version");
             Texts.Add(UITextKeys.UI_ERROR_UNABLE_TO_VALIDATE_USER.ToString(), "Unable to validate user");
