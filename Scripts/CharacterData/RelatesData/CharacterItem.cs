@@ -68,7 +68,7 @@ namespace MultiplayerARPG
                 randomSeed = randomSeed,
                 ammoDataId = ammoDataId,
                 ammo = ammo,
-                sockets = new List<int>(sockets),
+                sockets = sockets,
                 version = version,
             };
             if (GameExtensionInstance.onCharacterItemClone == null)
