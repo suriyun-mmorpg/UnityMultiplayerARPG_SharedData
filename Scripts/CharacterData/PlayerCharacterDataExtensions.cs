@@ -203,12 +203,14 @@ namespace MultiplayerARPG
             writer.PutPackedInt(characterData.HighestConsecutivePkKills);
 #endif
             writer.PutPackedInt(characterData.Reputation);
+            int i;
             // Attributes
             if (withAttributes)
             {
                 writer.PutPackedInt(characterData.Attributes.Count);
-                foreach (CharacterAttribute entry in characterData.Attributes)
+                for (i = 0; i < characterData.Attributes.Count; ++i)
                 {
+                    CharacterAttribute entry = characterData.Attributes[i];
                     writer.Put(entry);
                 }
             }
@@ -216,8 +218,9 @@ namespace MultiplayerARPG
             if (withBuffs)
             {
                 writer.PutPackedInt(characterData.Buffs.Count);
-                foreach (CharacterBuff entry in characterData.Buffs)
+                for (i = 0; i < characterData.Buffs.Count; ++i)
                 {
+                    CharacterBuff entry = characterData.Buffs[i];
                     writer.Put(entry);
                 }
             }
@@ -225,8 +228,9 @@ namespace MultiplayerARPG
             if (withSkills)
             {
                 writer.PutPackedInt(characterData.Skills.Count);
-                foreach (CharacterSkill entry in characterData.Skills)
+                for (i = 0; i < characterData.Skills.Count; ++i)
                 {
+                    CharacterSkill entry = characterData.Skills[i];
                     writer.Put(entry);
                 }
             }
@@ -234,8 +238,9 @@ namespace MultiplayerARPG
             if (withSkillUsages)
             {
                 writer.PutPackedInt(characterData.SkillUsages.Count);
-                foreach (CharacterSkillUsage entry in characterData.SkillUsages)
+                for (i = 0; i < characterData.SkillUsages.Count; ++i)
                 {
+                    CharacterSkillUsage entry = characterData.SkillUsages[i];
                     writer.Put(entry);
                 }
             }
@@ -243,8 +248,9 @@ namespace MultiplayerARPG
             if (withSummons)
             {
                 writer.PutPackedInt(characterData.Summons.Count);
-                foreach (CharacterSummon entry in characterData.Summons)
+                for (i = 0; i < characterData.Summons.Count; ++i)
                 {
+                    CharacterSummon entry = characterData.Summons[i];
                     writer.Put(entry);
                 }
             }
@@ -252,8 +258,9 @@ namespace MultiplayerARPG
             if (withEquipItems)
             {
                 writer.PutPackedInt(characterData.EquipItems.Count);
-                foreach (CharacterItem entry in characterData.EquipItems)
+                for (i = 0; i < characterData.EquipItems.Count; ++i)
                 {
+                    CharacterItem entry = characterData.EquipItems[i];
                     writer.Put(entry);
                 }
             }
@@ -261,8 +268,9 @@ namespace MultiplayerARPG
             if (withNonEquipItems)
             {
                 writer.PutPackedInt(characterData.NonEquipItems.Count);
-                foreach (CharacterItem entry in characterData.NonEquipItems)
+                for (i = 0; i < characterData.NonEquipItems.Count; ++i)
                 {
+                    CharacterItem entry = characterData.NonEquipItems[i];
                     writer.Put(entry);
                 }
             }
@@ -270,8 +278,9 @@ namespace MultiplayerARPG
             if (withHotkeys)
             {
                 writer.PutPackedInt(characterData.Hotkeys.Count);
-                foreach (CharacterHotkey entry in characterData.Hotkeys)
+                for (i = 0; i < characterData.Hotkeys.Count; ++i)
                 {
+                    CharacterHotkey entry = characterData.Hotkeys[i];
                     writer.Put(entry);
                 }
             }
@@ -279,8 +288,9 @@ namespace MultiplayerARPG
             if (withQuests)
             {
                 writer.PutPackedInt(characterData.Quests.Count);
-                foreach (CharacterQuest entry in characterData.Quests)
+                for (i = 0; i < characterData.Quests.Count; ++i)
                 {
+                    CharacterQuest entry = characterData.Quests[i];
                     writer.Put(entry);
                 }
             }
@@ -289,8 +299,9 @@ namespace MultiplayerARPG
             if (withCurrencies)
             {
                 writer.PutPackedInt(characterData.Currencies.Count);
-                foreach (CharacterCurrency entry in characterData.Currencies)
+                for (i = 0; i < characterData.Currencies.Count; ++i)
                 {
+                    CharacterCurrency entry = characterData.Currencies[i];
                     writer.Put(entry);
                 }
             }
@@ -300,18 +311,21 @@ namespace MultiplayerARPG
             if (withServerCustomData)
             {
                 writer.PutPackedInt(characterData.ServerBools.Count);
-                foreach (CharacterDataBoolean entry in characterData.ServerBools)
+                for (i = 0; i < characterData.ServerBools.Count; ++i)
                 {
+                    CharacterDataBoolean entry = characterData.ServerBools[i];
                     writer.Put(entry);
                 }
                 writer.PutPackedInt(characterData.ServerInts.Count);
-                foreach (CharacterDataInt32 entry in characterData.ServerInts)
+                for (i = 0; i < characterData.ServerInts.Count; ++i)
                 {
+                    CharacterDataInt32 entry = characterData.ServerInts[i];
                     writer.Put(entry);
                 }
                 writer.PutPackedInt(characterData.ServerFloats.Count);
-                foreach (CharacterDataFloat32 entry in characterData.ServerFloats)
+                for (i = 0; i < characterData.ServerFloats.Count; ++i)
                 {
+                    CharacterDataFloat32 entry = characterData.ServerFloats[i];
                     writer.Put(entry);
                 }
             }
@@ -319,18 +333,21 @@ namespace MultiplayerARPG
             if (withPrivateCustomData)
             {
                 writer.PutPackedInt(characterData.PrivateBools.Count);
-                foreach (CharacterDataBoolean entry in characterData.PrivateBools)
+                for (i = 0; i < characterData.PrivateBools.Count; ++i)
                 {
+                    CharacterDataBoolean entry = characterData.PrivateBools[i];
                     writer.Put(entry);
                 }
                 writer.PutPackedInt(characterData.PrivateInts.Count);
-                foreach (CharacterDataInt32 entry in characterData.PrivateInts)
+                for (i = 0; i < characterData.PrivateInts.Count; ++i)
                 {
+                    CharacterDataInt32 entry = characterData.PrivateInts[i];
                     writer.Put(entry);
                 }
                 writer.PutPackedInt(characterData.PrivateFloats.Count);
-                foreach (CharacterDataFloat32 entry in characterData.PrivateFloats)
+                for (i = 0; i < characterData.PrivateFloats.Count; ++i)
                 {
+                    CharacterDataFloat32 entry = characterData.PrivateFloats[i];
                     writer.Put(entry);
                 }
             }
@@ -338,18 +355,21 @@ namespace MultiplayerARPG
             if (withPublicCustomData)
             {
                 writer.PutPackedInt(characterData.PublicBools.Count);
-                foreach (CharacterDataBoolean entry in characterData.PublicBools)
+                for (i = 0; i < characterData.PublicBools.Count; ++i)
                 {
+                    CharacterDataBoolean entry = characterData.PublicBools[i];
                     writer.Put(entry);
                 }
                 writer.PutPackedInt(characterData.PublicInts.Count);
-                foreach (CharacterDataInt32 entry in characterData.PublicInts)
+                for (i = 0; i < characterData.PublicInts.Count; ++i)
                 {
+                    CharacterDataInt32 entry = characterData.PublicInts[i];
                     writer.Put(entry);
                 }
                 writer.PutPackedInt(characterData.PublicFloats.Count);
-                foreach (CharacterDataFloat32 entry in characterData.PublicFloats)
+                for (i = 0; i < characterData.PublicFloats.Count; ++i)
                 {
+                    CharacterDataFloat32 entry = characterData.PublicFloats[i];
                     writer.Put(entry);
                 }
             }
@@ -360,8 +380,9 @@ namespace MultiplayerARPG
             if (withEquipWeapons)
             {
                 writer.PutPackedInt(characterData.SelectableWeaponSets.Count);
-                foreach (EquipWeapons entry in characterData.SelectableWeaponSets)
+                for (i = 0; i < characterData.SelectableWeaponSets.Count; ++i)
                 {
+                    EquipWeapons entry = characterData.SelectableWeaponSets[i];
                     writer.Put(entry);
                 }
             }
@@ -450,12 +471,13 @@ namespace MultiplayerARPG
 #endif
             characterData.Reputation = reader.GetPackedInt();
             int count;
+            int i;
             // Attributes
             if (withAttributes)
             {
                 characterData.Attributes.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.Attributes.Add(reader.Get<CharacterAttribute>());
                 }
@@ -465,7 +487,7 @@ namespace MultiplayerARPG
             {
                 characterData.Buffs.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.Buffs.Add(reader.Get<CharacterBuff>());
                 }
@@ -475,7 +497,7 @@ namespace MultiplayerARPG
             {
                 characterData.Skills.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.Skills.Add(reader.Get<CharacterSkill>());
                 }
@@ -485,7 +507,7 @@ namespace MultiplayerARPG
             {
                 characterData.SkillUsages.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.SkillUsages.Add(reader.Get<CharacterSkillUsage>());
                 }
@@ -495,7 +517,7 @@ namespace MultiplayerARPG
             {
                 characterData.Summons.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.Summons.Add(reader.Get<CharacterSummon>());
                 }
@@ -505,7 +527,7 @@ namespace MultiplayerARPG
             {
                 characterData.EquipItems.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.EquipItems.Add(reader.Get<CharacterItem>());
                 }
@@ -515,7 +537,7 @@ namespace MultiplayerARPG
             {
                 characterData.NonEquipItems.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.NonEquipItems.Add(reader.Get<CharacterItem>());
                 }
@@ -525,7 +547,7 @@ namespace MultiplayerARPG
             {
                 characterData.Hotkeys.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.Hotkeys.Add(reader.Get<CharacterHotkey>());
                 }
@@ -535,7 +557,7 @@ namespace MultiplayerARPG
             {
                 characterData.Quests.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.Quests.Add(reader.Get<CharacterQuest>());
                 }
@@ -546,7 +568,7 @@ namespace MultiplayerARPG
             {
                 characterData.Currencies.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.Currencies.Add(reader.Get<CharacterCurrency>());
                 }
@@ -558,19 +580,19 @@ namespace MultiplayerARPG
             {
                 characterData.ServerBools.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.ServerBools.Add(reader.Get<CharacterDataBoolean>());
                 }
                 characterData.ServerInts.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.ServerInts.Add(reader.Get<CharacterDataInt32>());
                 }
                 characterData.ServerFloats.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.ServerFloats.Add(reader.Get<CharacterDataFloat32>());
                 }
@@ -580,19 +602,19 @@ namespace MultiplayerARPG
             {
                 characterData.PrivateBools.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.PrivateBools.Add(reader.Get<CharacterDataBoolean>());
                 }
                 characterData.PrivateInts.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.PrivateInts.Add(reader.Get<CharacterDataInt32>());
                 }
                 characterData.PrivateFloats.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.PrivateFloats.Add(reader.Get<CharacterDataFloat32>());
                 }
@@ -602,19 +624,19 @@ namespace MultiplayerARPG
             {
                 characterData.PublicBools.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.PublicBools.Add(reader.Get<CharacterDataBoolean>());
                 }
                 characterData.PublicInts.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.PublicInts.Add(reader.Get<CharacterDataInt32>());
                 }
                 characterData.PublicFloats.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.PublicFloats.Add(reader.Get<CharacterDataFloat32>());
                 }
@@ -627,7 +649,7 @@ namespace MultiplayerARPG
             {
                 characterData.SelectableWeaponSets.Clear();
                 count = reader.GetPackedInt();
-                for (int i = 0; i < count; ++i)
+                for (i = 0; i < count; ++i)
                 {
                     characterData.SelectableWeaponSets.Add(reader.Get<EquipWeapons>());
                 }
