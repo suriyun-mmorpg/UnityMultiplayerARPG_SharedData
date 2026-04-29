@@ -989,11 +989,11 @@ namespace MultiplayerARPG
         /// <summary>
         /// Format => {0} = {Amount}
         /// </summary>
-        UI_FORMAT_AMMO_CAPACITY,
+        UI_FORMAT_AMMO_CAPACITY_MODIFIER,
         /// <summary>
         /// Format => {0} = {Amount * 100}
         /// </summary>
-        UI_FORMAT_AMMO_CAPACITY_RATE,
+        UI_FORMAT_AMMO_CAPACITY_MODIFIER_RATE,
         /// <summary>
         /// Format => {0} = {Amount * 100}
         /// </summary>
@@ -1005,19 +1005,19 @@ namespace MultiplayerARPG
         /// <summary>
         /// Format => {0} = {Amount}
         /// </summary>
-        UI_FORMAT_RATE_OF_FIRE,
+        UI_FORMAT_RATE_OF_FIRE_MODIFIER,
         /// <summary>
         /// Format => {0} = {Amount * 100}
         /// </summary>
-        UI_FORMAT_RATE_OF_FIRE_RATE,
+        UI_FORMAT_RATE_OF_FIRE_MODIFIER_RATE,
         /// <summary>
         /// Format => {0} = {Amount}
         /// </summary>
-        UI_FORMAT_RELOAD_DURATION,
+        UI_FORMAT_RELOAD_DURATION_MODIFIER,
         /// <summary>
         /// Format => {0} = {Amount * 100}
         /// </summary>
-        UI_FORMAT_RELOAD_DURATION_RATE,
+        UI_FORMAT_RELOAD_DURATION_MODIFIER_RATE,
         /// <summary>
         /// Format => {0} = {Amount * 100}
         /// </summary>
@@ -1029,11 +1029,11 @@ namespace MultiplayerARPG
         /// <summary>
         /// Format => {0} = {Amount}
         /// </summary>
-        UI_FORMAT_FIRE_SPREAD,
+        UI_FORMAT_FIRE_SPREAD_MODIFIER,
         /// <summary>
         /// Format => {0} = {Amount * 100}
         /// </summary>
-        UI_FORMAT_FIRE_SPREAD_RATE,
+        UI_FORMAT_FIRE_SPREAD_MODIFIER_RATE,
         /// <summary>
         /// Format => {0} = {Amount}
         /// </summary>
@@ -1106,5 +1106,83 @@ namespace MultiplayerARPG
         /// Format => {0} = {Item Title}
         /// </summary>
         UI_FORMAT_NOTIFY_UNLOCKABLE_CONTENT_UNLOCKED,
+
+        // Recoil Yaw
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_RECOIL_YAW_MODIFIER,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RECOIL_YAW_MODIFIER_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_RECOIL_YAW_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RECOIL_YAW_RATE_RATE,
+
+        // Recoil Roll
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_RECOIL_ROLL_MODIFIER,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RECOIL_ROLL_MODIFIER_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_RECOIL_ROLL_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RECOIL_ROLL_RATE_RATE,
+
+        // New Stats
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_AMMO_CAPACITY_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_AMMO_CAPACITY_RATE_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RATE_OF_FIRE_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RATE_OF_FIRE_RATE_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RELOAD_DURATION_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_RELOAD_DURATION_RATE_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
+        UI_FORMAT_FIRE_SPREAD_RANGE_MODIFIER,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_FIRE_SPREAD_RANGE_MODIFIER_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_FIRE_SPREAD_RATE,
+        /// <summary>
+        /// Format => {0} = {Amount * 100}
+        /// </summary>
+        UI_FORMAT_FIRE_SPREAD_RATE_RATE,
     }
 }
