@@ -672,18 +672,18 @@ namespace MultiplayerARPG
             // 1.91 New Stats
             Texts.Add(UIFormatKeys.UI_FORMAT_PROTECTED_SLOT_LIMIT.ToString(), "Protected Inventory Slots: {0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_PROTECTED_SLOT_LIMIT_RATE.ToString(), "Protected Inventory Slots Rate: {0}%");
-            Texts.Add(UIFormatKeys.UI_FORMAT_AMMO_CAPACITY.ToString(), "Ammo Capacity: {0}");
-            Texts.Add(UIFormatKeys.UI_FORMAT_AMMO_CAPACITY_RATE.ToString(), "Ammo Capacity Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_AMMO_CAPACITY_MODIFIER.ToString(), "Ammo Capacity Modifier: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_AMMO_CAPACITY_MODIFIER_RATE.ToString(), "% of Ammo Capacity Modifier: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_RATE.ToString(), "Recoil Rate: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_RATE_RATE.ToString(), "% of Recoil Rate: {0}%");
-            Texts.Add(UIFormatKeys.UI_FORMAT_RATE_OF_FIRE.ToString(), "Rate Of Fire: {0}");
-            Texts.Add(UIFormatKeys.UI_FORMAT_RATE_OF_FIRE_RATE.ToString(), "Rate Of Fire Rate: {0}%");
-            Texts.Add(UIFormatKeys.UI_FORMAT_RELOAD_DURATION.ToString(), "Reload Duration: {0}");
-            Texts.Add(UIFormatKeys.UI_FORMAT_RELOAD_DURATION_RATE.ToString(), "Reload Duration Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RATE_OF_FIRE_MODIFIER.ToString(), "Rate Of Fire Modifier: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RATE_OF_FIRE_MODIFIER_RATE.ToString(), "% of Rate Of Fire Modifier: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RELOAD_DURATION_MODIFIER.ToString(), "Reload Duration Modifier: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RELOAD_DURATION_MODIFIER_RATE.ToString(), "% of Reload Duration Modifier: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_RANGE_RATE.ToString(), "Fire Spread Range Rate: {0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_RANGE_RATE_RATE.ToString(), "% of Fire Spread Range Rate: {0}%");
-            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD.ToString(), "Fire Spread: {0}");
-            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_RATE.ToString(), "Fire Spread Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_MODIFIER.ToString(), "Fire Spread Modifier: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_MODIFIER_RATE.ToString(), "% of Fire Spread Modifier: {0}%");
             Texts.Add(UIFormatKeys.UI_FORMAT_DECREASE_FOOD_DECREATION.ToString(), "Food Decreation: {0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_DECREASE_WATER_DECREATION.ToString(), "Water Decreation: {0}");
             Texts.Add(UIFormatKeys.UI_FORMAT_DECREASE_STAMINA_DECREATION.ToString(), "Stamina Decreation: {0}");
@@ -728,6 +728,27 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_ERROR_CHARACTER_NOT_PLAYABLE.ToString(), "Character is not playable");
             Texts.Add(UITextKeys.UI_ERROR_USER_IS_ALREADY_ONLINE.ToString(), "User is already online");
             Texts.Add(UITextKeys.UI_ERROR_CHARACTER_IS_ALREADY_ONLINE.ToString(), "Character is already online");
+            // Recoil Yaw
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_YAW_MODIFIER.ToString(), "Recoil Yaw Modifier: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_YAW_MODIFIER_RATE.ToString(), "% of Recoil Yaw Modifier: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_YAW_RATE.ToString(), "Recoil Yaw Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_YAW_RATE_RATE.ToString(), "% of Recoil Yaw Rate: {0}%");
+            // Recoil Roll
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_ROLL_MODIFIER.ToString(), "Recoil Roll Modifier: {0}");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_ROLL_MODIFIER_RATE.ToString(), "% of Recoil Roll Modifier: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_ROLL_RATE.ToString(), "Recoil Roll Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RECOIL_ROLL_RATE_RATE.ToString(), "% of Recoil Roll Rate: {0}%");
+            // New Stats
+            Texts.Add(UIFormatKeys.UI_FORMAT_AMMO_CAPACITY_RATE.ToString(), "Ammo Capacity Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_AMMO_CAPACITY_RATE_RATE.ToString(), "% of Ammo Capacity Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RATE_OF_FIRE_RATE.ToString(), "Rate Of Fire Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RATE_OF_FIRE_RATE_RATE.ToString(), "% of Rate Of Fire Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RELOAD_DURATION_RATE.ToString(), "Reload Duration Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_RELOAD_DURATION_RATE_RATE.ToString(), "% of Reload Duration Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_RANGE_MODIFIER.ToString(), "Fire Spread Range Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_RANGE_MODIFIER_RATE.ToString(), "% of Fire Spread Range Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_RATE.ToString(), "Fire Spread Rate: {0}%");
+            Texts.Add(UIFormatKeys.UI_FORMAT_FIRE_SPREAD_RATE_RATE.ToString(), "% of Fire Spread Rate: {0}%");
         }
     }
 }
