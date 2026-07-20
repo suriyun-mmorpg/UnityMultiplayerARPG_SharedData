@@ -31,6 +31,10 @@ namespace MultiplayerARPG
 
         public virtual void AddMember(SocialCharacterData memberData)
         {
+            if (string.IsNullOrWhiteSpace(memberData.id))
+            {
+                return;
+            }
             if (!members.ContainsKey(memberData.id))
             {
                 members.Add(memberData.id, memberData);
