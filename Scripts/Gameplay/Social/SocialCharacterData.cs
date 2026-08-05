@@ -28,6 +28,7 @@ namespace MultiplayerARPG
             return new SocialCharacterData()
             {
                 id = character.Id,
+                userId = character.UserId,
                 characterName = character.CharacterName,
                 dataId = character.DataId,
                 level = character.Level,
