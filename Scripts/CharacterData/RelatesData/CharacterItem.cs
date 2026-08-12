@@ -18,10 +18,10 @@ namespace MultiplayerARPG
         public int randomSeed;
         public int ammoDataId;
         public int ammo;
-        public List<int> sockets;
+        public CharacterItemSockets sockets;
         public byte version;
 
-        public List<int> ReadSockets(string socketsString, char separator = ';')
+        public CharacterItemSockets ReadSockets(string socketsString, char separator = ';')
         {
             sockets = socketsString.ReadCharacterItemSockets(separator);
             return sockets;
@@ -34,7 +34,6 @@ namespace MultiplayerARPG
 
         public CharacterItem Clone(bool generateNewId = false)
         {
-            List<int> sockets = this.sockets == null ? new List<int>() : new List<int>(this.sockets);
             CharacterItem destination = new CharacterItem()
             {
                 id = generateNewId || string.IsNullOrWhiteSpace(id) ? GenericUtils.GetUniqueId() : id,
