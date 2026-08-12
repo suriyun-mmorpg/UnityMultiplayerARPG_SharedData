@@ -1,11 +1,10 @@
-﻿using LiteNetLib.Utils;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace MultiplayerARPG
 {
     [System.Serializable]
-    public struct CharacterItemSockets : INetSerializable, IEnumerable<int>
+    public struct CharacterItemSockets : IEnumerable<int>
     {
         public int socket1;
         public int socket2;
@@ -230,93 +229,6 @@ namespace MultiplayerARPG
                         throw new System.IndexOutOfRangeException($"Invalid socket index: {index}");
                 }
             }
-        }
-
-        public void Deserialize(NetDataReader reader)
-        {
-            CharacterItemSocketsSyncStates states = (CharacterItemSocketsSyncStates)reader.GetPackedUInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket1)) socket1 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket2)) socket2 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket3)) socket3 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket4)) socket4 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket5)) socket5 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket6)) socket6 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket7)) socket7 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket8)) socket8 = reader.GetPackedInt();
-
-#if SOCKET_ENHANCER_TYPES_16 || SOCKET_ENHANCER_TYPES_32
-            if (states.Has(CharacterItemSocketsSyncStates.Socket9)) socket9 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket10)) socket10 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket11)) socket11 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket12)) socket12 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket13)) socket13 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket14)) socket14 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket15)) socket15 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket16)) socket16 = reader.GetPackedInt();
-#endif
-
-#if SOCKET_ENHANCER_TYPES_32
-            if (states.Has(CharacterItemSocketsSyncStates.Socket17)) socket17 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket18)) socket18 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket19)) socket19 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket20)) socket20 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket21)) socket21 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket22)) socket22 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket23)) socket23 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket24)) socket24 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket25)) socket25 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket26)) socket26 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket27)) socket27 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket28)) socket28 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket29)) socket29 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket30)) socket30 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket31)) socket31 = reader.GetPackedInt();
-            if (states.Has(CharacterItemSocketsSyncStates.Socket32)) socket32 = reader.GetPackedInt();
-#endif
-        }
-
-        public void Serialize(NetDataWriter writer)
-        {
-            CharacterItemSocketsSyncStates states = GetStates();
-            writer.PutPackedUInt((byte)states);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket1)) writer.PutPackedInt(socket1);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket2)) writer.PutPackedInt(socket2);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket3)) writer.PutPackedInt(socket3);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket4)) writer.PutPackedInt(socket4);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket5)) writer.PutPackedInt(socket5);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket6)) writer.PutPackedInt(socket6);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket7)) writer.PutPackedInt(socket7);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket8)) writer.PutPackedInt(socket8);
-
-#if SOCKET_ENHANCER_TYPES_16 || SOCKET_ENHANCER_TYPES_32
-            if (states.Has(CharacterItemSocketsSyncStates.Socket9)) writer.PutPackedInt(socket9);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket10)) writer.PutPackedInt(socket10);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket11)) writer.PutPackedInt(socket11);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket12)) writer.PutPackedInt(socket12);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket13)) writer.PutPackedInt(socket13);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket14)) writer.PutPackedInt(socket14);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket15)) writer.PutPackedInt(socket15);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket16)) writer.PutPackedInt(socket16);
-#endif
-
-#if SOCKET_ENHANCER_TYPES_32
-            if (states.Has(CharacterItemSocketsSyncStates.Socket17)) writer.PutPackedInt(socket17);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket18)) writer.PutPackedInt(socket18);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket19)) writer.PutPackedInt(socket19);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket20)) writer.PutPackedInt(socket20);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket21)) writer.PutPackedInt(socket21);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket22)) writer.PutPackedInt(socket22);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket23)) writer.PutPackedInt(socket23);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket24)) writer.PutPackedInt(socket24);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket25)) writer.PutPackedInt(socket25);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket26)) writer.PutPackedInt(socket26);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket27)) writer.PutPackedInt(socket27);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket28)) writer.PutPackedInt(socket28);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket29)) writer.PutPackedInt(socket29);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket30)) writer.PutPackedInt(socket30);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket31)) writer.PutPackedInt(socket31);
-            if (states.Has(CharacterItemSocketsSyncStates.Socket32)) writer.PutPackedInt(socket32);
-#endif
         }
 
         public CharacterItemSocketsSyncStates GetStates()
