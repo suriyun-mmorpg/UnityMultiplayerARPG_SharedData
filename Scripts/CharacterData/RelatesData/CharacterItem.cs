@@ -37,10 +37,10 @@ namespace MultiplayerARPG
         public int randomSeed;
         public int ammoDataId;
         public int ammo;
-        public List<int> sockets;
+        public CharacterItemSockets sockets;
         public byte version;
 
-        public List<int> ReadSockets(string socketsString, char separator = ';')
+        public CharacterItemSockets ReadSockets(string socketsString, char separator = ';')
         {
             sockets = socketsString.ReadCharacterItemSockets(separator);
             return sockets;
@@ -53,7 +53,6 @@ namespace MultiplayerARPG
 
         public CharacterItem Clone(bool generateNewId = false)
         {
-            List<int> sockets = this.sockets == null ? new List<int>() : new List<int>(this.sockets);
             CharacterItem destination = new CharacterItem()
             {
                 id = generateNewId || string.IsNullOrWhiteSpace(id) ? GenericUtils.GetUniqueId() : id,
@@ -118,19 +117,7 @@ namespace MultiplayerARPG
             {
                 writer.Put(durability);
                 writer.PutPackedInt(exp);
-
-                byte socketCount = 0;
-                if (sockets != null)
-                    socketCount = (byte)sockets.Count;
-                writer.Put(socketCount);
-                if (socketCount > 0)
-                {
-                    foreach (int socketDataId in sockets)
-                    {
-                        writer.PutPackedInt(socketDataId);
-                    }
-                }
-
+                writer.Put(sockets);
                 writer.PutPackedInt(randomSeed);
             }
 
@@ -151,9 +138,6 @@ namespace MultiplayerARPG
 
         public void Deserialize(NetDataReader reader)
         {
-            if (sockets == null)
-                sockets = new List<int>();
-
             CharacterItemSyncState syncState = (CharacterItemSyncState)reader.GetByte();
             if (syncState == CharacterItemSyncState.IsEmpty)
             {
@@ -169,7 +153,7 @@ namespace MultiplayerARPG
                 randomSeed = 0;
                 ammoDataId = 0;
                 ammo = 0;
-                sockets.Clear();
+                sockets = default;
                 GameExtensionInstance.onCharacterItemDeserialize?.Invoke(ref this, reader);
                 return;
             }
@@ -186,14 +170,7 @@ namespace MultiplayerARPG
             {
                 durability = reader.GetFloat();
                 exp = reader.GetPackedInt();
-
-                byte socketCount = reader.GetByte();
-                sockets.Clear();
-                for (byte i = 0; i < socketCount; ++i)
-                {
-                    sockets.Add(reader.GetPackedInt());
-                }
-
+                sockets = reader.Get<CharacterItemSockets>();
                 randomSeed = reader.GetPackedInt();
             }
 

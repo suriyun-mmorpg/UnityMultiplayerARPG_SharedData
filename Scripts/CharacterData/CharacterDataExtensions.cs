@@ -99,24 +99,24 @@ namespace MultiplayerARPG
             }
         }
 
-        public static List<int> ReadCharacterItemSockets(this string socketsString, char separator = ';')
+        public static CharacterItemSockets ReadCharacterItemSockets(this string socketsString, char separator = ';')
         {
-            List<int> sockets = new List<int>();
+            CharacterItemSockets sockets = new CharacterItemSockets();
+            if (string.IsNullOrWhiteSpace(socketsString))
+                return sockets;
             string[] splitTexts = socketsString.Split(separator);
-            foreach (string text in splitTexts)
+            if (splitTexts.Length <= 0)
+                return sockets;
+            for (int i = 0; i < CharacterItemSockets.MAX_SOCKETS && i < splitTexts.Length; ++i)
             {
-                if (string.IsNullOrEmpty(text))
-                    continue;
-                sockets.Add(int.Parse(text));
+                if (int.TryParse(splitTexts[i], out int value))
+                    sockets[i] = value;
             }
             return sockets;
         }
 
-        public static string WriteCharacterItemSockets(this IList<int> sockets, char separator = ';')
+        public static string WriteCharacterItemSockets(this CharacterItemSockets sockets, char separator = ';')
         {
-            if (sockets == null || sockets.Count == 0)
-                return string.Empty;
-
             using (Utf16ValueStringBuilder stringBuilder = ZString.CreateStringBuilder(true))
             {
                 foreach (int socket in sockets)
