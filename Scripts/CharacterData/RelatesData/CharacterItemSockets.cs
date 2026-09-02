@@ -1,10 +1,14 @@
 ﻿using LiteNetLib.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
 namespace MultiplayerARPG
 {
     [System.Serializable]
+    [JsonConverter(typeof(CharacterItemSocketsJsonConverter))]
     public struct CharacterItemSockets : INetSerializable, IEnumerable<int>
     {
         public int socket1;
@@ -53,8 +57,10 @@ namespace MultiplayerARPG
 #else
         public const int MAX_SOCKETS = 8;
 #endif
+        [JsonIgnore]
         public int Count => MAX_SOCKETS;
 
+        [JsonIgnore]
         public int this[int index]
         {
             get
@@ -195,36 +201,52 @@ namespace MultiplayerARPG
 #if SOCKET_ENHANCER_TYPES_32
                     case 16:
                         socket17 = value;
+                        break;
                     case 17:
                         socket18 = value;
+                        break;
                     case 18:
                         socket19 = value;
+                        break;
                     case 19:
                         socket20 = value;
+                        break;
                     case 20:
                         socket21 = value;
+                        break;
                     case 21:
                         socket22 = value;
+                        break;
                     case 22:
                         socket23 = value;
+                        break;
                     case 23:
                         socket24 = value;
+                        break;
                     case 24:
                         socket25 = value;
+                        break;
                     case 25:
                         socket26 = value;
+                        break;
                     case 26:
                         socket27 = value;
+                        break;
                     case 27:
                         socket28 = value;
+                        break;
                     case 28:
                         socket29 = value;
+                        break;
                     case 29:
                         socket30 = value;
+                        break;
                     case 30:
                         socket31 = value;
+                        break;
                     case 31:
                         socket32 = value;
+                        break;
 #endif
                     default:
                         throw new System.IndexOutOfRangeException($"Invalid socket index: {index}");
@@ -278,7 +300,7 @@ namespace MultiplayerARPG
         public void Serialize(NetDataWriter writer)
         {
             CharacterItemSocketsSyncStates states = GetStates();
-            writer.PutPackedUInt((byte)states);
+            writer.PutPackedUInt((uint)states);
             if (states.Has(CharacterItemSocketsSyncStates.Socket1)) writer.PutPackedInt(socket1);
             if (states.Has(CharacterItemSocketsSyncStates.Socket2)) writer.PutPackedInt(socket2);
             if (states.Has(CharacterItemSocketsSyncStates.Socket3)) writer.PutPackedInt(socket3);
@@ -408,51 +430,59 @@ namespace MultiplayerARPG
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 
+    public sealed class CharacterItemSocketsJsonConverter : JsonConverter<CharacterItemSockets>
+    {
+        public override CharacterItemSockets ReadJson(
+            JsonReader reader,
+            Type objectType,
+            CharacterItemSockets existingValue,
+            bool hasExistingValue,
+            JsonSerializer serializer)
+        {
+            CharacterItemSockets sockets = default;
+
+            if (reader.TokenType == JsonToken.Null)
+                return sockets;
+
+            JArray array = JArray.Load(reader);
+            int count = Math.Min(array.Count, CharacterItemSockets.MAX_SOCKETS);
+
+            for (int i = 0; i < count; ++i)
+            {
+                JToken token = array[i];
+                if (token.Type != JTokenType.Null && token.Type != JTokenType.Undefined)
+                    sockets[i] = token.ToObject<int>(serializer);
+            }
+
+            return sockets;
+        }
+
+        public override void WriteJson(
+            JsonWriter writer,
+            CharacterItemSockets value,
+            JsonSerializer serializer)
+        {
+            writer.WriteStartArray();
+
+            for (int i = 0; i < CharacterItemSockets.MAX_SOCKETS; ++i)
+                writer.WriteValue(value[i]);
+
+            writer.WriteEndArray();
+        }
+    }
+
     public static class CharacterItemSocketsExtensions
     {
-        public static void SetSockets(this ref CharacterItemSockets sockets, List<int> socketList)
+        public static void SetSockets(this ref CharacterItemSockets sockets, IReadOnlyList<int> socketList)
         {
-            if (socketList == null || socketList.Count != CharacterItemSockets.MAX_SOCKETS)
+            sockets = default;
+
+            if (socketList == null)
                 return;
 
-            sockets.socket1 = socketList[0];
-            sockets.socket2 = socketList[1];
-            sockets.socket3 = socketList[2];
-            sockets.socket4 = socketList[3];
-            sockets.socket5 = socketList[4];
-            sockets.socket6 = socketList[5];
-            sockets.socket7 = socketList[6];
-            sockets.socket8 = socketList[7];
-
-#if SOCKET_ENHANCER_TYPES_16 || SOCKET_ENHANCER_TYPES_32
-            sockets.socket9 = socketList[8];
-            sockets.socket10 = socketList[9];
-            sockets.socket11 = socketList[10];
-            sockets.socket12 = socketList[11];
-            sockets.socket13 = socketList[12];
-            sockets.socket14 = socketList[13];
-            sockets.socket15 = socketList[14];
-            sockets.socket16 = socketList[15];
-#endif
-
-#if SOCKET_ENHANCER_TYPES_32
-            sockets.socket17 = socketList[16];
-            sockets.socket18 = socketList[17];
-            sockets.socket19 = socketList[18];
-            sockets.socket20 = socketList[19];
-            sockets.socket21 = socketList[20];
-            sockets.socket22 = socketList[21];
-            sockets.socket23 = socketList[22];
-            sockets.socket24 = socketList[23];
-            sockets.socket25 = socketList[24];
-            sockets.socket26 = socketList[25];
-            sockets.socket27 = socketList[26];
-            sockets.socket28 = socketList[27];
-            sockets.socket29 = socketList[28];
-            sockets.socket30 = socketList[29];
-            sockets.socket31 = socketList[30];
-            sockets.socket32 = socketList[31];
-#endif
+            int count = Math.Min(socketList.Count, CharacterItemSockets.MAX_SOCKETS);
+            for (int i = 0; i < count; ++i)
+                sockets[i] = socketList[i];
         }
 
         public static List<int> ToList(this CharacterItemSockets sockets)
@@ -500,7 +530,7 @@ namespace MultiplayerARPG
             };
         }
 
-        public static CharacterItemSockets ToCharacterItemSockets(this List<int> socketList)
+        public static CharacterItemSockets ToCharacterItemSockets(this IReadOnlyList<int> socketList)
         {
             CharacterItemSockets sockets = new CharacterItemSockets();
             sockets.SetSockets(socketList);
