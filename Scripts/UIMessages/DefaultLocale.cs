@@ -640,6 +640,7 @@ namespace MultiplayerARPG
             Texts.Add(UITextKeys.UI_LABEL_BUFF_IS_HIDE.ToString(), "Character will be hidden from other characters");
             Texts.Add(UITextKeys.UI_LABEL_BUFF_IS_REVEALS_HIDE.ToString(), "Character will be able to see hidden characters");
             Texts.Add(UITextKeys.UI_LABEL_BUFF_IS_BLIND.ToString(), "Character will not be able to see other characters");
+            Texts.Add(UITextKeys.UI_LABEL_BUFF_IS_INVINCIBLE.ToString(), "Character will invincible");
             Texts.Add(UITextKeys.UI_LABEL_BUFF_MUTE_FOOTSTEP_SOUND.ToString(), "Mute footstep sound while this buff is activated");
             Texts.Add(UITextKeys.UI_LABEL_BUFF_DO_NOT_REMOVE_ON_DEAD.ToString(), "This buff will not be removed when character dead");
             Texts.Add(UITextKeys.UI_LABEL_BUFF_IS_EXTEND_DURATION.ToString(), "Buff duration can be extended by activate this buff again");

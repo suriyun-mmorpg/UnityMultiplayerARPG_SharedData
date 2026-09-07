@@ -955,6 +955,9 @@ namespace MultiplayerARPG
         UI_FORMAT_CHARACTER_WEIGHT,
 
         // 1.87
+        /// <summary>
+        /// Format => {0} = {Amount}
+        /// </summary>
         UI_FORMAT_SKILL_ATTACK_WEAPON_DAMAGE_MULTIPLICATOR,
 
         // Format - Cash Amount
