@@ -165,7 +165,9 @@ namespace MultiplayerARPG
                 foreach (CharacterCurrency currency in currencies)
                 {
                     stringBuilder.Append(currency.dataId);
+                    stringBuilder.Append(':');
                     stringBuilder.Append(currency.amount);
+                    stringBuilder.Append(';');
                 }
                 return stringBuilder.ToString();
             }
@@ -196,7 +198,7 @@ namespace MultiplayerARPG
                     level = 1;
 
                 float durability;
-                if (splitData.Length < 4 || !float.TryParse(splitData[3].Replace(',', '.'), out durability))
+                if (splitData.Length < 4 || !TryParseItemFloat(splitData[3], out durability))
                     durability = 0f;
 
                 int exp;
@@ -204,7 +206,7 @@ namespace MultiplayerARPG
                     exp = 0;
 
                 float lockRemainsDuration;
-                if (splitData.Length < 6 || !float.TryParse(splitData[5].Replace(',', '.'), out lockRemainsDuration))
+                if (splitData.Length < 6 || !TryParseItemFloat(splitData[5], out lockRemainsDuration))
                     lockRemainsDuration = 0f;
 
                 long expireTime;
@@ -252,6 +254,17 @@ namespace MultiplayerARPG
             return items;
         }
 
+        private static bool TryParseItemFloat(string value, out float result)
+        {
+            // Older writers used "N2" (3600 -> "3,600.00"), so a ',' next to a '.' is a group
+            // separator; a ',' on its own is a decimal comma from a culture-formatted value.
+            if (value.IndexOf('.') >= 0)
+                value = value.Replace(",", string.Empty);
+            else
+                value = value.Replace(',', '.');
+            return float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out result);
+        }
+
         public static string WriteItems(this List<CharacterItem> items)
         {
             if (items == null || items.Count == 0)
@@ -268,11 +281,11 @@ namespace MultiplayerARPG
                     stringBuilder.Append(':');
                     stringBuilder.Append(item.level);
                     stringBuilder.Append(':');
-                    stringBuilder.Append(item.durability.ToString("N2", CultureInfo.InvariantCulture.NumberFormat));
+                    stringBuilder.Append(item.durability.ToString("F2", CultureInfo.InvariantCulture.NumberFormat));
                     stringBuilder.Append(':');
                     stringBuilder.Append(item.exp);
                     stringBuilder.Append(':');
-                    stringBuilder.Append(item.lockRemainsDuration.ToString("N2", CultureInfo.InvariantCulture.NumberFormat));
+                    stringBuilder.Append(item.lockRemainsDuration.ToString("F2", CultureInfo.InvariantCulture.NumberFormat));
                     stringBuilder.Append(':');
                     stringBuilder.Append(item.expireTime);
                     stringBuilder.Append(':');

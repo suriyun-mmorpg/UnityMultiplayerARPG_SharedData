@@ -191,6 +191,7 @@ namespace MultiplayerARPG
             writer.PutPackedInt(characterData.IconDataId);
             writer.PutPackedInt(characterData.FrameDataId);
             writer.PutPackedInt(characterData.TitleDataId);
+            writer.PutPackedInt(characterData.BackgroundDataId);
             writer.PutPackedLong(characterData.LastDeadTime);
             writer.PutPackedLong(characterData.UnmuteTime);
             writer.PutPackedLong(characterData.LastUpdate);
@@ -458,6 +459,7 @@ namespace MultiplayerARPG
             characterData.IconDataId = reader.GetPackedInt();
             characterData.FrameDataId = reader.GetPackedInt();
             characterData.TitleDataId = reader.GetPackedInt();
+            characterData.BackgroundDataId = reader.GetPackedInt();
             characterData.LastDeadTime = reader.GetPackedLong();
             characterData.UnmuteTime = reader.GetPackedLong();
             characterData.LastUpdate = reader.GetPackedLong();
