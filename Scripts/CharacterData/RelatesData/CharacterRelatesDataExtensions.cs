@@ -310,6 +310,12 @@ namespace MultiplayerARPG
             return -1;
         }
 
+        public static int IndexOfOrDefault(this IList<CharacterItem> list, int defaultIndex, string id)
+        {
+            int currentIndex = list.IndexOf(id);
+            return currentIndex >= 0 ? currentIndex : defaultIndex;
+        }
+
         public static int IndexOf(this IList<CharacterSkill> list, int dataId)
         {
             for (int i = 0; i < list.Count; ++i)
