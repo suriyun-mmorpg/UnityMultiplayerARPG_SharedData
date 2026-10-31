@@ -267,9 +267,11 @@ namespace MultiplayerARPG
 
         public static int IndexOf(this IList<CharacterBuff> list, string id)
         {
+            if (string.IsNullOrWhiteSpace(id))
+                return -1;
             for (int i = 0; i < list.Count; ++i)
             {
-                if (!string.IsNullOrEmpty(list[i].id) && list[i].id.Equals(id))
+                if (id.Equals(list[i].id))
                     return i;
             }
             return -1;
@@ -298,9 +300,11 @@ namespace MultiplayerARPG
 
         public static int IndexOf(this IList<CharacterItem> list, string id)
         {
+            if (string.IsNullOrWhiteSpace(id))
+                return -1;
             for (int i = 0; i < list.Count; ++i)
             {
-                if (!string.IsNullOrEmpty(list[i].id) && list[i].id.Equals(id))
+                if (id.Equals(list[i].id))
                     return i;
             }
             return -1;
@@ -358,9 +362,11 @@ namespace MultiplayerARPG
 
         public static int IndexOf(this IList<CharacterHotkey> list, string hotkeyId)
         {
+            if (string.IsNullOrWhiteSpace(hotkeyId))
+                return -1;
             for (int i = 0; i < list.Count; ++i)
             {
-                if (!string.IsNullOrEmpty(list[i].hotkeyId) && list[i].hotkeyId.Equals(hotkeyId))
+                if (hotkeyId.Equals(list[i].hotkeyId))
                     return i;
             }
             return -1;
